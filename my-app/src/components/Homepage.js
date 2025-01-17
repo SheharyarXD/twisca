@@ -25,7 +25,7 @@ return(
     </div>
     </div>
     <div className="h-screen text-center pt-[10vh]">
-        <div className="font-bold text-[3.5rem] leading-tight">Our Most-Loved Picks,Just for <br />You!</div>
+        <div className="font-bold text-[3rem] leading-tight">Our Most-Loved Picks,Just for <br />You!</div>
         <p className="text-gray-600 pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
        
