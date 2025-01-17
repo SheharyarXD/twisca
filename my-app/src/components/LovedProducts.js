@@ -1,8 +1,8 @@
 import React from "react";
 const LovedPorducts=()=>{
     return(
-        <div className="h-[43.5vh] bg-[#FFE8FF] w-[250px] rounded-[1vw] p-3">
-            <div className="h-[23vh] overflow-hidden object-cover relative rounded-[1vw]">
+        <div className="max-h-fit bg-[#FFE8FF] w-[250px] rounded-[1vw] p-3">
+            <div className="h-fit overflow-hidden object-cover relative rounded-[1vw]">
             <div className="text-white bg-red-700 w-fit px-4 py-1 absolute top-0 -left-1 text-xs rounded-[0.3vw]">SALE!</div>
             <img src="./Images/sampleImage.png" className="object-cover" alt="" />
             </div>
