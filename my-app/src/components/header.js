@@ -1,6 +1,6 @@
 import React from "react";
 
-const HelloWorld = () => {
+const Header = () => {
   return (
     <header className="px-[5vw] py-[3vh] flex justify-between w-full text-[0.9rem]">
         <div className="flex flex-row items-center w-[20vw]">
@@ -31,4 +31,4 @@ const HelloWorld = () => {
   );
 };
 
-export default HelloWorld;
+export default Header;

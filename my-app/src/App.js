@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import HelloWorld from './components/header';
+import Header from './components/header';
 
 function App() {
   return (
-    <HelloWorld></HelloWorld>
+    <Header></Header>
   );
 }
 
