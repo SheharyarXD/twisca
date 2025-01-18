@@ -56,8 +56,8 @@ return(
   <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
   <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
   <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <button className="custom-prev text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white left-[4vw] top-[18vh] z-50"><i className="fa-solid fa-arrow-left py-4 px-4"></i></button>
-  <button className="custom-next text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white right-[4vw]  top-[18vh] z-50"><i className="fa-solid fa-arrow-right py-4 px-4"></i></button>
+  <button className="custom-prev text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white left-[4vw] top-[18vh] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-left py-4 px-4"></i></button>
+  <button className="custom-next text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white right-[4vw]  top-[18vh] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-right py-4 px-4"></i></button>
 </Swiper>
     </div>
     </section>
@@ -83,6 +83,41 @@ return(
       <div className="h-screen text-center pt-[35vh] relative overflow-hidden font-bold leading-tight text-[#CFCFCF] text-[3.5rem] ">
         <span className="text-[#8B024B] "> Find 🎁</span>, <span className="text-[#8B024B] "> customize</span> ✍️, and  <span className="text-[#8B024B] "> send</span> 💌 the <br /> perfect gift—all in one delightful <br /> place.</div>
     </section>
+    </section>
+    {/* promotion Cards */}
+    <section>
+          <div className="h-screen text-center pt-[10vh] overflow-hidden">
+        <div className="font-bold text-[3rem] leading-tight">Your Love, Your Words, Your Way!</div>
+        <p className="text-gray-600 pt-[4vh] text-[0.9rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
+        <Swiper
+       
+
+  navigation={{
+    prevEl: '.custom-prev',
+    nextEl: '.custom-next',
+  }}
+  autoplay={{
+    delay:2500, 
+    disableOnInteraction: false, 
+  }}
+  modules={[Navigation,Autoplay]}
+  className="mySwiper mt-[5vh] w-[90vw] relative"
+  slidesPerView="auto" // Allow slides to take up only their required space
+  spaceBetween={25}
+>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <button className="custom-prev text-[#8B024B] border  border-[#8B024B] text-[1.5rem] rounded-full bg-white  z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-left py-4 px-4"></i></button>
+  <button className="custom-next text-[#8B024B] border  border-[#8B024B] text-[1.5rem] rounded-full bg-white mt-[5vh] ml-[1vw] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-right py-4 px-4"></i></button>
+</Swiper>
+    </div>
     </section>
     </>
 );
