@@ -86,7 +86,7 @@ return(
     </section>
     {/* promotion Cards */}
     <section>
-          <div className="h-screen text-center pt-[10vh] overflow-hidden relative">
+          <div className="h-screen text-center pt-[10vh]  relative">
           <img className="absolute top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
           <img className="absolute w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
         <div className="font-bold text-[3rem] leading-tight">Your Love, Your Words, Your Way!</div>
@@ -121,6 +121,57 @@ return(
 </Swiper>
     </div>
     </section>
+        {/*Selection to Delivery */}
+        <section>
+          <div className="h-screen text-center pt-[10vh]  relative">
+        <div className="font-bold text-[3rem] leading-tight">From Selection to Delivery, We <br />Handle It All</div>
+        <p className="text-gray-600 pt-[4vh] text-[0.9rem] w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
+
+        <div className="flex flex-row justify-between px-[1vw] pt-[5vh]">
+
+       <div className="flex flex-col justify-center items-center w-[20vw]">
+        <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
+          <img className="h-[7vh]" src="./Images/real-time-tracking1.png" alt="" />
+        </div>
+        <div className="text-[1.3rem] font-bold text-[#8B024B] py-[2vh]">Explore & Choose</div>
+        <div className="text-[#9C9C9C] text-[0.9rem]">Browse a wide range of unique <br /> gifts and select the perfect one <br /> for any occasion.</div>
+       </div>
+
+       <div className="flex flex-col justify-center items-center w-[20vw]">
+        <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
+          <img className="h-[7vh]" src="./Images/real-time-tracking1.png" alt="" />
+        </div>
+        <div className="text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Customize & Personalize</div>
+        <div className="text-[#9C9C9C] text-[0.9rem]">Make your gift extra special with <br /> custom messages or <br /> personalization options.</div>
+       </div>
+
+       <div className="flex flex-col justify-center items-center w-[20vw]">
+        <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
+          <img className="h-[7vh]" src="./Images/real-time-tracking1.png" alt="" />
+        </div>
+        <div className="text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Place Your Order</div>
+        <div className="text-[#9C9C9C] text-[0.9rem]">Enjoy a seamless checkout <br /> experience with secure payment <br /> options.</div>
+       </div>
+
+       <div className="flex flex-col justify-center items-center w-[20vw]">
+        <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
+          <img className="h-[7vh]" src="./Images/real-time-tracking1.png" alt="" />
+        </div>
+        <div className="text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Track & Deliver</div>
+        <div className="text-[#9C9C9C] text-[0.9rem]">Relax while we carefully pack and <br /> deliver your gift right to their <br /> door.</div>
+       </div>
+
+        </div>
+    </div>
+    </section>
+
+
+
+
+
+
+
+
     </>
 );
 }
