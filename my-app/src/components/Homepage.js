@@ -127,7 +127,10 @@ return(
         <div className="font-bold text-[3rem] leading-tight">From Selection to Delivery, We <br />Handle It All</div>
         <p className="text-gray-600 pt-[4vh] text-[0.9rem] w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
 
-        <div className="flex flex-row justify-between px-[1vw]">
+        <div className="flex flex-row justify-between px-[1vw] relative">
+          <img className="absolute w-[14vw] top-[18vh] left-[42vw] h-auto" src="./Images/Arc1.png" alt="" />
+          <img className="absolute w-[14vw] top-[12vh] left-[15.7vw] h-auto" src="./Images/Arc3.png" alt="" />
+          <img className="absolute w-[14vw] top-[13vh] right-[15.7vw] h-auto" src="./Images/Arc3.png" alt="" />
 
        <div className="flex flex-col justify-center items-center w-[20vw]">
         <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
