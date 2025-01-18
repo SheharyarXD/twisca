@@ -86,7 +86,9 @@ return(
     </section>
     {/* promotion Cards */}
     <section>
-          <div className="h-screen text-center pt-[10vh] overflow-hidden">
+          <div className="h-screen text-center pt-[10vh] overflow-hidden relative">
+          <img className="absolute top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
+          <img className="absolute w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
         <div className="font-bold text-[3rem] leading-tight">Your Love, Your Words, Your Way!</div>
         <p className="text-gray-600 pt-[4vh] text-[0.9rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
         <Swiper
