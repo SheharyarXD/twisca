@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="px-[5vw] py-[3vh] h-[12vh] flex justify-between w-full text-[0.9rem]">
+    <header className="px-[5vw] py-[3vh] h-[12vh] flex justify-between w-full text-[0.9rem] sticky top-0 z-50">
         <div className="flex flex-row items-center w-[20vw]">
             <img className="h-[6vh] w-auto pr-2" src="./logo.png" alt="" />
         <div className="font-bold text-[1.5rem] text-[#8B024B]">

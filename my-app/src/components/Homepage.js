@@ -169,7 +169,7 @@ return(
     </section>
     {/* Let us help */}
     <section className="h-screen bg-gray-100 pt-[10vh] flex justify-between flex-col">
-      <div className="flex flex-col text-center w-[80%] mx-auto py-[6vh] shadow-xl shadow-black bg-white">
+      <div className="flex flex-col text-center w-[80%] mx-auto py-[6vh] bg-white">
         <div className="font-bold text-[2.2rem]">Let Us Help You Make Every Gift Special!</div>
         <div className="text-center font-semibold py-[1vh]">
         <p>Personalize <span className="text-[#8B024B]"> your gifts with ease!</span> From thoughtful cards to meaningful presents, we’ve got <br /> everything you need to make your loved ones smile.</p>
@@ -182,7 +182,7 @@ return(
           <div className="pt-[1.5vh] text-gray-600 text-[0.8rem]">Hassle-free customization, endless love-filled possibilities!</div>
         </div>
       </div>
-      <footer className="text-white bg-[#8B024B] text-[0.8rem] rounded-t-[3rem] px-[5vw] mt-[5vh]">
+      <footer className="text-white bg-[#8B024B] text-[0.8rem] rounded-t-[3rem] px-[5vw] mt-[5vh]" style={{boxShadow: '0 -10px 100px rgba(227, 32, 136, 0.5)'}}>
       <div className="upperSection flex flex-row pt-[6vh] min-h-fit pb-[15vh]">
         <div className="w-[16%] flex flex-row items-center h-fit">
           <img src="./Images/logoWhite.png" className="h-[4.5vh] w-auto mr-[0.4vw]" alt="" />
