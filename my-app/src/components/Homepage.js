@@ -167,6 +167,24 @@ return(
         </div>
     </div>
     </section>
+    {/* Let us help */}
+    <section className="h-screen">
+      <div className="flex flex-col text-center w-[80%] mx-auto py-[7vh] shadow-xl shadow-black">
+        <div className="font-bold text-[2.2rem]">Let Us Help You Make Every Gift Special!</div>
+        <div className="text-center font-semibold py-[1vh]">
+        <p>Personalize <span className="text-[#8B024B]"> your gifts with ease!</span> From thoughtful cards to meaningful presents, we’ve got <br /> everything you need to make your loved ones smile.</p>
+        </div>
+        <div>
+          <div className="pt-[1vh]">
+            <button className="mr-2 py-2.5 px-6 bg-[#8B024B] text-white rounded-[1vw] shadow-sm shadow-black">Start Customizing Now</button>
+            <button className="py-2.5 font-semibold px-6 bg-gray-200 rounded-[1vw]">Explore Unique Gifts</button>
+          </div>
+          <div className="pt-[1.5vh] text-gray-600 text-[0.8rem]">Hassle-free customization, endless love-filled possibilities!</div>
+        </div>
+      </div>
+    </section>
+  
+
 
 
 
