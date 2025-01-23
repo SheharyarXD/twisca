@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+    const navigate=useNavigate()
   return (
     <header className="px-[5vw] py-[3vh] h-[12vh] flex justify-between w-full text-[0.9rem] sticky top-0 z-50">
         <div className="flex flex-row items-center w-[20vw]">
@@ -23,8 +25,8 @@ const Header = () => {
         <div className="flex flex-row items-center w-[20vw] min-w-fit">
             <div className="font-bold"><i class="fa-solid fa-cart-shopping px-1.5 "></i>Cart <span className="rounded-full text-[#8B024B]">0</span></div>
             <div>
-                <button className="mx-[1.5vw] font-semibold">Log In</button>
-                <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">Sign Up<i class="fa-solid fa-arrow-right px-1"></i></button>
+                <button className="mx-[1.5vw] font-semibold" onClick={() => navigate("/login")}>Log In</button>
+                <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] " onClick={() => navigate("/login")}>Sign Up<i class="fa-solid fa-arrow-right px-1"></i></button>
             </div>
         </div>
     </header>

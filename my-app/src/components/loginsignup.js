@@ -21,7 +21,7 @@ const LoginPage = () => {
   return (
     <div className="main flex flex-row w-full justify-between font-sans">
       <div className="form flex flex-col py-5 px-8 w-full lg:w-[50vw] max-h-screen h-auto overflow-hidden">
-        <a className="w-fit" href="../index.html">
+        <a className="w-fit" href="../">
           <div className="logo flex flex-row justify-start font-bold text-[#277D0D] items-center w-fit sm:px-14">
             <img
               className="h-10 lg:h-[4vw] w-fit px-[0.1vw]"
