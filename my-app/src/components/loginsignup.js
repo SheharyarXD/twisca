@@ -25,7 +25,7 @@ const LoginPage = () => {
           <div className="logo flex flex-row justify-start font-bold text-[#277D0D] items-center w-fit sm:px-14">
             <img
               className="h-10 lg:h-[4vw] w-fit px-[0.1vw]"
-              src="./Logo.png"
+              src="./logo.png"
               alt="Logo"
             />
             <div className="text-xl lg:text-[2.2vw]">
