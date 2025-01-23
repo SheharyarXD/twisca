@@ -5,9 +5,9 @@ import LoginPage from './components/loginsignup';
 
 function App() {
   return (
-    <LoginPage></LoginPage>
-    // <HomePage>
-    // </HomePage>
+    // <LoginPage></LoginPage>
+    <HomePage>
+    </HomePage>
   );
 }
 
