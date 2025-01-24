@@ -23,10 +23,10 @@ const Header = () => {
         </nav>
         </div>
         <div className="flex flex-row items-center w-[20vw] min-w-fit">
-            <div className="font-bold"><i class="fa-solid fa-cart-shopping px-1.5 "></i>Cart <span className="rounded-full text-[#8B024B]">0</span></div>
+            <div className="font-bold"><i className="fa-solid fa-cart-shopping px-1.5 "></i>Cart <span className="rounded-full text-[#8B024B]">0</span></div>
             <div>
                 <button className="mx-[1.5vw] font-semibold" onClick={() => navigate("/login")}>Log In</button>
-                <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] " onClick={() => navigate("/login")}>Sign Up<i class="fa-solid fa-arrow-right px-1"></i></button>
+                <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] " onClick={() => navigate("/login")}>Sign Up<i className="fa-solid fa-arrow-right px-1"></i></button>
             </div>
         </div>
     </header>
