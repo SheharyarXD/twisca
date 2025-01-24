@@ -15,7 +15,7 @@ const Header = () => {
         <nav>
             <ul className="flex flex-row justify-between text-[#222222] ">
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>Home</a></li>
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>Products</a></li>
+                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/products")}>Products</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>Occasions</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>About Us</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>Contact</a></li>
