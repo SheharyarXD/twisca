@@ -97,7 +97,7 @@ const ProductPage = () => {
             </div>
           </div>
           <p className="text-sm font-semibold pt-[2vh]">Showing 1-09 of 24 item(s)</p>
-          <div className="flex flex-wrap flex-row justify-between mt-[3vh]">
+          <div className="flex flex-wrap flex-row justify-between mt-[1vh]">
            < ProductPageProducts/>
            < ProductPageProducts/>
            < ProductPageProducts/>
