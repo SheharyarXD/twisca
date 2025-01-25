@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./header";
+import ProductPageProducts from "./ProductPageProducts";
 const ProductPage = () => {
   return (
     <>
@@ -64,6 +65,7 @@ const ProductPage = () => {
           </div>
 
           <div className="flex flex-row pt-[1.5vh] justify-between">
+            {/* Filtewrs  */}
             <div className="flex flex-row justify-between">
               <span className="flex items-center border border-[#8B024B] py-0.5 mr-3 px-2.5 rounded-[3px] text-[#8B024B] justify-between">
                 <p className="text-sm">Filter1</p>
@@ -78,6 +80,7 @@ const ProductPage = () => {
                 <i className="pl-2.5 fa-solid fa-close"></i>
               </span>
             </div>
+            {/* Sort By */}
             <div className="flex items-center ">
               <select
                 id="sort"
@@ -92,6 +95,26 @@ const ProductPage = () => {
                 <option value="newest">Newest</option>
               </select>
             </div>
+          </div>
+          <p className="text-sm font-semibold pt-[2vh]">Showing 1-09 of 24 item(s)</p>
+          <div className="flex flex-wrap flex-row justify-between mt-[3vh]">
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
+           < ProductPageProducts/>
           </div>
         </div>
       </div>
