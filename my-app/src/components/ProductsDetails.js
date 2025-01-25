@@ -184,12 +184,12 @@ const ProductDetails = () => {
         </div>
       </div>
      
-      <div className="min-h-screen overflow-hidden">
+      <div className="min-h-screen ">
         {/* description */}
-        <div className="Description py-[14vh] overflow-hidden px-[14vw]">
+        <div className="Description py-[14vh] overflow-hidden px-[18vw]">
             <div className="flex flex-row  justify-between">
                 <div className="w-[45vw]">
-        <div className="font-semibold text-lg py-1 ">Description</div>
+        <div className="font-semibold text-lg py-1 pb-3">Description</div>
         <p className="font-semibold  text-gray-600">
             
 Make your gifts extra special with our luxurious gift box, designed to add elegance and charm to any present. Whether you're celebrating a birthday, anniversary, wedding, or festive occasion, this premium gift box enhances the beauty of your thoughtful gesture.
@@ -201,9 +201,9 @@ Personalize it with ribbons, name tags, or handwritten notes to create a truly u
 Make your gifting experience memorable and stylish with our premium gift box – because every special gift deserves the perfect packaging!
         </p>
                 </div>
-        <div className="w-[10vw]">
+        <div className="w-[15vw]">
         <div className="font-semibold py-1 text-lg">Feature</div>
-        <div>
+        <div className="font-semibold text-gray-700">
         Luxury Packaging 
 Curated Selection
 Express Delivery 
