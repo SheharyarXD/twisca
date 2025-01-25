@@ -28,11 +28,11 @@ const ProductDetails=()=>{
         <div>
             <div className="font-semibold py-2">Size</div>
             <ul className="flex flex-row">
-                <li>XS</li>
-                <li>S</li>
-                <li>M</li>
-                <li>L</li>
-                <li>XL</li>
+                <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-1.5 mr-1 border-2 border-[#C1C1C1] rounded-md">XS</li>
+                <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-3.5 mx-1 border-2 border-[#C1C1C1] rounded-md">S</li>
+                <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-2.5 mx-1 border-2 border-[#C1C1C1] rounded-md">M</li>
+                <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-3.5 mx-1 border-2 border-[#C1C1C1] rounded-md">L</li>
+                <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-2 mx-1   border-2 border-[#C1C1C1] rounded-md">XL</li>
             </ul>
         </div>
         <div className="flex flex-row items-center justify-center pt-[1vh]">
