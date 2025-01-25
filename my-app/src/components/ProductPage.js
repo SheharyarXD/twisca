@@ -97,7 +97,7 @@ const ProductPage = () => {
             </div>
           </div>
           <p className="text-sm font-semibold pt-[2vh]">Showing 1-09 of 24 item(s)</p>
-          <div className="flex flex-wrap flex-row justify-between mt-[1vh]">
+          <div className="flex flex-wrap flex-row justify-between mt-[1vh] max-h-[48vh] overflow-y-scroll">
            < ProductPageProducts/>
            < ProductPageProducts/>
            < ProductPageProducts/>
@@ -115,6 +115,11 @@ const ProductPage = () => {
            < ProductPageProducts/>
            < ProductPageProducts/>
            < ProductPageProducts/>
+          </div>
+          <div className="flex flex-col justify-center items-center text-center w-[22vw] mx-auto py-[2vh]">
+          <p className="text-xs text-[#414141] font-semibold py-[2vh]">Showing 1-09 of 24 item(s)</p>
+          <p className="flex border border-gray-600 h-0.5 w-full mb-[2vh] bg-gray-600"></p>
+          <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] w-fit flex">Load More<i className="fa-solid fa-arrow-right px-2 pt-1"></i></button>
           </div>
         </div>
       </div>
