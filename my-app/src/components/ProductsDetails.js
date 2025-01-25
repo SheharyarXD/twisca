@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Header from "./header";
+import FooterPage from "./footer";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -214,6 +215,7 @@ Personalized Note
             </div> 
         </div>
       </div>
+      <FooterPage></FooterPage>
     </>
   );
 };
