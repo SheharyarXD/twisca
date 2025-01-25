@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Header from "./header";
 import FooterPage from "./footer";
+import SurprisedProducts from "./SurprisesProducts";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -213,6 +214,14 @@ Personalized Note
         </div>
         </div>
             </div> 
+        </div>
+      </div>
+      <div className="px-[10vw] flex-col  justify-center items-center">
+        <div className="flex font-bold text-[2.5rem]">You May Also Like:</div>
+        <div className="flex flex-wrap flex-row justify-between py-8">
+      <SurprisedProducts/>
+      <SurprisedProducts/>
+      <SurprisedProducts/>
         </div>
       </div>
       <FooterPage></FooterPage>
