@@ -130,7 +130,6 @@ const ProductDetails = () => {
                 alt=""
               />
             </div>
-           
           </div>
         </div>
       </div>
@@ -185,43 +184,90 @@ const ProductDetails = () => {
           </button>
         </div>
       </div>
-     
-      <div className="min-h-screen ">
-        {/* description */}
-        <div className="Description py-[14vh] overflow-hidden px-[18vw]">
-            <div className="flex flex-row  justify-between">
-                <div className="w-[45vw]">
-        <div className="font-semibold text-lg py-1 pb-3">Description</div>
-        <p className="font-semibold  text-gray-600">
-            
-Make your gifts extra special with our luxurious gift box, designed to add elegance and charm to any present. Whether you're celebrating a birthday, anniversary, wedding, or festive occasion, this premium gift box enhances the beauty of your thoughtful gesture.
-Crafted with high-quality materials, the box is sturdy, durable, and stylish. Its sleek design and smooth finish make it perfect for packaging items like chocolates, jewelry, perfumes, accessories, or heartfelt letters. The secure magnetic closure ensures that your gift remains safe and beautifully presented. <br />
 
-Elegant & Stylish – Adds a luxurious touch to any gift.High-Quality Material – Durable, sturdy, and premium finish.Versatile Usage – Ideal for chocolates, jewelry, perfumes, and more.Secure Closure – Magnetic or ribbon closure for a perfect presentation.Multiple Sizes & Colors – Choose the perfect match for your occasion.Eco-Friendly – Made from sustainable and reusable materials.Personalization Options – Add ribbons, tags, or handwritten notes.Perfect for All Events – Birthdays, anniversaries, weddings, and celebrations. <br />
-Our gift box is available in various sizes and colors, allowing you to choose the perfect match for your occasion. The eco-friendly materials make it a sustainable choice, ensuring that your gift is both elegant and environmentally responsible.
-Personalize it with ribbons, name tags, or handwritten notes to create a truly unique experience. Whether it's for a loved one, a colleague, or a friend, this gift box adds a touch of sophistication to your heartfelt presents. <br />
-Make your gifting experience memorable and stylish with our premium gift box – because every special gift deserves the perfect packaging!
-        </p>
-                </div>
-        <div className="w-[15vw]">
-        <div className="font-semibold py-1 text-lg">Feature</div>
-        <div className="font-semibold text-gray-700">
-        Luxury Packaging 
-Curated Selection
-Express Delivery 
-Secure Payments
-Personalized Note
+      <div className="min-h-screen ">
+        <div className="flex flex-row items-center justify-center">
+          <button className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]">Description</button>
+          <button className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]">Review</button>
         </div>
-        </div>
-            </div> 
+        {/* description */}
+        {/* <div className="Description pt-[10vh] pb-[14vh] overflow-hidden px-[18vw]">
+          <div className="flex flex-row  justify-between">
+            <div className="w-[45vw]">
+              <div className="font-semibold text-lg py-1 pb-3">Description</div>
+              <p className="font-semibold  text-gray-600">
+                Make your gifts extra special with our luxurious gift box,
+                designed to add elegance and charm to any present. Whether
+                you're celebrating a birthday, anniversary, wedding, or festive
+                occasion, this premium gift box enhances the beauty of your
+                thoughtful gesture. Crafted with high-quality materials, the box
+                is sturdy, durable, and stylish. Its sleek design and smooth
+                finish make it perfect for packaging items like chocolates,
+                jewelry, perfumes, accessories, or heartfelt letters. The secure
+                magnetic closure ensures that your gift remains safe and
+                beautifully presented. <br />
+                Elegant & Stylish – Adds a luxurious touch to any
+                gift.High-Quality Material – Durable, sturdy, and premium
+                finish.Versatile Usage – Ideal for chocolates, jewelry,
+                perfumes, and more.Secure Closure – Magnetic or ribbon closure
+                for a perfect presentation.Multiple Sizes & Colors – Choose the
+                perfect match for your occasion.Eco-Friendly – Made from
+                sustainable and reusable materials.Personalization Options – Add
+                ribbons, tags, or handwritten notes.Perfect for All Events –
+                Birthdays, anniversaries, weddings, and celebrations. <br />
+                Our gift box is available in various sizes and colors, allowing
+                you to choose the perfect match for your occasion. The
+                eco-friendly materials make it a sustainable choice, ensuring
+                that your gift is both elegant and environmentally responsible.
+                Personalize it with ribbons, name tags, or handwritten notes to
+                create a truly unique experience. Whether it's for a loved one,
+                a colleague, or a friend, this gift box adds a touch of
+                sophistication to your heartfelt presents. <br />
+                Make your gifting experience memorable and stylish with our
+                premium gift box – because every special gift deserves the
+                perfect packaging!
+              </p>
+            </div>
+            <div className="w-[15vw]">
+              <div className="font-semibold py-1 text-lg">Feature</div>
+              <div className="font-semibold text-gray-700">
+                Luxury Packaging Curated Selection Express Delivery Secure
+                Payments Personalized Note
+              </div>
+            </div>
+          </div>
+        </div> */}
+        {/* Comments */}
+        <div>
+          <div>
+
+          </div>
+          <div className="flex flex-col">
+            <div>
+              <div></div>
+              <div></div>
+            </div>
+            <div className="flex flex-col  justify-center">
+              <div className="flex flex-row mb-[3vh] mt-[5vh] mx-[10vw]">
+                <img className="h-11 mr-[1vw] w-auto rounded-full" src="../Images/sampleImage2.png" alt="" />
+              <textarea  className="p-4 border-[#7E7E80] border-2 w-full h-[20vh] rounded-lg" placeholder="Write your review" />
+              </div>
+            <div className="flex flex-row items-center justify-between px-[10vw]">
+              <div className="pl-[5vw]"> Your Ratings:</div>
+              <div><button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">Post Review<i className="fa-solid fa-arrow-right pl-3"></i></button></div>
+            </div>
+            </div>
+
+          </div>
         </div>
       </div>
+
       <div className="px-[10vw] flex-col  justify-center items-center">
         <div className="flex font-bold text-[2.5rem]">You May Also Like:</div>
         <div className="flex flex-wrap flex-row justify-between py-8">
-      <SurprisedProducts/>
-      <SurprisedProducts/>
-      <SurprisedProducts/>
+          <SurprisedProducts />
+          <SurprisedProducts />
+          <SurprisedProducts />
         </div>
       </div>
       <FooterPage></FooterPage>
