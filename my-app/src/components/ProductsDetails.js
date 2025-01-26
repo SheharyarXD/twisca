@@ -5,8 +5,10 @@ import FooterPage from "./footer";
 import SurprisedProducts from "./SurprisesProducts";
 import CommentsTemplate from "./comment";
 
+
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
+  const [descriptionToggle,setDescription] = useState(true);
 
   const handleIncrement = () => {
     setQuantity((prev) => prev + 1);
@@ -188,15 +190,17 @@ const ProductDetails = () => {
 
       <div className="min-h-screen ">
         <div className="flex flex-row items-center justify-center">
-          <button className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]">
+          <button onClick={()=>setDescription(true)} className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]">
             Description
           </button>
-          <button className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]">
+          <button onClick={()=>setDescription(false)} className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]">
             Review
           </button>
         </div>
+
         {/* description */}
-        {/* <div className="Description pt-[10vh] pb-[14vh] overflow-hidden px-[18vw]">
+        {descriptionToggle ? (       
+         <div className="Description pt-[10vh] pb-[14vh] overflow-hidden px-[18vw]">
           <div className="flex flex-row  justify-between">
             <div className="w-[45vw]">
               <div className="font-semibold text-lg py-1 pb-3">Description</div>
@@ -241,10 +245,8 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-        </div> */}
-        {/* Comments */}
-        <div>
-          <div></div>
+        </div> 
+      ):(
           <div className="flex flex-col">
             <div className="flex flex-col px-[7vw] py-[5vh] space-y-6">
             <CommentsTemplate></CommentsTemplate>
@@ -257,11 +259,11 @@ const ProductDetails = () => {
                   className="h-11 mr-[1vw] w-auto rounded-full"
                   src="../Images/sampleImage2.png"
                   alt=""
-                />
+                  />
                 <textarea
                   className="p-4 border-[#7E7E80] border-2 w-full h-[20vh] rounded-lg"
                   placeholder="Write your review"
-                />
+                  />
               </div>
               <div className="flex flex-row items-center justify-between px-[10vw]">
                 <div className="pl-[5vw]"> Your Ratings: <i className="fa fa-star" aria-hidden="true"></i><i className="fa fa-star" aria-hidden="true"></i><i className="fa fa-star" aria-hidden="true"></i><i className="fa fa-star" aria-hidden="true"></i><i className="fa fa-star" aria-hidden="true"></i></div>
@@ -272,8 +274,8 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> 
+   )};
       </div>
 
       <div className="px-[10vw] flex-col  justify-center items-center">
