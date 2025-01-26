@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./header";
 import FooterPage from "./footer";
 import SurprisedProducts from "./SurprisesProducts";
+import CommentsTemplate from "./comment";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -245,46 +246,11 @@ const ProductDetails = () => {
         <div>
           <div></div>
           <div className="flex flex-col">
-            <div className="flex flex-col px-[7vw] py-[5vh]">
-              <div className="p-4 border-[#7E7E80] border-2 w-full h-[20vh] rounded-lg flex flex-row px-6">
-                <div className="w-[90px]">
-                  <img
-                    className="h-11 mr-[1vw] w-auto rounded-full"
-                    src="../Images/sampleImage2.png"
-                    alt=""
-                  />
-                </div>
-                <div className="px-3">
-                  <div className="flex flex-row justify-between items-center ">
-                    <div className="flex flex-row items-center">
-                      <div className="font-semibold text-lg">Alice John</div> 
-                      <div className="text-xs pl-[2.5vw] text-gray-400 font-semibold">Aug 19, 2021</div>
-                    </div>
-                    <div className="flex flex-row px-2 text-xs items-center pt-[1vh] text-gray-500">
-                      <img
-                        src="../Images/ri-star-fill.png"
-                        className="pr-1"
-                        alt=""
-                      />
-                      <p>
-                        <span className="pr-3 text-black text-[1rem] font-bold">5.0</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-[#7E7E80] pt-[1vh]">
-                    I gifted this box to my wife on our anniversary, and she
-                    absolutely loved it! The packaging was stunning, and every
-                    item inside felt premium and thoughtful. Will definitely
-                    order again for upcoming occasions!
-                  </div>
-                  <div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-col px-[7vw] py-[5vh] space-y-6">
+            <CommentsTemplate></CommentsTemplate>
+            <CommentsTemplate></CommentsTemplate>
             </div>
-            5 5
+            {/* POst comment */}
             <div className="flex flex-col  justify-center">
               <div className="flex flex-row mb-[3vh] mt-[2vh] mx-[10vw]">
                 <img
