@@ -264,7 +264,7 @@ const ProductDetails = () => {
                 />
               </div>
               <div className="flex flex-row items-center justify-between px-[10vw]">
-                <div className="pl-[5vw]"> Your Ratings:</div>
+                <div className="pl-[5vw]"> Your Ratings: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
                 <div>
                   <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">
                     Post Review<i className="fa-solid fa-arrow-right pl-3"></i>
