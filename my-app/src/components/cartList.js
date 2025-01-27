@@ -12,7 +12,7 @@ const CartList=()=>{
         setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
       };
     return(    
-        <div className="flex flex-row justify-between  py-[3vh]  items-center border-b border-b-gray-300">
+        <div className="flex flex-row justify-between  py-[3vh] items-center border-b border-b-gray-300">
             <div className="w-[6%] text-center"><i className="fa fa-close"></i></div>
           <div className="flex flex-row items-center  w-[45%]">
             <img
