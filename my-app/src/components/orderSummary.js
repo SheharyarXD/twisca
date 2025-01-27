@@ -2,9 +2,12 @@ import React from "react";
 import { useState } from "react";
 import OrderDiv from "./orders";
 const OrderSummary=()=>{
-    const [isOpen, setIsOpen] = useState(true);
+    const [currentModal, setCurrentModal] = useState(null); // 'thankYou' or 'trackOrder'
 
-    const closeModal = () => setIsOpen(false);
+    const openTrackOrderModal = () => setCurrentModal("trackOrder");
+    
+
+    const closeModal = () => setCurrentModal(null);
     return(
         <div className="flex flex-col w-full border-gray-300 border px-[2vw] rounded-lg">
             <div className="font-semibold py-[2vh] text-[1.3rem]">Order Summary</div>
@@ -35,8 +38,8 @@ const OrderSummary=()=>{
                     <div>01 Feb,2023</div>
                 </div>
             </div>
-            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" onClick={()=>{setIsOpen(true)}}>Continue</button></div>
-      {isOpen && (
+            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" onClick={()=>{setCurrentModal("thankYou")}}>Continue</button></div>
+      {currentModal=="thankYou" && (
           <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100]">
           <div className="bg-white px-[5vw] py-[5vh] rounded-lg shadow-lg min-h-fit w-[60vw] text-center">
             <img src="../Images/tick.png" className="mx-auto " alt="" />
@@ -52,10 +55,48 @@ const OrderSummary=()=>{
                 >
                 Continue Shopping
               </button>
-              <button className="px-12 py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B]">
+              <button  onClick={()=>{setCurrentModal("trackOrder")}} className="px-12 py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B]">
                 Track Order
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {/* Track Order Modal */}
+      {currentModal === "trackOrder" && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100]">
+          <div className="bg-white py-[5vh] shadow-lg w-[60vw] px-[15vw]">
+            <h2 className="text-[3rem] font-bold text-center mb-4">Track Order</h2>
+            <form>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Order ID</label>
+                <input
+                  type="text"
+                  placeholder="ID..."
+                  className="mt-1 block w-full p-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Billing Email</label>
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  className="mt-1 block w-full p-2 border rounded-md"
+                />
+                <p className="text-xs flex text-gray-500 mt-1 items-center">
+                  <img src="../Images/info.png" className="w-auto h-5 pr-1" alt="" /> Order ID that we sent to your email address.
+                </p>
+              </div>
+              <div className="text-center">
+                <button
+                  type="button"
+                  className="px-20 py-2 bg-[#8B024B] text-white rounded-lg "
+                  onClick={closeModal}
+                >
+                  Track Order
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
