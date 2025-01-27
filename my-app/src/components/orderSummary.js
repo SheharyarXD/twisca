@@ -1,6 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import OrderDiv from "./orders";
 const OrderSummary=()=>{
+    const [isOpen, setIsOpen] = useState(true);
+
+    const closeModal = () => setIsOpen(false);
     return(
         <div className="flex flex-col w-full border-gray-300 border px-[2vw] rounded-lg">
             <div className="font-semibold py-[2vh] text-[1.3rem]">Order Summary</div>
@@ -31,8 +35,31 @@ const OrderSummary=()=>{
                     <div>01 Feb,2023</div>
                 </div>
             </div>
-            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" >Continue</button></div>
+            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" onClick={()=>{setIsOpen(true)}}>Continue</button></div>
+      {isOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100]">
+          <div className="bg-white px-[5vw] py-[5vh] rounded-lg shadow-lg min-h-fit w-[60vw] text-center">
+            <img src="../Images/tick.png" className="mx-auto " alt="" />
+            <h2 className="text-[3rem] font-bold my-4">Thank You!</h2>
+            <p className="text-gray-600 mb-2 w-[40vw] mx-auto">
+              Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.
+            </p>
+            <p className="text-gray-800 font-medium">Your Order ID is <span className="font-bold text-black">#96459761</span></p>
+            <div className="flex justify-center mt-6">
+              <button
+                className="px-4 py-2 border mx-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
+                onClick={closeModal}
+                >
+                Continue Shopping
+              </button>
+              <button className="px-12 py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B]">
+                Track Order
+              </button>
+            </div>
+          </div>
         </div>
+      )}
+      </div>
     );
 }
 export default OrderSummary;
