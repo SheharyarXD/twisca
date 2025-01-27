@@ -7,10 +7,10 @@ const Cart=()=>{
         <>
         <div className="min-h-screen">
         <Header/>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-baseline">
             {/* left section */}
-            <div className="w-[60vw] px-[5vw]">
-            <div className="rounded-xl shadow-md shadow-gray-600 mt-[5vh] h-[70vh] ">
+            <div className="w-[60vw] px-[5vw] ">
+            <div className="rounded-xl border-gray-300 border mt-[5vh] h-[70vh] ">
                 {/* header of table */}
                 <div className="flex text-[1.1rem] sticky top-0 z-[100] flex-row items-center bg-[#8B024B] justify-center  text-white py-[2vh] overflow-hidden rounded-t-xl" >
                     <div className="w-[23vw]">Product</div>
@@ -30,7 +30,7 @@ const Cart=()=>{
             </div>
             </div>
             {/* right section */}
-            <div className="w-[40vw] pr-[12vw] pl-[3vw] flex h-[65vh]">
+            <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">
             <OrderSummary/>
             </div>
         </div>
