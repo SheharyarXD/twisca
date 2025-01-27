@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./header";
 import CartList from "./cartList";
+import OrderSummary from "./orderSummary";
 const Cart=()=>{
     return(
         <>
@@ -29,7 +30,9 @@ const Cart=()=>{
             </div>
             </div>
             {/* right section */}
-            <div className="w-[40vw]"></div>
+            <div className="w-[40vw] pr-[12vw] pl-[3vw] flex h-[65vh]">
+            <OrderSummary/>
+            </div>
         </div>
         </div>
         </>
