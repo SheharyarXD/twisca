@@ -200,6 +200,16 @@ const LoginPage = () => {
           )}
         </div>
       </div>
+      {showLogin?(
+
+        <div  className="img  w-[50vw] hidden lg:flex">
+            <img className="image w-full h-full max-h-screen object-cover min-h-screen" src="../Images/signin.png" alt=""/>
+        </div>
+  ):(
+    <div  className="img  w-[50vw] hidden lg:flex">
+    <img className="image w-full h-full max-h-screen object-cover min-h-screen" src="../Images/signup.png" alt=""/>
+</div>
+  )}
     </div>
   );
 };
