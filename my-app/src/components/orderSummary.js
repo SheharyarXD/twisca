@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import OrderDiv from "./orders";
 const OrderSummary=()=>{
-    const [currentModal, setCurrentModal] = useState(null); // 'thankYou' or 'trackOrder'
+  const [currentModal, setCurrentModal] = useState(null); // 'thankYou' or 'trackOrder'
 
-    const openTrackOrderModal = () => setCurrentModal("trackOrder");
-    
-
-    const closeModal = () => setCurrentModal(null);
+  
+  
+  const openTrackOrderModal = () => setCurrentModal("trackOrder");
+  const closeModal = () => setCurrentModal(null);
     return(
         <div className="flex flex-col w-full border-gray-300 border px-[2vw] rounded-lg">
             <div className="font-semibold py-[2vh] text-[1.3rem]">Order Summary</div>

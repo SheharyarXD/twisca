@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./header";
 import CartList from "./cartList";
 import OrderSummary from "./orderSummary";
+import BillingForm from "./billingform";
 const Cart=()=>{
     return(
         <>
@@ -10,8 +11,8 @@ const Cart=()=>{
         <div className="flex flex-row items-baseline">
             {/* left section */}
             <div className="w-[60vw] px-[5vw] ">
-            <div className="rounded-xl border-gray-300 border mt-[5vh] h-[70vh] ">
-                {/* header of table */}
+            {/* <div className="rounded-xl border-gray-300 border mt-[5vh] h-[70vh] ">
+            
                 <div className="flex text-[1.1rem] sticky top-0 z-[100] flex-row items-center bg-[#8B024B] justify-center  text-white py-[2vh] overflow-hidden rounded-t-xl" >
                     <div className="w-[23vw]">Product</div>
                     <div className="w-[18vw] flex">
@@ -20,14 +21,15 @@ const Cart=()=>{
                     <div className="w-[2vw]">Total</div>
                     </div>
                 </div>
-                {/* products in cart */}
+              
                 <div className=" flex flex-col">
                 <CartList/>
                 <CartList/>
                 <CartList/>
                 <CartList/>
                 </div>
-            </div>
+            </div> */}
+            <BillingForm/>
             </div>
             {/* right section */}
             <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">
