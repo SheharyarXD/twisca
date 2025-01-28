@@ -3,6 +3,7 @@ import Header from "./header";
 import CartList from "./cartList";
 import OrderSummary from "./orderSummary";
 import BillingForm from "./billingform";
+import PaymentForm from "./paymentform";
 const Cart=()=>{
     return(
         <>
@@ -29,7 +30,8 @@ const Cart=()=>{
                 <CartList/>
                 </div>
             </div> */}
-            <BillingForm/>
+            {/* <BillingForm/> */}
+            <PaymentForm/> 
             </div>
             {/* right section */}
             <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">
