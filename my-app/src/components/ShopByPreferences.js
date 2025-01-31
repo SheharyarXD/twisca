@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import SurprisedProducts from "./SurprisesProducts";
 const ShopByPreferences=()=>{
     const [ToggleOptions,setToggleOptions]=useState("")
     return(
@@ -7,6 +8,9 @@ const ShopByPreferences=()=>{
              <div className="font-bold text-[3rem] text-[#8B024B] leading-tight text-center pt-[7vh]">Shop by Your Preferences</div>
              {ToggleOptions==""&& (
              <div className="font-semibold text-[2rem] text-[#8B024B] leading-tight text-center  py-[2vh]">A Quick Quiz</div>
+             )}
+              {ToggleOptions=="Result" && (
+             <div className="font-semibold text-[1.3rem] text-[#8B024B] leading-tight text-center  py-[2vh]">Based on your preferences, we think you'll love these!</div>
              )}
              <div>
                 {ToggleOptions==""&& (
@@ -22,7 +26,8 @@ const ShopByPreferences=()=>{
                     </div>
             )}
             {ToggleOptions=="Age" &&(
-                    <div  className="flex flex-col items-center justify-center space-x-4">
+                <div  className="flex flex-col items-center justify-center space-x-4">
+                        <i onClick={()=>setToggleOptions("")} className="fa-solid absolute text-[#8B024B] text-[2.5rem] top-[10vh] left-[5vw] fa-arrow-left  pl-[1vw]"></i>
                         <div className="font-semibold text-[#8B024B] pt-[5vh] text-[2rem]">What's Your Age?</div>
                         <div className="space-x-4">
                             <button onClick={()=>setToggleOptions("Relation")}  className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD]">Male 👔</button>
@@ -32,16 +37,23 @@ const ShopByPreferences=()=>{
             )}
                 {ToggleOptions=="Relation" &&(
                  <div  className="flex flex-col items-center justify-center space-x-4">
+                     <i onClick={()=>setToggleOptions("Age")} className="fa-solid absolute text-[#8B024B] text-[2.5rem] top-[10vh] left-[5vw] fa-arrow-left  pl-[1vw]"></i>
                  <div className="font-semibold text-[#8B024B] pt-[5vh] text-[2rem]">What's Your Relationship?</div>
                  <div className="flex jutify-center flex-wrap w-[50vw]">
-                     <button onClick={()=>setToggleOptions("Relation")}  className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">🎉 Family</button>
-                     <button onClick={()=>setToggleOptions("Relation")} className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">💙 Friendship</button>
-                     <button onClick={()=>setToggleOptions("Relation")} className="px-12 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">💼 Professional</button>
-                     <button onClick={()=>setToggleOptions("Relation")} className="px-[67px] rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">🎂 Birthday Gift</button>
-                     
-                    
+                     <button onClick={()=>setToggleOptions("Result")}  className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">🎉 Family</button>
+                     <button onClick={()=>setToggleOptions("Result")} className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">💙 Friendship</button>
+                     <button onClick={()=>setToggleOptions("Result")} className="px-12 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">💼 Professional</button>
+                     <button onClick={()=>setToggleOptions("Result")} className="px-[67px] rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">🎂 Birthday Gift</button>   
                  </div>
              </div>
+                )}
+                {ToggleOptions=="Result" &&(
+                    <div className="flex flex-row w-[80vw] justify-center mx-auto space-x-5 pb-6 pt-[10vh] rounded-md mt-[2vh] bg-[#D1A7BD]">
+                        <i onClick={()=>setToggleOptions("Relation")} className="fa-solid absolute text-[#8B024B] text-[2.5rem] top-[10vh] left-[5vw] fa-arrow-left  pl-[1vw]"></i>
+                        <SurprisedProducts/>
+                        <SurprisedProducts/>
+                        <SurprisedProducts/>
+                    </div>
                 )}
              </div>
         </>
