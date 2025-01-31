@@ -24,7 +24,10 @@ return(
     <Header/>
     <div className="w-full h-[88vh] text-center items-center flex flex-col " style={divStyle}>
         <div className="font-bold text-[3.5rem] pt-[30vh] text-white">Perfectly Wrapped, For Every Story<br /> You Want to Tell</div>
-        <button className="bg-[#8B024B] text-white px-[3vw] py-2 rounded-[1vw] mt-[3vh] text-[1.2rem]">Order Your Perfect Gift<i class="fa-solid fa-arrow-right pl-[1vw]"></i></button>
+        <div className="flex flex-row items-center justify-between space-x-2">
+        <button className="bg-white text-[#8B024B] flex font-bold px-[3vw] py-2 rounded-[0.8vw] mt-[3vh] w-fit text-[1.2rem]">Let AI Pick <img src="../Images/AI.png" className="pl-[0.5vw] flex" alt="" /></button>
+        <button className="bg-[#8B024B] text-white px-[3vw] py-2 rounded-[0.8vw] mt-[3vh] text-[1.2rem]">Order Your Perfect Gift<i className="fa-solid fa-arrow-right pl-[1vw]"></i></button>
+        </div>
     </div>
     </div>
     {/* Loved Porducts Section */}
