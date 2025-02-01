@@ -20,10 +20,12 @@ const CartList=( {
     
       const handleIncrement = () => {
         setQuantity((prev) => prev + 1);
+        updateCartItem(cartid,quantity)
       };
     
       const handleDecrement = () => {
         setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+        updateCartItem(cartid,quantity)
       };
     return(    
         <div className="flex flex-row justify-between  py-[3vh] items-center border-b border-b-gray-300">
