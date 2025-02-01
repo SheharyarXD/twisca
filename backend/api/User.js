@@ -101,6 +101,20 @@ router.put('/reset-password', async (req, res) => {
     }
 });
 
+router.get('/check-session', (req, res) => {
+    if (req.session.user) {
+        res.json({ user: req.session.user });
+    } else {
+        res.json({ user: null });
+    }
+});
+
+// Logout API
+router.post('/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.status(200).send('Logged out');
+    });
+});
 
 
 module.exports = router;

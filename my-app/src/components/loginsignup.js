@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+import { useContext } from "react";
+import { AuthContext } from "../utils/AuthContext";
 
 const LoginPage = () => {
+  const {
+    user, login, signup, logout, loading, error
+  } = useContext(AuthContext);
   const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
 

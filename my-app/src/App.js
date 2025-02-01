@@ -6,11 +6,13 @@ import ProductPage from './components/ProductPage';
 import ProductDetails from './components/ProductsDetails';
 import CartList from './components/cartList';
 import ShopByPreferences from './components/ShopByPreferences';
+import { AuthContext,AuthProvider } from './utils/AuthContext';
 import Cart from './components/cart';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -22,6 +24,7 @@ function App() {
       <Route path="/signup" element={<LoginPage showLogin={false} />} />
     </Routes>
   </Router>
+    </AuthProvider>
   );
 }
 
