@@ -102,11 +102,11 @@ router.put('/reset-password', async (req, res) => {
 });
 
 router.get('/check-session', (req, res) => {
-    if (req.session.user) {
-        res.json({ user: req.session.user });
-    } else {
-        res.json({ user: null });
-    }
+    // if (req.session.user) {
+    //     res.json({ user: req.session.user });
+    // } else {
+    //     res.json({ user: null });
+    // }
 });
 
 // Logout API

@@ -19,8 +19,8 @@ const ProductPageProducts=({
             <img src="./Images/sampleImage2.png" className="object-cover" alt="" />
             </div>
             <div className="flex flex-row text-[1.1rem] font-bold px-2 pt-[2vh]">
-                <div className="w-[70vw]  text-start">{productName}</div>
-                <div className="w-[30vw] text-end">$ {currentPrice}</div>
+                <div className="w-[65vw]  text-start">{productName}</div>
+                <div className="w-[35vw] text-end">$ {currentPrice}</div>
             </div>
             <div className="flex flex-row text-[0.7rem] px-2 pt-[0.8vh]">
                 <div className="w-[70vw] text-start text-gray-600 font-semibold">{description}</div>

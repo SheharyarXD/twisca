@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext,useEffect, useState } from "react";
 import Header from "./header";
 import ProductPageProducts from "./ProductPageProducts";
 import { ProductContext } from "../utils/ProductsContext";
 const ProductPage = () => {
+  const {  products,selectedProduct,fetchProductById,fetchProducts }=useContext(ProductContext);
+  const [productsAvail,setProductsAvail]=useState(false)
+    useEffect(() => {
+      setProductsAvail(true)
+      console.log(products)
+      }, [fetchProducts(),products]);
   return (
     <>
       <Header></Header>
@@ -99,23 +105,16 @@ const ProductPage = () => {
           </div>
           <p className="text-sm font-semibold pt-[2vh]">Showing 1-09 of 24 item(s)</p>
           <div className="flex flex-wrap flex-row justify-between mt-[1vh] max-h-[48vh] overflow-y-scroll">
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
-           < ProductPageProducts/>
+          {productsAvail&& Array.isArray(products) && products.length > 0 ? (products.map((product) => (
+    <ProductPageProducts
+    productName = {product.productName}
+    currentPrice = {product.price}
+    originalPrice = {product.oldprice}
+    description = {product.description}
+      />
+))): (
+  <p>Loading products...</p>
+)}
           </div>
           <div className="flex flex-col justify-center items-center text-center w-[22vw] mx-auto py-[2vh]">
           <p className="text-xs text-[#414141] font-semibold py-[2vh]">Showing 1-09 of 24 item(s)</p>

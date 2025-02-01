@@ -13,32 +13,11 @@ export const ProductProvider = ({ children }) => {
 
     // Fetch products from backend API
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch(`${basicUrl}/api/products`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch products');
-                }
-
-                const data = await response.json();
-                setProducts(data.products);
-            } catch (err) {
-                setError('Failed to load products');
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
+        
         fetchProducts();
+        console.log(products)
     }, []); // Fetch data only once when the component mounts
-
+    
     // Add a new product
     const addProduct = async (newProduct) => {
         try {
@@ -53,12 +32,34 @@ export const ProductProvider = ({ children }) => {
             if (!response.ok) {
                 throw new Error('Failed to add product');
             }
-
+            
             const addedProduct = await response.json();
             setProducts((prevProducts) => [...prevProducts, addedProduct]);
         } catch (err) {
             setError('Failed to add product');
             console.error(err);
+        }
+    };
+    const fetchProducts = async () => {
+        try {
+            const response = await fetch(`${basicUrl}/api/products`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch products');
+            }
+
+            const data = await response.json();
+            setProducts(data);
+        } catch (err) {
+            setError('Failed to load products');
+            console.error(err);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -136,13 +137,14 @@ export const ProductProvider = ({ children }) => {
         <ProductContext.Provider
             value={{
                 products,
-                selectedProduct, // Provide the selected product data
+                selectedProduct, 
                 loading,
                 error,
                 addProduct,
                 updateProduct,
                 deleteProduct,
-                fetchProductById, // Provide the function to fetch product by ID
+                fetchProducts,
+                fetchProductById, 
             }}
         >
             {children}
