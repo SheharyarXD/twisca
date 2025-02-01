@@ -5,11 +5,19 @@ import OrderSummary from "./orderSummary";
 import BillingForm from "./billingform";
 import PaymentForm from "./paymentform";
 import { useContext } from "react";
+import { useEffect } from "react";
 import { CartContext } from "../utils/CartContext";
 const Cart=()=>{
     const {cart,
-        updateCartItem,
+        updateCartItem,fetchCart,
         removeFromCart}=useContext(CartContext)
+        
+          useEffect(() => {
+            // Example: Fetch cart data when the component is mounted
+            const userId = 1; // Replace with dynamic user ID
+            fetchCart(userId);
+          }, []);
+        
     return(
         <>
         <div className="min-h-screen">
@@ -33,9 +41,9 @@ const Cart=()=>{
                         
                         <CartList
                         key={carts.cartid}
-                        productName = " Love in a Box: Deluxe Chocolate Surprise Hamper"
+                        productName ={carts.productName}
                         productid={carts.productid}
-                        // originalPrice = 100
+                        originalPrice = {carts.price}
                         // TotalPrice = 85
                         quantities = {carts.quantity}
                         cartid={carts.cartid}/>

@@ -15,9 +15,9 @@ import { CartProvider } from "./utils/CartContext";
 
 function App() {
   return (
+    <ProductProvider>
     <CartProvider>
       <ReviewsProvider>
-        <ProductProvider>
           <AuthProvider>
             <Router>
               <Routes>
@@ -40,9 +40,9 @@ function App() {
               </Routes>
             </Router>
           </AuthProvider>
-        </ProductProvider>
       </ReviewsProvider>
     </CartProvider>
+        </ProductProvider>
   );
 }
 

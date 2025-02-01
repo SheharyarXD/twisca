@@ -10,7 +10,8 @@ export const CartProvider = ({ children }) => {
     const basicUrl = 'http://localhost:3000'; 
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
-
+    const { selectedProduct, 
+      fetchProductById}=useContext(ProductContext)
 
   // Fetch cart data for a user from the backend
   const fetchCart = async (userId) => {
@@ -18,10 +19,20 @@ export const CartProvider = ({ children }) => {
     try {
       const response = await fetch(`${basicUrl}/api/cart/${userId}`);
       const data = await response.json();
-
+      
       if (data.cartItems) {
-
-        setCart(data.cartItems);
+          // For each cart item, fetch the product details
+          const cartWithProducts = await Promise.all(data.cartItems.map(async (cartItem) => {
+            const productDetails = await fetchProductById(cartItem.productid);
+            return {
+              ...cartItem, // Existing cart item data
+              productName: productDetails ? productDetails.productname : 'Unknown Product', // Add product name
+              price: productDetails ? productDetails.price : 'N/A' // Add product price
+            };
+          }));
+          
+          setCart(cartWithProducts);
+          console.log(cartWithProducts);
       } else {
         console.error('No cart items found');
       }
@@ -114,6 +125,7 @@ export const CartProvider = ({ children }) => {
         addToCart,
         updateCartItem,
         removeFromCart,
+        fetchCart,
         clearCart,
       }}
     >
