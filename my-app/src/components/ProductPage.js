@@ -7,8 +7,9 @@ const ProductPage = () => {
   const [productsAvail,setProductsAvail]=useState(false)
     useEffect(() => {
       setProductsAvail(true)
+      fetchProducts()
       console.log(products)
-      }, [fetchProducts(),products]);
+      }, []);
   return (
     <>
       <Header></Header>
@@ -107,6 +108,8 @@ const ProductPage = () => {
           <div className="flex flex-wrap flex-row justify-between mt-[1vh] max-h-[48vh] overflow-y-scroll">
           {productsAvail&& Array.isArray(products) && products.length > 0 ? (products.map((product) => (
     <ProductPageProducts
+    key={product.productid}
+    productid={product.productid}
     productName = {product.productName}
     currentPrice = {product.price}
     originalPrice = {product.oldprice}

@@ -1,16 +1,25 @@
-import React from "react";
-const ProductPageProducts=({
-    discount = "-13%",
-    rating = 5.0,
-    soldCount = 56,
-    imageUrl = "./Images/sampleImage2.png",
-    productName = "Autumn Dress",
-    currentPrice = 85,
-    originalPrice = 100,
-    description = "Wired Stereo Mix with Headphones"
-  })=>{
+import React, { useContext } from "react";
+import { ProductContext } from "../utils/ProductsContext";
+const Redirect = (productid, setproductDetailId) => {
+    setproductDetailId(productid);
+    console.log(productid)
+};
+
+const ProductPageProducts=(
+    {
+        discount = "-13%",
+        rating = 5.0,
+        soldCount = 56,
+        imageUrl = "./Images/sampleImage2.png",
+        productName = "Autumn Dress",
+        currentPrice = 85,
+        productid=0,
+        originalPrice = 100,
+        description = "Wired Stereo Mix with Headphones"
+    })=>{
+    const {productDetailId,setproductDetailId}=useContext(ProductContext)
     return(
-        <div className="max-h-[360px] w-[250px] rounded-[1vw] p-1 my-5">
+        <div className="max-h-[360px] w-[250px] rounded-[1vw] p-1 my-5" onClick={() => Redirect(productid, setproductDetailId)}>
             <div className="h-fit overflow-hidden object-cover relative rounded-[1vw]">
             <div className="text-white bg-[#414141]  w-fit px-2.5 py-1 absolute top-2 left-2 text-xs rounded-lg">{discount}</div>
             <div className="flex flex-row px-2 text-xs absolute items-center top-2 right-1 text-white">

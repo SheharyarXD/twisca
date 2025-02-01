@@ -9,14 +9,9 @@ export const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [productDetailId, setproductDetailId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null); // For storing the fetched product by ID
 
-    // Fetch products from backend API
-    useEffect(() => {
-        
-        fetchProducts();
-        console.log(products)
-    }, []); // Fetch data only once when the component mounts
     
     // Add a new product
     const addProduct = async (newProduct) => {
@@ -145,6 +140,8 @@ export const ProductProvider = ({ children }) => {
                 deleteProduct,
                 fetchProducts,
                 fetchProductById, 
+                setproductDetailId,
+                productDetailId
             }}
         >
             {children}
