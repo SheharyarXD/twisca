@@ -121,7 +121,8 @@ export const ProductProvider = ({ children }) => {
             }
 
             const data = await response.json();
-            setSelectedProduct(data.product); // Set the selected product state
+            setSelectedProduct(data); // Set the selected product state
+            console.log(selectedProduct)
         } catch (err) {
             setError('Failed to fetch product');
             console.error(err);

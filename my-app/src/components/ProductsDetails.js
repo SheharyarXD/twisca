@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import Header from "./header";
 import FooterPage from "./footer";
 import SurprisedProducts from "./SurprisesProducts";
 import CommentsTemplate from "./comment";
-
+import { ProductContext } from "../utils/ProductsContext";
 
 const ProductDetails = () => {
+  const {selectedProduct}=useContext(ProductContext);
   const [quantity, setQuantity] = useState(1);
   const [descriptionToggle,setDescription] = useState(true);
 

@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../utils/ProductsContext";
-const Redirect = (productid, setproductDetailId) => {
+import { useNavigate } from "react-router-dom";
+const Redirect = (productid, setproductDetailId,navigate,fetchProductById) => {
     setproductDetailId(productid);
+    fetchProductById(productid);
     console.log(productid)
+    navigate("/products/productDetails")
 };
 
 const ProductPageProducts=(
@@ -17,9 +20,10 @@ const ProductPageProducts=(
         originalPrice = 100,
         description = "Wired Stereo Mix with Headphones"
     })=>{
-    const {productDetailId,setproductDetailId}=useContext(ProductContext)
+        const navigate=useNavigate()
+    const {productDetailId,setproductDetailId,fetchProductById}=useContext(ProductContext)
     return(
-        <div className="max-h-[360px] w-[250px] rounded-[1vw] p-1 my-5" onClick={() => Redirect(productid, setproductDetailId)}>
+        <div className="max-h-[360px] w-[250px] rounded-[1vw] p-1 my-5" onClick={() => Redirect(productid, setproductDetailId,navigate,fetchProductById)}>
             <div className="h-fit overflow-hidden object-cover relative rounded-[1vw]">
             <div className="text-white bg-[#414141]  w-fit px-2.5 py-1 absolute top-2 left-2 text-xs rounded-lg">{discount}</div>
             <div className="flex flex-row px-2 text-xs absolute items-center top-2 right-1 text-white">
