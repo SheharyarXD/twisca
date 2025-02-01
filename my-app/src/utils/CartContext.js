@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { ProductContext } from './ProductsContext';
 
 // Create the Cart Context
 export const CartContext = createContext();
@@ -9,13 +11,16 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
   // Fetch cart data for a user from the backend
   const fetchCart = async (userId) => {
     setLoading(true);
     try {
       const response = await fetch(`${basicUrl}/api/cart/${userId}`);
       const data = await response.json();
+
       if (data.cartItems) {
+
         setCart(data.cartItems);
       } else {
         console.error('No cart items found');
