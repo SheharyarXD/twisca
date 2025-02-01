@@ -5,6 +5,7 @@ export const ProductContext = createContext();
 
 // ProductProvider component to wrap the app with product context
 export const ProductProvider = ({ children }) => {
+    
     const basicUrl = 'http://localhost:3000'; // Replace with your backend API URL
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ export const ProductProvider = ({ children }) => {
     const [productDetailId, setproductDetailId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null); // For storing the fetched product by ID
 
-    
+
     // Add a new product
     const addProduct = async (newProduct) => {
         try {
@@ -122,7 +123,6 @@ export const ProductProvider = ({ children }) => {
 
             const data = await response.json();
             setSelectedProduct(data); // Set the selected product state
-            console.log(selectedProduct)
         } catch (err) {
             setError('Failed to fetch product');
             console.error(err);

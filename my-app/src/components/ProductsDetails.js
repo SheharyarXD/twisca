@@ -7,7 +7,7 @@ import CommentsTemplate from "./comment";
 import { ProductContext } from "../utils/ProductsContext";
 
 const ProductDetails = () => {
-  const {selectedProduct}=useContext(ProductContext);
+  const {selectedProduct,fetchProductById,productDetailId}=useContext(ProductContext);
   const [quantity, setQuantity] = useState(1);
   const [descriptionToggle,setDescription] = useState(true);
 
@@ -21,7 +21,13 @@ const ProductDetails = () => {
 
   return (
     <>
+    {selectedProduct?
+      (
+        <div>
+
+        
       <Header className="overflow-hidden"></Header>
+    
       <div className="flex flex-row items-center overflow-hidden justify-between px-[5vw]">
         {/* text section */}
         <div className="w-[50vw] pr-[5vw]">
@@ -136,7 +142,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      {/* baseline */}
+   
       <div className="flex flex-row justify-between px-[15vw] pt-[1vh]  items-center">
         <div className="flex flex-row items-center">
           <img
@@ -287,6 +293,10 @@ const ProductDetails = () => {
         </div>
       </div>
       <FooterPage></FooterPage>
+      </div>
+    ):(
+      <p>Error Loading Product</p>
+    )}
     </>
   );
 };
