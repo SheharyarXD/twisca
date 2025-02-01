@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./header";
 import ProductPageProducts from "./ProductPageProducts";
+import { ProductContext } from "../utils/ProductsContext";
 const ProductPage = () => {
   return (
     <>
