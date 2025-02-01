@@ -4,8 +4,12 @@ import CartList from "./cartList";
 import OrderSummary from "./orderSummary";
 import BillingForm from "./billingform";
 import PaymentForm from "./paymentform";
+import { useContext } from "react";
 import { CartContext } from "../utils/CartContext";
 const Cart=()=>{
+    const {cart,
+        updateCartItem,
+        removeFromCart}=useContext(CartContext)
     return(
         <>
         <div className="min-h-screen">
@@ -25,10 +29,17 @@ const Cart=()=>{
                 </div>
               
                 <div className=" flex flex-col">
-                <CartList/>
-                <CartList/>
-                <CartList/>
-                <CartList/>
+                    {Array.isArray(cart)&& cart.length>0&& cart.map((carts)=>(
+                        <CartList
+                        key={carts.cartid}
+                        productName = " Love in a Box: Deluxe Chocolate Surprise Hamper"
+                        productid={carts.productid}
+                        // originalPrice = 100
+                        // TotalPrice = 85
+                        quantities = {carts.quantity}
+                        cartid={carts.cartid}/>
+                    ))
+                    }
                 </div>
             </div> 
             {/* <BillingForm/> */}

@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-const CartList=()=>{
-      const [quantity, setQuantity] = useState(1);
-    const [descriptionToggle,setDescription] = useState(true);
+import { CartContext } from "../utils/CartContext";
+const CartList=( {
+  productName = " Love in a Box: Deluxe Chocolate Surprise Hamper",
+  productid=0,
+  originalPrice = 100,
+  TotalPrice = 85,
+  quantities = 0,
+  cartid=0
+})=>{
+  const [quantity, setQuantity] = useState(1);
+  const {cart,
+    updateCartItem,
+    removeFromCart}=useContext(CartContext)
+  const [descriptionToggle,setDescription] = useState(true);
+  useEffect(() => {
+    setQuantity(quantities);
+  }, [quantities]);
     
       const handleIncrement = () => {
         setQuantity((prev) => prev + 1);
@@ -21,10 +35,10 @@ const CartList=()=>{
               alt=""
             />
               <div className="font-bold text-sm items-start flex flex-wrap text-start">
-                Love in a Box: Deluxe Chocolate Surprise Hamper
+                {productName}
               </div>
           </div>
-          <div className="w-[5%] flex text-[#949494]">$ <p>180</p></div>
+          <div className="w-[5%] flex text-[#949494]">$ <p>{originalPrice}</p></div>
           <div className="flex w-[8vw] flex-row items-center justify-center pt-[1vh]">
             <div className="flex items-center px-2 relative">
               {/* Minus Button */}
@@ -52,7 +66,7 @@ const CartList=()=>{
               </button>
             </div>
           </div>
-          <div className="w-[6vw] flex text-[#949494]">$ <p>180</p></div>
+          <div className="w-[6vw] flex text-[#949494]">$ <p>{TotalPrice}</p></div>
         </div>);
 }
 export default CartList;
