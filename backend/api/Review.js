@@ -32,8 +32,8 @@ router.get('/', async (req, res) => {
 
     try {
         const result = await pool.query(
-            'SELECT * FROM reviews WHERE productid = $1',
-            [productId]
+            'SELECT * FROM reviews',
+
         );
 
         if (result.rows.length === 0) {

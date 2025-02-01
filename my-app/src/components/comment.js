@@ -1,20 +1,20 @@
 import React from "react";
-const CommentsTemplate=()=>{
+const CommentsTemplate=({ name, date, rating, comment, likes, dislikes, profileImage })=>{
     return( 
         
-           <div className="p-4 border-[#7E7E80] border-2 w-full h-[150px] rounded-lg flex flex-row px-6 min-h-fit">
+           <div className="p-4 border-[#7E7E80] border-2 min-w-full h-[150px] rounded-lg flex flex-row px-6 min-h-fit">
         <div className="w-[90px]">
           <img
             className="h-11 mr-[1vw] w-auto rounded-full"
-            src="../Images/sampleImage2.png"
+            src={profileImage}
             alt=""
           />
         </div>
         <div className="px-3">
           <div className="flex flex-row justify-between items-center ">
             <div className="flex flex-row items-center">
-              <div className="font-semibold text-lg">Alice John</div> 
-              <div className="text-xs pl-[2.5vw] text-gray-400 font-semibold">Aug 19, 2021</div>
+              <div className="font-semibold text-lg">{name}</div> 
+              <div className="text-xs pl-[2.5vw] text-gray-400 font-semibold">{date}</div>
             </div>
             <div className="flex flex-row px-2 text-xs items-center pt-[1vh] text-gray-500">
               <img
@@ -23,19 +23,16 @@ const CommentsTemplate=()=>{
                 alt=""
               />
               <p>
-                <span className="pr-3 text-black text-[1rem] font-bold">5.0</span>
+                <span className="pr-3 text-black text-[1rem] font-bold">{rating}</span>
               </p>
             </div>
           </div>
           <div className="text-[#7E7E80] pt-[1vh]">
-            I gifted this box to my wife on our anniversary, and she
-            absolutely loved it! The packaging was stunning, and every
-            item inside felt premium and thoughtful. Will definitely
-            order again for upcoming occasions!
+           {comment}
           </div>
           <div className="flex flex-row items-center pt-[10px]">
-            <div className="px-2"><i className="fa-solid px-2 fa-thumbs-up"></i>5</div>
-            <div className="px-2"><i className="fa-solid px-2 fa-thumbs-down"></i>5</div>
+            <div className="px-2"><i className="fa-solid px-2 fa-thumbs-up"></i>{likes}</div>
+            <div className="px-2"><i className="fa-solid px-2 fa-thumbs-down"></i>{dislikes}</div>
           </div>
         </div>
       </div>);
