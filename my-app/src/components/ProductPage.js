@@ -110,7 +110,7 @@ const ProductPage = () => {
     <ProductPageProducts
     key={product.productid}
     productid={product.productid}
-    productName = {product.productName}
+    productName = {product.productname}
     currentPrice = {product.price}
     originalPrice = {product.oldprice}
     description = {product.description}

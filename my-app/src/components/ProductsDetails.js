@@ -37,16 +37,15 @@ const ProductDetails = () => {
             </p>
           </div>
           <div className="font-bold text-[2.4rem] pt-[1vh] leading-tight">
-            Love in a Box: Deluxe Chocolate Surprise Hamper
+          {selectedProduct.productname}
           </div>
           <div className="font-bold text-[#8B024B] py-[1vh] text-[2.5rem]">
-            $205.62
+         $ {selectedProduct.price}
           </div>
           <div>
             <div className="font-semibold py-1">Description</div>
             <p className="text-sm text-[#414141] font-semibold w-[70%]">
-              Indulge in a delightful mix of premium treats crafted to make
-              every moment special.
+            {selectedProduct.description}
             </p>
           </div>
           <div>
