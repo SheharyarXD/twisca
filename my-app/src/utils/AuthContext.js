@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const basicUrl = 'http://localhost:3000'; // Make sure to use http if SSL isn't set up
     const [user, setUser] = useState(null);
+    const [userid, setUserid] = useState(1);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -112,7 +113,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, signup, logout, loading, error }}>
+        <AuthContext.Provider value={{ user, userid,login, signup, logout, loading, error }}>
             {children}
         </AuthContext.Provider>
     );

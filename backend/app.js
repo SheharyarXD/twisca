@@ -9,6 +9,7 @@ const user = require('./api/User');
 const categories = require('./api/Categories'); 
 const products = require('./api/Products'); 
 const reviews = require('./api/Review'); 
+const cart=require('./api/Cart')
 
 
 
@@ -31,6 +32,7 @@ app.use('/api/auth', user);
 app.use('/api/categories', categories);
 app.use('/api/products', products);
 app.use('/api/reviews', reviews);
+app.use('/api/cart',cart)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/', (req, res) => {
   pool.connect((err, client, release) => {

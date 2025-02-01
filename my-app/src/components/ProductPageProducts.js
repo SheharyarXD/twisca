@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../utils/ProductsContext";
+import { AuthContext } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../utils/CartContext";
 const Redirect = (productid, setproductDetailId,navigate,fetchProductById) => {
     setproductDetailId(productid);
     fetchProductById(productid);
@@ -21,7 +23,9 @@ const ProductPageProducts=(
         description = "Wired Stereo Mix with Headphones"
     })=>{
         const navigate=useNavigate()
+    const {userid}=useContext(AuthContext)
     const {productDetailId,setproductDetailId,fetchProductById}=useContext(ProductContext)
+    const { addToCart}=useContext(CartContext);
     return(
         <div className="max-h-[360px] w-[250px] rounded-[1vw] p-1 my-5" onClick={() => Redirect(productid, setproductDetailId,navigate,fetchProductById)}>
             <div className="h-fit overflow-hidden object-cover relative rounded-[1vw]">
@@ -40,8 +44,9 @@ const ProductPageProducts=(
                 <div className="w-[30vw] text-end line-through font-bold text-red-700">$ {originalPrice}</div>
             </div>
            
-            <div className="flex flex-row items-center justify-center pt-[1vh] px-0">
-            <button className="bg-[#8B024B] text-white w-[70%] text-[0.8rem] py-2 rounded-[0.5vw] ">Add to Cart</button>
+            <div className="flex flex-row items-center justify-center pt-[1vh] px-0 z-50">
+            <button onClick={(event)=>
+                {event.stopPropagation(); addToCart(userid,productid,1)}} className="bg-[#8B024B] text-white w-[70%] text-[0.8rem] py-2 rounded-[0.5vw] ">Add to Cart</button>
             <button className="border-[#8B024B] border text-white ml-[0.5vw] px-[0.8vw] py-[0.9vw] rounded-full "><img src="./Images/Union.png" alt="" /></button>
             </div>
         </div>

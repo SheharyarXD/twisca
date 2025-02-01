@@ -4,6 +4,7 @@ import CartList from "./cartList";
 import OrderSummary from "./orderSummary";
 import BillingForm from "./billingform";
 import PaymentForm from "./paymentform";
+import { CartContext } from "../utils/CartContext";
 const Cart=()=>{
     return(
         <>

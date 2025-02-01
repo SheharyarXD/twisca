@@ -12,7 +12,7 @@ import { AuthContext } from "../utils/AuthContext";
 const ProductDetails = () => {
   const { selectedProduct, fetchProductById, productDetailId } =
     useContext(ProductContext);
-    const {user}=useContext(AuthContext)
+    const {userid}=useContext(AuthContext)
     const { reviews,
       loading,
       fetchReviews,
@@ -321,7 +321,7 @@ const ProductDetails = () => {
                       <i className="fa fa-star"    onClick={(e) => setcommentRating(5)} aria-hidden="true"></i>
                     </div>
                     <div>
-                      <button onClick={()=>addReview(1,productDetailId,rating,reviewtext)} className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">
+                      <button onClick={()=>addReview(userid,productDetailId,rating,reviewtext)} className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">
                         Post Review
                         <i className="fa-solid fa-arrow-right pl-3"></i>
                       </button>
