@@ -6,6 +6,8 @@ const LoginPage = () => {
   const {
     user, login, signup, logout, loading, error
   } = useContext(AuthContext);
+  const [email,setEmail]=useState(null)
+  const [password,setPassword]=useState(null)
   const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -53,6 +55,7 @@ const LoginPage = () => {
                 <input
                   type="email"
                   id="email"
+                  onChange={(e) => setEmail(e.target.value)}
                   className="peer h-10 lg:h-[4.9vw] form-control block w-full px-[1vw] py-[0.8vw] lg:text-[1.2vw] text-gray-900 bg-transparent border border-gray-300 rounded-[0.5vw] appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]"
                   placeholder=" "
                   required
@@ -60,6 +63,7 @@ const LoginPage = () => {
                 <label
                   htmlFor="email"
                   className="form-label bg-white px-[0.25vw] absolute text-xs lg:text-[1.4vw] text-gray-500 duration-300 transform -translate-y-[2vw] top-[1.6vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-[0vw] peer-focus:-translate-y-[2.6vw] p-[0.1vw]"
+            
                 >
                   Email
                 </label>
@@ -68,6 +72,7 @@ const LoginPage = () => {
               <div className="form-group mb-5 lg:mb-[1.8vh] relative">
                 <input
                   type={passwordVisible ? "text" : "password"}
+                  onChange={(e) => setPassword(e.target.value)}
                   id="passwordField"
                   className="peer h-10 lg:h-[4.9vw] form-control block w-full px-[1vw] py-[0.8vw] lg:text-[1.2vw] text-gray-900 bg-transparent border border-gray-300 rounded-[0.5vw] appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]"
                   placeholder=" "
@@ -101,7 +106,7 @@ const LoginPage = () => {
                 </div>
               </div>
 
-              <button className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
+              <button onClick={()=>login(email,password)} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign In
               </button>
               <div className="flex justify-center h-fit pt-5 lg:pt-0 lg:h-[3.8vw] items-center cursor-pointer font-bold text-[#444444] text-xs lg:text-[0.95vw]">
@@ -126,6 +131,7 @@ const LoginPage = () => {
               <div className="form-group mb-5 lg:mb-[1.8vh] relative">
                 <input
                   type="email"
+                  onChange={(e) => setEmail(e.target.value)}
                   id="email"
                   className="peer h-10 lg:h-[4.9vw] form-control block w-full px-[1vw] py-[0.8vw] lg:text-[1.2vw] text-gray-900 bg-transparent border border-gray-300 rounded-[0.5vw] appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]"
                   placeholder=" "
@@ -142,6 +148,7 @@ const LoginPage = () => {
               <div className="form-group mb-5 lg:mb-[1.8vh] relative">
                 <input
                   type={passwordVisible ? "text" : "password"}
+                  onChange={(e) => setPassword(e.target.value)}
                   id="passwordField"
                   className="peer h-10 lg:h-[4.9vw] form-control block w-full px-[1vw] py-[0.8vw] lg:text-[1.2vw] text-gray-900 bg-transparent border border-gray-300 rounded-[0.5vw] appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]"
                   placeholder=" "
@@ -191,7 +198,7 @@ const LoginPage = () => {
                   ></i>
                 </button>
               </div>
-              <button className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
+              <button onClick={()=>signup(email,password)} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign Up
               </button>
               <div

@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
 
 // Create a Context for authentication
 export const AuthContext = createContext();
 
 // AuthProvider component to wrap the app with authentication context
 export const AuthProvider = ({ children }) => {
+    const basicUrl = 'http://localhost:3000'; // Make sure to use http if SSL isn't set up
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,9 +14,21 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkSession = async () => {
             try {
-                const response = await axios.get('/api/auth/check-session');
-                if (response.data.user) {
-                    setUser(response.data.user);
+                const response = await fetch(`${basicUrl}/api/auth/check-session`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include', // This is important if you're using cookies
+                });
+
+                if (!response.ok) {
+                    throw new Error('Session check failed');
+                }
+
+                const data = await response.json();
+                if (data.user) {
+                    setUser(data.user);
                 }
             } catch (err) {
                 console.log("Session check failed", err);
@@ -30,9 +42,24 @@ export const AuthProvider = ({ children }) => {
 
     // Login function
     const login = async (email, password) => {
+        console.log(email)
+        console.log(password)
         try {
-            const response = await axios.post('/api/auth/signin', { email, password });
-            setUser(response.data.user);
+            const response = await fetch(`${basicUrl}/api/auth/signin`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+                credentials: 'include', // Include credentials if needed (cookies, sessions)
+            });
+
+            if (!response.ok) {
+                throw new Error('Invalid credentials');
+            }
+
+            const data = await response.json();
+            setUser(data.user);
             setError(null);
         } catch (err) {
             setError('Invalid credentials');
@@ -42,8 +69,21 @@ export const AuthProvider = ({ children }) => {
     // Signup function
     const signup = async (email, password) => {
         try {
-            const response = await axios.post('/api/auth/signup', { email, password });
-            setUser(response.data.user);
+            const response = await fetch(`${basicUrl}/api/auth/signup`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+                credentials: 'include', // Include credentials if needed
+            });
+
+            if (!response.ok) {
+                throw new Error('User already exists');
+            }
+
+            const data = await response.json();
+            setUser(data.user);
             setError(null);
         } catch (err) {
             setError('User already exists');
@@ -53,7 +93,18 @@ export const AuthProvider = ({ children }) => {
     // Logout function
     const logout = async () => {
         try {
-            await axios.post('/api/auth/logout');
+            const response = await fetch(`${basicUrl}/api/auth/logout`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include', // Include credentials if needed
+            });
+
+            if (!response.ok) {
+                throw new Error('Logout failed');
+            }
+
             setUser(null);
         } catch (err) {
             console.log("Logout failed", err);

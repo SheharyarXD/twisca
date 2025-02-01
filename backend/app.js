@@ -15,7 +15,15 @@ const reviews = require('./api/Review');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+
+const corsOptions = {
+  origin: 'http://localhost:3001', // Allow your client to make requests
+  methods: 'GET,POST,PUT,DELETE', // Allow specific methods
+  credentials: true, // Allow credentials (cookies, etc.)
+};
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 
