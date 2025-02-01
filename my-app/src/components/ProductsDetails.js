@@ -7,10 +7,12 @@ import moment from 'moment';
 import CommentsTemplate from "./comment";
 import { ProductContext } from "../utils/ProductsContext";
 import { ReviewsContext } from "../utils/ReviewContext";
+import { AuthContext } from "../utils/AuthContext";
 
 const ProductDetails = () => {
   const { selectedProduct, fetchProductById, productDetailId } =
     useContext(ProductContext);
+    const {user}=useContext(AuthContext)
     const { reviews,
       loading,
       fetchReviews,
@@ -18,6 +20,8 @@ const ProductDetails = () => {
       updateReview,
       deleteReview,}=useContext(ReviewsContext);
   const [quantity, setQuantity] = useState(1);
+  const [reviewtext,setcommentText]=useState(null);
+  const [rating,setcommentRating]=useState(null);
   const [descriptionToggle, setDescription] = useState(true);
 
   const handleIncrement = () => {
@@ -301,6 +305,7 @@ const ProductDetails = () => {
                       alt=""
                     />
                     <textarea
+                         onChange={(e) => setcommentText(e.target.value)}
                       className="p-4 border-[#7E7E80] border-2 w-full h-[20vh] rounded-lg"
                       placeholder="Write your review"
                     />
@@ -309,14 +314,14 @@ const ProductDetails = () => {
                     <div className="pl-[5vw]">
                       {" "}
                       Your Ratings:{" "}
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
-                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star"    onClick={(e) => setcommentRating(1)} aria-hidden="true"></i>
+                      <i className="fa fa-star"    onClick={(e) => setcommentRating(2)} aria-hidden="true"></i>
+                      <i className="fa fa-star"    onClick={(e) => setcommentRating(3)} aria-hidden="true"></i>
+                      <i className="fa fa-star"    onClick={(e) => setcommentRating(4)} aria-hidden="true"></i>
+                      <i className="fa fa-star"    onClick={(e) => setcommentRating(5)} aria-hidden="true"></i>
                     </div>
                     <div>
-                      <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">
+                      <button onClick={()=>addReview(1,productDetailId,rating,reviewtext)} className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">
                         Post Review
                         <i className="fa-solid fa-arrow-right pl-3"></i>
                       </button>

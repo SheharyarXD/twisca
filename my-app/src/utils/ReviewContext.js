@@ -36,6 +36,7 @@ export const ReviewsProvider = ({ children }) => {
         body: JSON.stringify({ userId, productId, rating, reviewText }),
       });
       const data = await response.json();
+      console.log(data)
       if (data.review) {
         setReviews((prevReviews) => [...prevReviews, data.review]);
       } else {

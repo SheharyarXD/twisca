@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Create a Review
 router.post('/', async (req, res) => {
+    console.log(req.body)
     const { userId, productId, rating, reviewText } = req.body;
 
     if (!userId || !productId || !rating || !reviewText) {
