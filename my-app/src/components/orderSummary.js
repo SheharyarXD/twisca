@@ -1,7 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import OrderDiv from "./orders";
+import { CartContext } from "../utils/CartContext";
 const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
+  const {cart,
+      updateCartItem,fetchCart,
+      removeFromCart}=useContext(CartContext)
   const [currentModal, setCurrentModal] = useState(null); // 'thankYou' or 'trackOrder'
 
   
@@ -12,23 +16,21 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
     return(
         <div className="flex flex-col w-full border-gray-300 border px-[2vw] rounded-lg">
             <div className="font-semibold py-[2vh] text-[1.3rem]">Order Summary</div>
-            <div className="text-[#8B024B] px-[0.1vw] py-[1vh] font-semibold border-y border-[#949494] mb-[2vh]"> {orders.length} {orders.length === 1 ? "item" : "items"}</div>
+            <div className="text-[#8B024B] px-[0.1vw] py-[1vh] font-semibold border-y border-[#949494] mb-[2vh]"> {cart.length} {cart.length === 1 ? "item" : "items"}</div>
             <div className=" border-b border-[#949494]">
+            {Array.isArray(cart)&& cart.length>0&& cart.map((carts)=>(
+                        
             <OrderDiv 
     image="../Images/sampleImage2.png"
-    title="Deluxe Chocolate Surprise Hamper"
+    title={carts.productName}
     category="Gift & Hampers"
-    price="39.99"
+    price={carts.price}
     rating="5.0"
 />
+                    ))
+                    }
 
-<OrderDiv 
-    image="../Images/sampleImage2.png"
-    title="Deluxe Chocolate Surprise Hamper"
-    category="Gift & Hampers"
-    price="39.99"
-    rating="5.0"
-/>
+
 
             </div>
             <div>
