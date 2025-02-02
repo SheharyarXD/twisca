@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Header from "./header";
 import CartList from "./cartList";
 import OrderSummary from "./orderSummary";
@@ -13,6 +14,34 @@ const Cart=()=>{
         updateCartItem,fetchCart,
         removeFromCart}=useContext(CartContext)
         const{userid}=useContext(AuthContext)
+        const [totalPrice, setTotalPrice] = useState(0);
+        const [totalDiscount, setTotalDiscount] = useState(0);
+        const [estimatedDelivery, setEstimatedDelivery] = useState("");
+        useEffect(() => {
+            if (Array.isArray(cart) && cart.length > 0) {
+              let total = 0;
+              let discount = 0;
+        
+              cart.forEach((item) => {
+                total += item.price * item.quantity; // Total price considering quantity
+                discount += (item.discount || 0) * item.quantity; // Discount per quantity
+              });
+        
+              setTotalPrice(total);
+              setTotalDiscount(discount);
+        
+              // Calculate delivery date (add 7 days to addDate)
+              const deliveryDate = new Date(cart[0].addedat);
+              deliveryDate.setDate(deliveryDate.getDate() + 7);
+              const formattedDate = deliveryDate.toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              });
+        
+              setEstimatedDelivery(formattedDate.replace(" ", " "));
+            }
+          }, [cart]);
         const ordersData = [
             {
               image: "../Images/sampleImage2.png",
@@ -74,10 +103,10 @@ const Cart=()=>{
             {/* right section */}
             <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">
 <OrderSummary 
-  orders={ordersData} 
-  totalPrice={69.98} 
-  discount={5} 
-  estimatedDelivery="01 Feb, 2023"
+
+  totalPrice={totalPrice}
+  discount={totalDiscount} 
+  estimatedDelivery={estimatedDelivery}
 />
 
             </div>
