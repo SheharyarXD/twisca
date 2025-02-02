@@ -88,8 +88,10 @@ export const AuthProvider = ({ children }) => {
             const data = await response.json();
             setUser(data.user);
             setError(null);
+            return true;
         } catch (err) {
             setError('User already exists');
+            return false;
         }
     };
 

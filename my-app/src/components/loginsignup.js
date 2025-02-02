@@ -200,7 +200,7 @@ const LoginPage = () => {
                   ></i>
                 </button>
               </div>
-              <button onClick={()=>signup(email,password)} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
+              <button onClick={async ()=>{const success=await signup(email,password);success&&userid?setShowLogin(true):alert("Sign Up Failed")}} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign Up
               </button>
               <div
