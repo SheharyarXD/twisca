@@ -7,15 +7,16 @@ import PaymentForm from "./paymentform";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { CartContext } from "../utils/CartContext";
+import { AuthContext } from "../utils/AuthContext";
 const Cart=()=>{
     const {cart,
         updateCartItem,fetchCart,
         removeFromCart}=useContext(CartContext)
+        const{userid}=useContext(AuthContext)
         
           useEffect(() => {
-            // Example: Fetch cart data when the component is mounted
-            const userId = 1; // Replace with dynamic user ID
-            fetchCart(userId);
+
+            fetchCart(userid);
           }, []);
         
     return(

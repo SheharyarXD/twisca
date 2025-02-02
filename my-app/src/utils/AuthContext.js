@@ -6,8 +6,8 @@ export const AuthContext = createContext();
 // AuthProvider component to wrap the app with authentication context
 export const AuthProvider = ({ children }) => {
     const basicUrl = 'http://localhost:3000'; // Make sure to use http if SSL isn't set up
-    const [user, setUser] = useState(null);
-    const [userid, setUserid] = useState(1);
+    const [user, setUser] = useState(0);
+    const [userid, setUserid] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -43,8 +43,6 @@ export const AuthProvider = ({ children }) => {
 
     // Login function
     const login = async (email, password) => {
-        console.log(email)
-        console.log(password)
         try {
             const response = await fetch(`${basicUrl}/api/auth/signin`, {
                 method: 'POST',
@@ -54,13 +52,15 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify({ email, password }),
                 credentials: 'include', // Include credentials if needed (cookies, sessions)
             });
-
+            
             if (!response.ok) {
                 throw new Error('Invalid credentials');
             }
-
+            
             const data = await response.json();
             setUser(data.user);
+            setUserid(data.user.id)
+            // console.log(userid)
             setError(null);
             return true;
         } catch (err) {
@@ -111,6 +111,7 @@ export const AuthProvider = ({ children }) => {
             }
 
             setUser(null);
+            setUserid(null)
         } catch (err) {
             console.log("Logout failed", err);
         }

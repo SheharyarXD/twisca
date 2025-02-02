@@ -51,7 +51,7 @@ router.post('/signin', async (req, res) => {
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
-        res.status(200).json({ message: 'Signin successful!', user: { id: user.id, email: user.email } });
+        res.status(200).json({ message: 'Signin successful!', user: { id: user.userid, email: user.email } });
     } catch (error) {
         console.error('Error signing in user:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -104,16 +104,16 @@ router.put('/reset-password', async (req, res) => {
 router.get('/check-session', (req, res) => {
     // if (req.session.user) {
     //     res.json({ user: req.session.user });
-    // } else {
+    //  } else {
     //     res.json({ user: null });
     // }
 });
 
 // Logout API
 router.post('/logout', (req, res) => {
-    req.session.destroy(() => {
+
         res.status(200).send('Logged out');
-    });
+    
 });
 
 
