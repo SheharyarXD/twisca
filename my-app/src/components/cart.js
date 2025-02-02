@@ -100,16 +100,16 @@ const Cart=()=>{
             </div> 
             )}
                  {cartToggle=="billing"&&(
-                     <BillingForm/> 
+                     <BillingForm userId={userid}/> 
                  )}
                      {cartToggle=="PaymentForm"&&(
-            <PaymentForm/> 
+            <PaymentForm  userId={userid}/> 
         )}
             </div>
             {/* right section */}
             <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">
 <OrderSummary 
-
+ key="e"
   totalPrice={totalPrice}
   discount={totalDiscount} 
   estimatedDelivery={estimatedDelivery}
