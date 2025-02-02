@@ -111,11 +111,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    // Example: Fetch cart data when the component is mounted
-    const userId = 1; // Replace with dynamic user ID
-    fetchCart(userId);
-  }, []);
+
 
   return (
     <CartContext.Provider

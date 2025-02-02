@@ -15,7 +15,7 @@ const Cart=()=>{
         const{userid}=useContext(AuthContext)
         
           useEffect(() => {
-
+            console.log(userid)
             fetchCart(userid);
           }, []);
         
