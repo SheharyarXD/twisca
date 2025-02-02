@@ -11,6 +11,8 @@ const LoginPage = () => {
     user,userid, login, signup, logout, loading, error
   } = useContext(AuthContext);
   const [email,setEmail]=useState(null)
+  const [showResetModal, setShowResetModal] = useState(false);
+
   const [password,setPassword]=useState(null)
   const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -18,20 +20,13 @@ const LoginPage = () => {
 let resetemail; 
 // Show the Reset Password modal
 const showResetPasswordForm=()=>{
-  document.getElementById('resetPasswordModal').classList.remove('hidden');
-  document.getElementById('step1').classList.remove('hidden');
-  document.getElementById('step2').classList.add('hidden');
+  setShowResetModal(true)
 }
 
 // Hide the Reset Password modal
-const closeResetPasswordForm = () => {
-  const resetForm = document.getElementById("resetPasswordModal"); 
-  if (resetForm) {  
-      resetForm.classList.remove("show");
-  } else {
-      console.error("Reset Password Form not found");
-  }
-};
+const closeResetPasswordForm=()=>{
+  setShowResetModal(false)
+}
 
 
 emailjs.init("OfmlMCjmuKg7pjl35");
@@ -125,9 +120,11 @@ const generateRandomSixDigitNumber=()=> {
 
   return (
     <div className="main flex flex-row w-full justify-between font-sans">
-      <div id="resetPasswordModal" className="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-    <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-[500px]">
+      {showResetModal&&
+      <div id="resetPasswordModal" className=" fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-[500px] relative">
         <h2 className="text-lg font-bold mb-4">Reset Password</h2>
+        <i className="fa fa-close hover:text-red-600 cursor-pointer absolute right-3 top-2 text-xl" onClick={()=>closeResetPasswordForm()}></i>
 
         <div id="step1">
             <form id="emailForm" onSubmit={(event)=>{sendVerificationCode(event)}}>
@@ -142,7 +139,7 @@ const generateRandomSixDigitNumber=()=> {
                 <div className="flex justify-end">
                     <button 
                         type="submit" 
-                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
+                        className="bg-[#8B024B] text-white px-4 py-2 rounded-lg"
                     >
                         Send Code
                     </button>
@@ -184,13 +181,13 @@ const generateRandomSixDigitNumber=()=> {
                     <button 
                         type="button" 
                         className="bg-gray-400 text-white px-4 py-2 rounded-lg"
-                        onClick={closeResetPasswordForm()}
+                        onClick={()=>closeResetPasswordForm()}
                     >
                         Cancel
                     </button>
                     <button 
                         type="submit" 
-                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
+                        className="bg-[#8B024B] text-white px-4 py-2 rounded-lg"
                     >
                         Reset Password
                     </button>
@@ -199,6 +196,7 @@ const generateRandomSixDigitNumber=()=> {
         </div>
     </div>
 </div>
+}
       <div className="form flex flex-col py-5 px-8 w-full lg:w-[50vw] max-h-screen h-auto overflow-hidden">
         <a className="w-fit" href="../">
           <div className="logo flex flex-row justify-start font-bold text-[#277D0D] items-center w-fit sm:px-14">
