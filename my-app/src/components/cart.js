@@ -13,7 +13,7 @@ const Cart=()=>{
     const {cart,
         updateCartItem,fetchCart,
         removeFromCart}=useContext(CartContext)
-        const{userid}=useContext(AuthContext)
+              const {userid,cartToggle, setcartToggle}=useContext(AuthContext);
         const [totalPrice, setTotalPrice] = useState(0);
         const [totalDiscount, setTotalDiscount] = useState(0);
         const [estimatedDelivery, setEstimatedDelivery] = useState("");
@@ -23,7 +23,6 @@ const Cart=()=>{
               let discount = 0;
         
               cart.forEach((item) => {
-                console.log(item)
                 total += item.price * item.quantity; // Total price considering quantity
                 discount += (item.oldprice-item.price || 0) * item.quantity; // Discount per quantity
               });
@@ -72,6 +71,7 @@ const Cart=()=>{
         <div className="flex flex-row items-baseline">
             {/* left section */}
             <div className="w-[60vw] px-[5vw] ">
+            {cartToggle=="cartP"&&(
              <div className="rounded-xl border-gray-300 border mt-[5vh] h-[70vh] ">
             
                 <div className="flex text-[1.1rem] sticky top-0 z-[100] flex-row items-center bg-[#8B024B] justify-center  text-white py-[2vh] overflow-hidden rounded-t-xl" >
@@ -98,8 +98,13 @@ const Cart=()=>{
                     }
                 </div>
             </div> 
-            {/* <BillingForm/> */}
-            {/* <PaymentForm/>  */}
+            )}
+                 {cartToggle=="billing"&&(
+                     <BillingForm/> 
+                 )}
+                     {cartToggle=="PaymentForm"&&(
+            <PaymentForm/> 
+        )}
             </div>
             {/* right section */}
             <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">

@@ -2,10 +2,12 @@ import React from "react";
 import { useState,useContext } from "react";
 import OrderDiv from "./orders";
 import { CartContext } from "../utils/CartContext";
+import { AuthContext } from "../utils/AuthContext";
 const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
   const {cart,
       updateCartItem,fetchCart,
       removeFromCart}=useContext(CartContext)
+      const {cartToggle, setcartToggle}=useContext(AuthContext);
   const [currentModal, setCurrentModal] = useState(null); // 'thankYou' or 'trackOrder'
 
   
@@ -55,7 +57,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                     <div>{estimatedDelivery}</div>
                 </div>
             </div>
-            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" onClick={()=>{setCurrentModal("thankYou")}}>Continue</button></div>
+            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" onClick={()=>{setcartToggle("billing")}}>Continue</button></div>
       {currentModal=="thankYou" && (
           <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100]">
           <div className="bg-white px-[5vw] py-[5vh] rounded-lg shadow-lg min-h-fit w-[60vw] text-center">
