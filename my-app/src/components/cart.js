@@ -13,7 +13,23 @@ const Cart=()=>{
         updateCartItem,fetchCart,
         removeFromCart}=useContext(CartContext)
         const{userid}=useContext(AuthContext)
-        
+        const ordersData = [
+            {
+              image: "../Images/sampleImage2.png",
+              title: "Deluxe Chocolate Surprise Hamper",
+              category: "Gift & Hampers",
+              price: 39.99,
+              rating: "5.0",
+            },
+            {
+              image: "../Images/sampleImage2.png",
+              title: "Luxury Candy Box",
+              category: "Gift & Hampers",
+              price: 29.99,
+              rating: "4.8",
+            },
+          ];
+          
           useEffect(() => {
             console.log(userid)
             fetchCart(userid);
@@ -57,7 +73,13 @@ const Cart=()=>{
             </div>
             {/* right section */}
             <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">
-            <OrderSummary/>
+<OrderSummary 
+  orders={ordersData} 
+  totalPrice={69.98} 
+  discount={5} 
+  estimatedDelivery="01 Feb, 2023"
+/>
+
             </div>
         </div>
         </div>
