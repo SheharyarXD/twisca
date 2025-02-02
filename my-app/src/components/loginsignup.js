@@ -1,10 +1,12 @@
 import React, { useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../utils/AuthContext";
 
 const LoginPage = () => {
+      const navigate=useNavigate()
   const {
-    user, login, signup, logout, loading, error
+    user,userid, login, signup, logout, loading, error
   } = useContext(AuthContext);
   const [email,setEmail]=useState(null)
   const [password,setPassword]=useState(null)
@@ -106,7 +108,7 @@ const LoginPage = () => {
                 </div>
               </div>
 
-              <button onClick={()=>login(email,password)} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
+              <button onClick={async ()=>{const success=await login(email,password);success&&userid?navigate("/"):alert("Login Failed")}} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign In
               </button>
               <div className="flex justify-center h-fit pt-5 lg:pt-0 lg:h-[3.8vw] items-center cursor-pointer font-bold text-[#444444] text-xs lg:text-[0.95vw]">
