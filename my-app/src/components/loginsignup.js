@@ -2,6 +2,8 @@ import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../utils/AuthContext";
+import emailjs from "@emailjs/browser";
+
 
 const LoginPage = () => {
       const navigate=useNavigate()
@@ -12,6 +14,8 @@ const LoginPage = () => {
   const [password,setPassword]=useState(null)
   const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  let verificationCode; 
+let resetemail; 
 // Show the Reset Password modal
 const showResetPasswordForm=()=>{
   document.getElementById('resetPasswordModal').classList.remove('hidden');
@@ -20,9 +24,91 @@ const showResetPasswordForm=()=>{
 }
 
 // Hide the Reset Password modal
-const closeResetPasswordForm=()=>{
-  document.getElementById('resetPasswordModal').classList.add('hidden');
+const closeResetPasswordForm = () => {
+  const resetForm = document.getElementById("resetPasswordModal"); 
+  if (resetForm) {  
+      resetForm.classList.remove("show");
+  } else {
+      console.error("Reset Password Form not found");
+  }
+};
+
+
+emailjs.init("OfmlMCjmuKg7pjl35");
+ const sendVerificationCode=async(event) =>{
+    event.preventDefault(); 
+
+    const email = document.getElementById('resetEmail').value;
+    resetemail=email
+    const verificationCode1 = generateRandomSixDigitNumber();
+    verificationCode=verificationCode1;
+    const templateParams = {
+        email: email,
+        verificationCode: verificationCode1
+    };
+
+    // Send the email using EmailJS
+    emailjs.send("xdgaming", "template_n0ejzqc", templateParams)
+        .then(function(response) {
+            // Handle the response from EmailJS
+            // console.log('SUCCESS!', response.status, response.text);
+            alert('Password reset link sent to your email!');
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }, function(error) {
+            // Handle errors
+            console.error('FAILED...', error);
+            alert('Failed to send reset link. Please try again.');
+        });
 }
+
+const generateRandomSixDigitNumber=()=> {
+    return Math.floor(100000 + Math.random() * 900000);
+}
+
+// Step 2: Verify Code and Reset Password
+ const resetPassword=async (event)=> {
+    event.preventDefault();
+
+    const enteredCode = document.getElementById('verificationCode').value.trim();
+    const newPassword = document.getElementById('resetNewPassword').value.trim();
+    const confirmPassword = document.getElementById('confirmPasswordreset').value.trim();
+
+    if (enteredCode.toString() !== verificationCode.toString()) {
+        alert('Invalid verification code!');
+        return;
+    }
+ 
+
+    if (newPassword.toString() !== confirmPassword.toString()) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    try {
+        const email=resetemail
+        const response = await fetch('http://localhost:3000/api/auth/reset-password', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, newPassword }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Password reset successfully!');
+            closeResetPasswordForm();
+        } else {
+            alert(data.error || 'Failed to reset password');
+        }
+    } catch (error) {
+        console.error('Error resetting password:', error);
+        alert('An error occurred. Please try again.');
+    }
+}
+
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
@@ -39,6 +125,80 @@ const closeResetPasswordForm=()=>{
 
   return (
     <div className="main flex flex-row w-full justify-between font-sans">
+      <div id="resetPasswordModal" className="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-[500px]">
+        <h2 className="text-lg font-bold mb-4">Reset Password</h2>
+
+        <div id="step1">
+            <form id="emailForm" onSubmit={(event)=>{sendVerificationCode(event)}}>
+                <label htmlFor="email" className="block font-semibold mb-2">Email:</label>
+                <input
+                    type="email"
+                    id="resetEmail"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Enter your email"
+                    required
+                />
+                <div className="flex justify-end">
+                    <button 
+                        type="submit" 
+                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
+                    >
+                        Send Code
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        <div id="step2" className="hidden">
+            <form id="resetPasswordForm" onSubmit={(event)=>{resetPassword(event)}}>
+                <label htmlFor="verificationCode" className="block font-semibold mb-2">Verification Code:</label>
+                <input
+                    type="text"
+                    id="verificationCode"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Enter the code sent to your email"
+                    required
+                />
+
+                <label htmlFor="newPassword" className="block font-semibold mb-2">New Password:</label>
+                <input
+                    type="password"
+                    id="resetNewPassword"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Enter new password"
+                    required
+                />
+
+                <label htmlFor="confirmPasswordreset" className="block font-semibold mb-2">Confirm Password:</label>
+                <input
+                    type="password"
+                    id="confirmPasswordreset"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Confirm new password"
+                    required
+                />
+
+                <div className="flex justify-end gap-4">
+                    <button 
+                        type="button" 
+                        className="bg-gray-400 text-white px-4 py-2 rounded-lg"
+                        onClick={closeResetPasswordForm()}
+                    >
+                        Cancel
+                    </button>
+                    <button 
+                        type="submit" 
+                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
+                    >
+                        Reset Password
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
       <div className="form flex flex-col py-5 px-8 w-full lg:w-[50vw] max-h-screen h-auto overflow-hidden">
         <a className="w-fit" href="../">
           <div className="logo flex flex-row justify-start font-bold text-[#277D0D] items-center w-fit sm:px-14">
@@ -235,80 +395,7 @@ const closeResetPasswordForm=()=>{
 </div>
   )}
 
-<div id="resetPasswordModal" className="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-    <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-[500px]">
-        <h2 className="text-lg font-bold mb-4">Reset Password</h2>
 
-        <div id="step1">
-            <form id="emailForm" onSubmit="sendVerificationCode(event)">
-                <label htmlFor="email" className="block font-semibold mb-2">Email:</label>
-                <input
-                    type="email"
-                    id="resetEmail"
-                    className="w-full p-2 border rounded-lg mb-4"
-                    placeholder="Enter your email"
-                    required
-                />
-                <div className="flex justify-end">
-                    <button 
-                        type="submit" 
-                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
-                    >
-                        Send Code
-                    </button>
-                </div>
-            </form>
-        </div>
-
-
-        <div id="step2" className="hidden">
-            <form id="resetPasswordForm" onsubmit="resetPassword(event)">
-                <label htmlFor="verificationCode" className="block font-semibold mb-2">Verification Code:</label>
-                <input
-                    type="text"
-                    id="verificationCode"
-                    className="w-full p-2 border rounded-lg mb-4"
-                    placeholder="Enter the code sent to your email"
-                    required
-                />
-
-                <label htmlFor="newPassword" className="block font-semibold mb-2">New Password:</label>
-                <input
-                    type="password"
-                    id="resetNewPassword"
-                    className="w-full p-2 border rounded-lg mb-4"
-                    placeholder="Enter new password"
-                    required
-                />
-
-                <label htmlFor="confirmPasswordreset" className="block font-semibold mb-2">Confirm Password:</label>
-                <input
-                    type="password"
-                    id="confirmPasswordreset"
-                    className="w-full p-2 border rounded-lg mb-4"
-                    placeholder="Confirm new password"
-                    required
-                />
-
-                <div className="flex justify-end gap-4">
-                    <button 
-                        type="button" 
-                        className="bg-gray-400 text-white px-4 py-2 rounded-lg"
-                        onClick="closeResetPasswordForm()"
-                    >
-                        Cancel
-                    </button>
-                    <button 
-                        type="submit" 
-                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
-                    >
-                        Reset Password
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
     </div>
   );
 };
