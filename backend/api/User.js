@@ -15,7 +15,7 @@ router.post('/signup', async (req, res) => {
         
         // Insert user into the database
         const result = await pool.query(
-            'INSERT INTO users (email, password) VALUES ($1, $2)',
+            'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING userid, email',
             [email, hashedPassword]
         );
 
