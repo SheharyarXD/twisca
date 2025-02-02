@@ -12,7 +12,17 @@ const LoginPage = () => {
   const [password,setPassword]=useState(null)
   const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
+// Show the Reset Password modal
+const showResetPasswordForm=()=>{
+  document.getElementById('resetPasswordModal').classList.remove('hidden');
+  document.getElementById('step1').classList.remove('hidden');
+  document.getElementById('step2').classList.add('hidden');
+}
 
+// Hide the Reset Password modal
+const closeResetPasswordForm=()=>{
+  document.getElementById('resetPasswordModal').classList.add('hidden');
+}
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
@@ -102,7 +112,7 @@ const LoginPage = () => {
               <div className="flex flex-row justify-between items-center pb-[1vw] px-[0.25vw] text-[0.65rem] lg:text-[0.95vw]">
                 <div
                   className="forget text-[#8B024B] font-semibold justify-end items-end flex w-full text-right cursor-pointer"
-                  onClick={() => setShowLogin(false)}
+                  onClick={() => showResetPasswordForm()}
                 >
                   Forget Password
                 </div>
@@ -224,6 +234,81 @@ const LoginPage = () => {
     <img className="image w-full h-full max-h-screen object-cover min-h-screen" src="../Images/signup.png" alt=""/>
 </div>
   )}
+
+<div id="resetPasswordModal" className="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-[500px]">
+        <h2 className="text-lg font-bold mb-4">Reset Password</h2>
+
+        <div id="step1">
+            <form id="emailForm" onSubmit="sendVerificationCode(event)">
+                <label htmlFor="email" className="block font-semibold mb-2">Email:</label>
+                <input
+                    type="email"
+                    id="resetEmail"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Enter your email"
+                    required
+                />
+                <div className="flex justify-end">
+                    <button 
+                        type="submit" 
+                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
+                    >
+                        Send Code
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        <div id="step2" className="hidden">
+            <form id="resetPasswordForm" onsubmit="resetPassword(event)">
+                <label htmlFor="verificationCode" className="block font-semibold mb-2">Verification Code:</label>
+                <input
+                    type="text"
+                    id="verificationCode"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Enter the code sent to your email"
+                    required
+                />
+
+                <label htmlFor="newPassword" className="block font-semibold mb-2">New Password:</label>
+                <input
+                    type="password"
+                    id="resetNewPassword"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Enter new password"
+                    required
+                />
+
+                <label htmlFor="confirmPasswordreset" className="block font-semibold mb-2">Confirm Password:</label>
+                <input
+                    type="password"
+                    id="confirmPasswordreset"
+                    className="w-full p-2 border rounded-lg mb-4"
+                    placeholder="Confirm new password"
+                    required
+                />
+
+                <div className="flex justify-end gap-4">
+                    <button 
+                        type="button" 
+                        className="bg-gray-400 text-white px-4 py-2 rounded-lg"
+                        onClick="closeResetPasswordForm()"
+                    >
+                        Cancel
+                    </button>
+                    <button 
+                        type="submit" 
+                        className="bg-[#6BA42E] text-white px-4 py-2 rounded-lg"
+                    >
+                        Reset Password
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     </div>
   );
 };
