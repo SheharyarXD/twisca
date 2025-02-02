@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
     const [cartToggle, setcartToggle] = useState("cartP");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+       const [currentModal, setCurrentModal] = useState(null);
 
     // Check for existing user session on load
     useEffect(() => {
@@ -119,7 +120,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, userid,login, signup, logout, loading, error ,cartToggle, setcartToggle}}>
+        <AuthContext.Provider value={{ user, userid,login, signup, logout, loading, error ,cartToggle, setcartToggle,currentModal, setCurrentModal}}>
             {children}
         </AuthContext.Provider>
     );

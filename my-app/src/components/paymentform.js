@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PaymentRadiobtn from "./paymentSelect";
+import { AuthContext } from "../utils/AuthContext";
 
 const PaymentForm = ({ userId }) => {
+  const {currentModal, setCurrentModal}=useContext(AuthContext)
   const [cardholderName, setCardholderName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
@@ -47,7 +49,7 @@ const PaymentForm = ({ userId }) => {
     });
 
     if (response.ok) {
-      alert("Payment Successful");
+      setCurrentModal("thankYou")
     }
   };
 
