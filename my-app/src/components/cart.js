@@ -23,8 +23,9 @@ const Cart=()=>{
               let discount = 0;
         
               cart.forEach((item) => {
+                console.log(item)
                 total += item.price * item.quantity; // Total price considering quantity
-                discount += (item.discount || 0) * item.quantity; // Discount per quantity
+                discount += (item.oldprice-item.price || 0) * item.quantity; // Discount per quantity
               });
         
               setTotalPrice(total);
