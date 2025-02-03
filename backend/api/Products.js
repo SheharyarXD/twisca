@@ -162,29 +162,42 @@ router.get("/products/:id", async (req, res) => {
   });
 
   router.post('/get-products', async (req, res) => {
-    const { attribute, attributeValue, ageRange } = req.body;  // Access parameters from request body
-
+    const preferences = req.body;  // Array of attributes
+    
     try {
-        const query = `
-            SELECT DISTINCT *
-            FROM userPreferences up
-            JOIN products p ON p.productid = up.product_id
-            WHERE up.attribute = $1
-            AND up.attribute_value = $2
-            AND up.age_range = $3
+        let query = `
+        SELECT DISTINCT *
+        FROM userPreferences up
+        JOIN products p ON p.productid = up.product_id
+        WHERE
         `;
-        const result = await pool.query(query, [attribute, attributeValue, ageRange]);
-
+        
+        // Construct dynamic WHERE clause based on attributes passed
+        const conditions = [];
+        const values = [];
+        
+        preferences.forEach((pref, index) => {
+            conditions.push(`up.attribute = $${index * 2 + 1} AND up.attribute_value = $${index * 2 + 2}`);
+            values.push(pref.attribute, pref.attributeValue);
+        });
+        
+        query += conditions.join(' OR ');  // Join conditions with AND
+        
+        // Execute the query with the dynamically created values
+       
+        const result = await pool.query(query, values);
+        console.log(query)
+        console.log(values)
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'No products found matching the given preferences' });
         }
-        res.status(200).json(result.rows);
+
+        res.status(200).json(result.rows);  // Return the result rows as JSON
     } catch (error) {
         console.error('Error fetching products by preferences:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
 
 
 module.exports = router;

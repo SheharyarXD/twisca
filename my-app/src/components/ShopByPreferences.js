@@ -4,9 +4,10 @@ import SurprisedProducts from "./SurprisesProducts";
 const ShopByPreferences=()=>{
     const [ToggleOptions,setToggleOptions]=useState("")
     const [products, setProducts] = useState([]);
-    const [selectedColor, setSelectedColor] = useState('red');  // Example preference
-    const [selectedSize, setSelectedSize] = useState('S');      // Example preference
-    const [ageRange, setAgeRange] = useState('teen');   
+    const [selectedGender, setSelectedGender] = useState('male');
+    const [selectedAgeRange, setSelectedAgeRange] = useState('teen');
+    const [selectedRelationship, setSelectedRelationship] = useState('family');
+    
     const ageOptions = [
         { label: 'Teen', icon: '👶' }, 
         { label: 'Adult', icon: '🧑' },
@@ -21,11 +22,14 @@ const ShopByPreferences=()=>{
                 headers: {
                   'Content-Type': 'application/json',  
                 },
-                body: JSON.stringify({
-                  attribute: 'gender',       
-                  attributeValue: 'male',   
-                  ageRange: 'teen',          
-                }),
+                body: JSON.stringify([
+
+                    { attribute: 'gender', attributeValue: selectedGender },  
+                    { attribute: 'agerange', attributeValue: selectedAgeRange },
+                    { attribute: 'relationship', attributeValue: selectedRelationship }, 
+                ]
+       
+                ),
               });
               if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -41,7 +45,7 @@ const ShopByPreferences=()=>{
           };
         
           fetchProducts();
-    }, [selectedColor, selectedSize, ageRange]);
+    }, [selectedGender, selectedAgeRange, selectedRelationship]);
     return(
         <>
              <div className="font-bold text-[3rem] text-[#8B024B] leading-tight text-center pt-[7vh]">Shop by Your Preferences</div>
