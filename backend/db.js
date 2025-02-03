@@ -2,12 +2,12 @@ const { Pool } = require('pg');
 require('dotenv').config(); // If using dotenv to load your .env file
 
 const pool = new Pool({
-  user: 'postgres',           // Hardcoded database user
-  host: '127.0.0.1',  // Hardcoded Neon DB host
-  database: 'twisca',             // Hardcoded database name
-  password: 'postgres',                 // Hardcoded database password
+  user: 'neondb_owner',           // Hardcoded database user
+  host: 'ep-summer-night-a8van25f-pooler.eastus2.azure.neon.tech',  // Hardcoded Neon DB host
+  database: 'neondb',             // Hardcoded database name
+  password: 'npg_WsbUDxfc72iw',                 // Hardcoded database password
   port: 5432,                               // Port for PostgreSQL
-  // ssl: { rejectUnauthorized: true } 
+   ssl: { rejectUnauthorized: true } 
   
 });
 
