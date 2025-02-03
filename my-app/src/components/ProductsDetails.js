@@ -143,6 +143,12 @@ const ProductDetails = () => {
               <div>
                 <div className="font-semibold py-2">Size</div>
                 <ul className="flex flex-row">
+                {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
+    .filter((feature) => feature.feature_type === "sizes")
+    .flatMap((feature) => feature.feature_value.split(","))
+    .map((ingredient, index) => (
+      <li key={`ingredient-${index}`}>{ingredient.trim()}</li>
+    ))}
                   <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-1.5 mr-1 border-2 border-[#C1C1C1] rounded-md">
                     XS
                   </li>
