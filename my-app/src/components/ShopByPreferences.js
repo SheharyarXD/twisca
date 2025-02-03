@@ -1,8 +1,42 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import SurprisedProducts from "./SurprisesProducts";
 const ShopByPreferences=()=>{
     const [ToggleOptions,setToggleOptions]=useState("")
+    const [productIds, setProductIds] = useState([]);
+    const [selectedColor, setSelectedColor] = useState('red');  // Example preference
+    const [selectedSize, setSelectedSize] = useState('S');      // Example preference
+    const [ageRange, setAgeRange] = useState('teen');           // Example preference
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+              const response = await fetch('http://localhost:3000/api/products/get-products', {
+                method: 'POST',  
+                headers: {
+                  'Content-Type': 'application/json',  
+                },
+                body: JSON.stringify({
+                  attribute: 'gender',       
+                  attributeValue: 'male',   
+                  ageRange: 'teen',          
+                }),
+              });
+              console.log(response.json)
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+        
+              const data = await response.json();
+              console.log(data); 
+        
+            } catch (error) {
+              console.error('Error:', error);
+            }
+          };
+        
+          fetchProducts();
+    }, [selectedColor, selectedSize, ageRange]);
     return(
         <>
              <div className="font-bold text-[3rem] text-[#8B024B] leading-tight text-center pt-[7vh]">Shop by Your Preferences</div>

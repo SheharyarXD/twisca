@@ -161,6 +161,32 @@ router.get("/products/:id", async (req, res) => {
     }
   });
 
+  router.post('/get-products', async (req, res) => {
+    const { attribute, attributeValue, ageRange } = req.body;  // Access parameters from request body
+
+    try {
+        const query = `
+            SELECT DISTINCT *
+            FROM userPreferences up
+            JOIN products p ON p.productid = up.product_id
+            WHERE up.attribute = $1
+            AND up.attribute_value = $2
+            AND up.age_range = $3
+        `;
+        const result = await pool.query(query, [attribute, attributeValue, ageRange]);
+
+        console.log(result.rows)
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'No products found matching the given preferences' });
+        }
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.error('Error fetching products by preferences:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
 
 module.exports = router;
 
