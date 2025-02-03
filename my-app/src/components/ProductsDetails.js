@@ -121,9 +121,13 @@ const ProductDetails = () => {
               <div>
                 <div className="font-semibold py-2">Ingrendients:</div>
                 <ul className="list-disc pl-9">
-                  <li>Nutritious Cookies</li>
-                  <li>Rich Chocolate Treats</li>
-                  <li>Vibrant petals to brighten any occasion</li>
+
+  {additionalDetails.features
+    .filter((feature) => feature.feature_type === "ingredients")
+    .flatMap((feature) => feature.feature_value.split(","))
+    .map((ingredient, index) => (
+      <li key={`ingredient-${index}`}>{ingredient.trim()}</li>
+    ))}
                 </ul>
               </div>
               <div>
@@ -290,41 +294,13 @@ const ProductDetails = () => {
                     <div className="font-semibold text-lg py-1 pb-3">
                       Description
                     </div>
-                    <p className="font-semibold  text-gray-600">
-                      Make your gifts extra special with our luxurious gift box,
-                      designed to add elegance and charm to any present. Whether
-                      you're celebrating a birthday, anniversary, wedding, or
-                      festive occasion, this premium gift box enhances the
-                      beauty of your thoughtful gesture. Crafted with
-                      high-quality materials, the box is sturdy, durable, and
-                      stylish. Its sleek design and smooth finish make it
-                      perfect for packaging items like chocolates, jewelry,
-                      perfumes, accessories, or heartfelt letters. The secure
-                      magnetic closure ensures that your gift remains safe and
-                      beautifully presented. <br />
-                      Elegant & Stylish – Adds a luxurious touch to any
-                      gift.High-Quality Material – Durable, sturdy, and premium
-                      finish.Versatile Usage – Ideal for chocolates, jewelry,
-                      perfumes, and more.Secure Closure – Magnetic or ribbon
-                      closure for a perfect presentation.Multiple Sizes & Colors
-                      – Choose the perfect match for your occasion.Eco-Friendly
-                      – Made from sustainable and reusable
-                      materials.Personalization Options – Add ribbons, tags, or
-                      handwritten notes.Perfect for All Events – Birthdays,
-                      anniversaries, weddings, and celebrations. <br />
-                      Our gift box is available in various sizes and colors,
-                      allowing you to choose the perfect match for your
-                      occasion. The eco-friendly materials make it a sustainable
-                      choice, ensuring that your gift is both elegant and
-                      environmentally responsible. Personalize it with ribbons,
-                      name tags, or handwritten notes to create a truly unique
-                      experience. Whether it's for a loved one, a colleague, or
-                      a friend, this gift box adds a touch of sophistication to
-                      your heartfelt presents. <br />
-                      Make your gifting experience memorable and stylish with
-                      our premium gift box – because every special gift deserves
-                      the perfect packaging!
+                    {additionalDetails.features
+    .filter((feature) => feature.feature_type === "description")
+    .map((feature) => (
+                    <p  key={`${feature.feature_type}-${feature.feature_value}`} className="font-semibold  text-gray-600">                    
+                      {feature.feature_value}               
                     </p>
+    ))}
                   </div>
                   <div className="w-[15vw]">
                     <div className="font-semibold py-1 text-lg">Feature</div>
