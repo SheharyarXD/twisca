@@ -13,6 +13,7 @@ import Cart from "./components/cart";
 import { ReviewsContext, ReviewsProvider } from "./utils/ReviewContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./utils/CartContext";
+import Shipment from "./components/Shippment";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/orders" element={<OrdersPage />} />
+                <Route path="/Shipment" element={<Shipment />} />
                 <Route path="/products" element={<ProductPage />} />
                 <Route
                   path="/shopbypreferences"
