@@ -6,14 +6,15 @@ const ProductPage = () => {
   const {  products,selectedProduct,fetchProductById,fetchProducts }=useContext(ProductContext);
   const [productsAvail,setProductsAvail]=useState(false)
   const [categories, setCategories] = useState([]);
-  const [categoriesSet, setCategoriesSet] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [categoriesSet, setCategoriesSet] = useState([]);
 
-  const filteredProducts = products.filter(product => 
-    // product.productname.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    product.categoryid===categories.categoryid
-  );
+  const filteredProducts = products.filter((product) => {
+    const matchesSearchQuery = product.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = categoriesSet.length === 0 || categoriesSet.some((category) => category.categoryid === product.categoryid);
+    
+    return matchesSearchQuery && matchesCategory;
+  });
 
   useEffect(() => {
     // Fetch categories from the backend API
