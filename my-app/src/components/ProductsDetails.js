@@ -95,7 +95,7 @@ const ProductDetails = () => {
           <div className="flex flex-row items-center overflow-hidden justify-between px-[5vw]">
             {/* text section */}
             <div className="w-[50vw] pr-[5vw]">
-              <p>Product Listing - Top Category - Gifts & Hampers</p>
+              {/* <p>Product Listing - Top Category - Gifts & Hampers</p> */}
               <div className="text-white bg-red-600 w-fit px-4 py-1 mt-[2vh]  text-xs rounded-[0.3vw]">
                 SALE!
               </div>
@@ -133,11 +133,14 @@ const ProductDetails = () => {
               <div>
                 <div className="font-semibold py-2">Color</div>
                 <div className="flex flex-row justify-start items-center space-x-3">
-                  <div className="rounded-full h-8 w-8 bg-red-600 border-2 border-gray-300 hover:border-red-800"></div>
-                  <div className="rounded-full h-8 w-8 bg-pink-600 border-2 border-gray-300 hover:border-pink-800"></div>
-                  <div className="rounded-full h-8 w-8 bg-red-600 border-2 border-gray-300 hover:border-red-800"></div>
-                  <div className="rounded-full h-8 w-8 bg-red-600 border-2 border-gray-300 hover:border-red-800"></div>
-                  <div className="rounded-full h-8 w-8 bg-red-600 border-2 border-gray-300 hover:border-red-800"></div>
+                {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
+    .filter((feature) => feature.feature_type === "color")
+    .flatMap((feature) => feature.feature_value.split(","))
+    .map((color, index) => (
+
+        <div key={`color-${index}`} style={{ backgroundColor: color }}
+        className="rounded-full h-8 w-8  border-2 border-gray-300 hover:border-black"></div>
+    ))}
                 </div>
               </div>
               <div>
