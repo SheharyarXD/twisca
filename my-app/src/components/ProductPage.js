@@ -6,11 +6,13 @@ const ProductPage = () => {
   const {  products,selectedProduct,fetchProductById,fetchProducts }=useContext(ProductContext);
   const [productsAvail,setProductsAvail]=useState(false)
   const [categories, setCategories] = useState([]);
+  const [categoriesSet, setCategoriesSet] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredProducts = products.filter(product => 
-    product.productname.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    product.description.toLowerCase().includes(searchQuery.toLowerCase())
+    // product.productname.toLowerCase().includes(searchQuery.toLowerCase()) || 
+     product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.categoryid===categories.categoryid
   );
 
   useEffect(() => {
@@ -33,6 +35,16 @@ const ProductPage = () => {
       fetchProducts()
       console.log(products)
       }, []);
+
+      const handleCategoryClick = (category) => {
+        if (!categoriesSet.find((item) => item.categoryid === category.categoryid)) {
+          setCategoriesSet((prevSet) => [...prevSet, category]);
+        }
+      };
+    
+      const handleFilterRemove = (categoryId) => {
+        setCategoriesSet((prevSet) => prevSet.filter((item) => item.categoryid !== categoryId));
+      };
   return (
     <>
       <Header></Header>
@@ -46,7 +58,7 @@ const ProductPage = () => {
               <ul className="text-left pl-[4vw] py-[2vh]">
               {categories.length > 0 ? (
         categories.map((category, index) => (
-          <li key={index} className="py-[1vh]">{category.categoryname}</li> // Assuming each category has a 'name' field
+          <li key={index} className="py-[1vh]" onClick={() => handleCategoryClick(category)} >{category.categoryname}</li> // Assuming each category has a 'name' field
         ))
       ) : (
         <li className="py-[1vh]">No categories available</li>
@@ -100,18 +112,22 @@ const ProductPage = () => {
           <div className="flex flex-row pt-[1.5vh] justify-between">
             {/* Filtewrs  */}
             <div className="flex flex-row justify-between">
-              <span className="flex items-center border border-[#8B024B] py-0.5 mr-3 px-2.5 rounded-[3px] text-[#8B024B] justify-between">
-                <p className="text-sm">Filter1</p>
-                <i className="pl-2.5 fa-solid fa-close"></i>
-              </span>
-              <span className="flex items-center border border-[#8B024B] py-0.5 px-2.5 mr-3 rounded-[3px] text-[#8B024B] justify-between">
-                <p className="text-sm">Filter2</p>
-                <i className="pl-2.5 fa-solid fa-close"></i>
-              </span>
-              <span className="flex items-center border border-[#8B024B] py-0.5 px-2.5 mr-3 rounded-[3px] text-[#8B024B] justify-between">
-                <p className="text-sm">Filter3</p>
-                <i className="pl-2.5 fa-solid fa-close"></i>
-              </span>
+            {categoriesSet.length > 0 && (
+        <div className="flex flex-row justify-between">
+          {categoriesSet.map((category) => (
+            <span
+              key={category.categoryid}
+              className="flex items-center border border-[#8B024B] py-0.5 mr-3 px-2.5 rounded-[3px] text-[#8B024B] justify-between"
+            >
+              <p className="text-sm">{category.categoryname}</p>
+              <i
+                className="pl-2.5 fa-solid fa-close cursor-pointer"
+                onClick={() => handleFilterRemove(category.categoryid)} // Remove filter on click
+              />
+            </span>
+          ))}
+        </div>
+      )}
             </div>
             {/* Sort By */}
             <div className="flex items-center ">
