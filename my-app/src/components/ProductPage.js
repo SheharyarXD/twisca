@@ -9,6 +9,7 @@ const ProductPage = () => {
   const [categories, setCategories] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoriesSet, setCategoriesSet] = useState([]);
+  const [sortOption, setSortOption] = useState('');
 
   const handlePriceRangeClick = (priceRange) => {
     
@@ -21,6 +22,9 @@ const ProductPage = () => {
     });
   };
 
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
 
   const isProductInPriceRange = (price) => {
     if (selectedPriceRanges.length === 0) return true; 
@@ -36,7 +40,19 @@ const ProductPage = () => {
     const matchesPriceRange = isProductInPriceRange(product.price);
 
     return matchesSearchQuery && matchesCategory && matchesPriceRange;
-  });
+  }).sort((a, b) => {
+    switch (sortOption) {
+      case 'price_asc':
+        return a.price - b.price; // Low to High
+      case 'price_desc':
+        return b.price - a.price; // High to Low
+      case 'rating':
+        return b.rating - a.rating; // Highest rating first
+      case 'newest':
+        return new Date(b.createdat) - new Date(a.createdat); // Newest first
+      default:
+        return 0; 
+    }});
 
   useEffect(() => {
     // Fetch categories from the backend API
@@ -152,14 +168,14 @@ const ProductPage = () => {
               <select
                 id="sort"
                 className=" rounded-lg  text-sm text-[#8B024B] font-semibold"
-              >
+                onChange={handleSortChange}>
                 <option value="" selected>
                   Sort By
                 </option>
                 <option value="price_asc">Low to High</option>
                 <option value="price_desc">High to Low</option>
-                <option value="rating">Rating</option>
-                <option value="newest">Newest</option>
+                {/* <option value="rating">Rating</option> */}
+                {/* <option value="newest">Newest</option> */}
               </select>
             </div>
           </div>
