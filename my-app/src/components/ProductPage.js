@@ -180,7 +180,7 @@ const ProductPage = () => {
             </div>
           </div>
           {/* <p className="text-sm font-semibold pt-[2vh]">Showing 1-09 of 24 item(s)</p> */}
-          <div className="flex flex-wrap flex-row justify-between mt-[1vh] max-h-[48vh] overflow-y-scroll">
+          <div className="flex flex-wrap flex-row justify-between mt-[1vh] max-h-[58vh] overflow-y-scroll">
           {productsAvail && Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
           <ProductPageProducts
