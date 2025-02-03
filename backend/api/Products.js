@@ -186,8 +186,6 @@ router.get("/products/:id", async (req, res) => {
         // Execute the query with the dynamically created values
        
         const result = await pool.query(query, values);
-        console.log(query)
-        console.log(values)
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'No products found matching the given preferences' });
         }
