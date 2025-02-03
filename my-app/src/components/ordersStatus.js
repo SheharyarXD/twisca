@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import  { useContext } from "react";
 import { AuthContext } from "../utils/AuthContext";
+import Header from "./header";
+import FooterPage from "./footer";
 
 
 
@@ -33,12 +35,14 @@ const OrdersPage = () => {
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <>
+        <Header/>
+      <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Your Orders</h2>
       {Array.isArray(orders)&& orders.length === 0 ? (
-        <p>No orders found.</p>
-      ) : (
-        <ul className="space-y-4">
+          <p>No orders found.</p>
+        ) : (
+            <ul className="space-y-4">
           {Array.isArray(orders)&& orders.map((order) => (
             <li key={order.order_id} className="p-4 border rounded-lg shadow-sm">
               <h3 className="font-semibold text-lg">Order #{order.order_id}</h3>
@@ -51,6 +55,8 @@ const OrdersPage = () => {
         </ul>
       )}
     </div>
+    <FooterPage/>
+      </>
   );
 };
 
