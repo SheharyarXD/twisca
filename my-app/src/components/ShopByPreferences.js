@@ -17,7 +17,7 @@ const ShopByPreferences=()=>{
         
               const fetchProducts = async () => {
                   try {
-                    const response = await fetch('http://localhost:3000/api/products/get-products', {
+                    const response = await fetch('https://twisca-gpel.vercel.app/api/products/get-products', {
                       method: 'POST',  
                       headers: {
                         'Content-Type': 'application/json',  

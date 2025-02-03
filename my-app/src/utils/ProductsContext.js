@@ -6,7 +6,7 @@ export const ProductContext = createContext();
 // ProductProvider component to wrap the app with product context
 export const ProductProvider = ({ children }) => {
     
-    const basicUrl = 'http://localhost:3000'; // Replace with your backend API URL
+    const basicUrl = 'https://twisca-gpel.vercel.app'; // Replace with your backend API URL
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

@@ -17,7 +17,7 @@ const OrdersPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/orders/${userid}`);
+        const response = await fetch(`https://twisca-gpel.vercel.app/api/orders/${userid}`);
         if (!response.ok) throw new Error("Failed to fetch orders");
 
         const data = await response.json();

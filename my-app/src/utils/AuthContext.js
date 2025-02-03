@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 // AuthProvider component to wrap the app with authentication context
 export const AuthProvider = ({ children }) => {
-    const basicUrl = 'http://localhost:3000'; // Make sure to use http if SSL isn't set up
+    const basicUrl = 'https://twisca-gpel.vercel.app'; // Make sure to use http if SSL isn't set up
     const [user, setUser] = useState(0);
     const [userid, setUserid] = useState(null);
     const [cartToggle, setcartToggle] = useState("cartP");

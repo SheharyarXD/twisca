@@ -25,7 +25,7 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
     
     const dataToSend = { ...formData, user_id: userId };
 
-    const response = await fetch("http://localhost:3000/api/billing", {
+    const response = await fetch("https://twisca-gpel.vercel.app/api/billing", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSend),

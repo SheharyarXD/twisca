@@ -46,7 +46,7 @@ const PaymentForm = ({ userId }) => {
       cvc: cvc,
     };
 
-    const response = await fetch("http://localhost:3000/api/billing/payment", {
+    const response = await fetch("https://twisca-gpel.vercel.app/api/billing/payment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(paymentDetails),
@@ -64,7 +64,7 @@ const PaymentForm = ({ userId }) => {
       cart,
     };
   
-    const response = await fetch("http://localhost:3000/api/orders", {
+    const response = await fetch("https://twisca-gpel.vercel.app/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData),

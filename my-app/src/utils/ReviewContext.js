@@ -5,7 +5,7 @@ export const ReviewsContext = createContext();
 
 // Context provider component
 export const ReviewsProvider = ({ children }) => {
-    const basicUrl = 'http://localhost:3000';
+    const basicUrl = 'https://twisca-gpel.vercel.app';
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 

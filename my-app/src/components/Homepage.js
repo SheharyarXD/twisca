@@ -25,7 +25,7 @@ const HomePage=()=>{
       
       const getProductsByCategory = async (categoryId) => {
         try {
-          const response = await fetch(`http://localhost:3000/api/products/category/${categoryId}`);
+          const response = await fetch(`https://twisca-gpel.vercel.app/api/products/category/${categoryId}`);
           if (!response.ok) {
             throw new Error('Failed to fetch products');
           }

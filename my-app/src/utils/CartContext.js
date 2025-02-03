@@ -7,7 +7,7 @@ export const CartContext = createContext();
 
 // CartProvider component to provide context values to child components
 export const CartProvider = ({ children }) => {
-    const basicUrl = 'http://localhost:3000'; 
+    const basicUrl = 'https://twisca-gpel.vercel.app'; 
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
     const { selectedProduct, 

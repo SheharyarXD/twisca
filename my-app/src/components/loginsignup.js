@@ -82,7 +82,7 @@ const generateRandomSixDigitNumber=()=> {
 
     try {
         const email=resetemail
-        const response = await fetch('http://localhost:3000/api/auth/reset-password', {
+        const response = await fetch('https://twisca-gpel.vercel.app/api/auth/reset-password', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

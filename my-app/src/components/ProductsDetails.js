@@ -30,7 +30,7 @@ const ProductDetails = () => {
       
       const getProductsByCategory = async (categoryId) => {
         try {
-          const response = await fetch(`http://localhost:3000/api/products/category/${categoryId}`);
+          const response = await fetch(`https://twisca-gpel.vercel.app/api/products/category/${categoryId}`);
           if (!response.ok) {
             throw new Error('Failed to fetch products');
           }
@@ -44,7 +44,7 @@ const ProductDetails = () => {
       useEffect(() => {
         const fetchProduct = async () => {
           try {
-            const response = await fetch(`http://localhost:3000/api/products/products/${productDetailId}`);
+            const response = await fetch(`https://twisca-gpel.vercel.app/api/products/products/${productDetailId}`);
     
             if (!response.ok) {
               throw new Error('Product not found or server error');
