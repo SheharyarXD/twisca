@@ -13,8 +13,9 @@ import { CartContext } from "../utils/CartContext";
 const ProductDetails = () => {
   const { selectedProduct, fetchProductById, productDetailId } =
     useContext(ProductContext);
+    const[additionalDetails,setadditionalDetails]=useState([]);
       const { addToCart}=useContext(CartContext);
-      const [sampleProducts,setsampleProducts]=useState([])
+      const [sampleProducts,setsampleProducts]=useState([]);
     const {userid}=useContext(AuthContext)
     const { reviews,
       loading,
@@ -40,6 +41,26 @@ const ProductDetails = () => {
           return []; // Return an empty array in case of error
         }
       };
+      useEffect(() => {
+        const fetchProduct = async () => {
+          try {
+            const response = await fetch(`http://localhost:3000/api/products/products/${productDetailId}`);
+    
+            if (!response.ok) {
+              throw new Error('Product not found or server error');
+            }
+    
+            // Parse the JSON response
+            const data = await response.json();
+            setadditionalDetails(data);
+            console.log(data)
+          } catch (err) {
+
+            console.error(err);
+          }
+        };
+        fetchProduct();
+      }, [productDetailId]);
       useEffect(() => {
       
         fetchSupriseProducts(5);
@@ -308,8 +329,19 @@ const ProductDetails = () => {
                   <div className="w-[15vw]">
                     <div className="font-semibold py-1 text-lg">Feature</div>
                     <div className="font-semibold text-gray-700">
-                      Luxury Packaging Curated Selection Express Delivery Secure
-                      Payments Personalized Note
+                    <ul>
+                    <ul>
+  {additionalDetails.features
+    .filter((feature) => feature.feature_type === "feature")
+    .map((feature) => (
+      <li key={`${feature.feature_type}-${feature.feature_value}`}>
+ {feature.feature_value}
+      </li>
+    ))}
+</ul>
+
+</ul>
+
                     </div>
                   </div>
                 </div>

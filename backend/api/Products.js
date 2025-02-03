@@ -112,5 +112,55 @@ router.get('/category/:categoryId', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+router.get("/products/:id", async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const query = `
+        SELECT *
+        FROM products p
+        LEFT JOIN product_features pf ON p.productid = pf.product_id
+        WHERE p.productid = $1
+        ORDER BY pf.feature_type;
+      `;
+      
+      const result = await pool.query(query, [id]);
+      const product = result.rows;
+      console.log(result)
+  
+      if (product.length === 0) {
+        return res.status(404).send("Product not found");
+      }
+  
+      const structuredData = product.reduce((acc, item) => {
+        if (!acc) {
+          acc = {
+            product_id: item.product_id,
+            product_name: item.product_name,
+            price: item.price,
+            features: [],
+          };
+        }
+  
+        if (item.feature_type && item.feature_value) {
+          acc.features.push({
+            feature_type: item.feature_type,
+            feature_value: item.feature_value,
+          });
+        }
+  
+        return acc;
+      }, null);
+  
+      res.json(structuredData);
+  
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    }
+  });
+
+
 module.exports = router;
 
