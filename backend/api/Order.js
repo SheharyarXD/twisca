@@ -33,19 +33,19 @@ const bcrypt = require('bcrypt');
   
 
   router.get("/:user_id", async (req, res) => {
-    const { userId } = req.params;
+      const { user_id } = req.params;
+      console.log(req.params)
   
     try {
       const result = await pool.query(
-        `SELECT o.order_id, o.created_at, o.shippment_status, 
-                b.billing_address, p.payment_method 
+        `SELECT *
          FROM orders o
-         JOIN billing_info b ON o.billing_info_id = b.billing_info_id
-         JOIN payment_info p ON o.payment_info_id = p.payment_info_id
+         JOIN billing_info b ON o.billing_info_id = b.id
+         JOIN paymentinfo p ON o.payment_info_id = p.payment_id
          WHERE o.user_id = $1`,
-        [userId]
+        [user_id]
       );
-  
+      console.log(result.rows)
       res.status(200).json(result.rows);
     } catch (error) {
       console.error(error);

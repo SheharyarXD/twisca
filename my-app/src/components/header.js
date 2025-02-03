@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
     const navigate=useNavigate()
-    const {user,logout}=useContext(AuthContext)
+    const {user,userid,logout}=useContext(AuthContext)
     const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ const Header = () => {
             <ul className="flex flex-row justify-between text-[#222222] ">
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/")}>Home</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/products")}>Products</a></li>
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>Occasions</a></li>
+                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/orders")}>Orders</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>About Us</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>Contact</a></li>
             </ul>

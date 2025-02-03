@@ -8,6 +8,7 @@ import CartList from "./components/cartList";
 import ShopByPreferences from "./components/ShopByPreferences";
 import { AuthContext, AuthProvider } from "./utils/AuthContext";
 import { ProductProvider } from "./utils/ProductsContext";
+import OrdersPage from "./components/ordersStatus";
 import Cart from "./components/cart";
 import { ReviewsContext, ReviewsProvider } from "./utils/ReviewContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -22,6 +23,7 @@ function App() {
             <Router>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/orders" element={<OrdersPage />} />
                 <Route path="/products" element={<ProductPage />} />
                 <Route
                   path="/shopbypreferences"
