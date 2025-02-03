@@ -6,7 +6,7 @@ const Shipment=()=>{
     return(
         <>
         <Header></Header>
-        <OrderProgressTracker status="Packaging" />
+          <OrderProgressTracker status="Packaging" />
         <OrderSummary 
  key="e"
   totalPrice={3}
