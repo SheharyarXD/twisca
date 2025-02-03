@@ -3,10 +3,12 @@ import  { useContext } from "react";
 import { AuthContext } from "../utils/AuthContext";
 import Header from "./header";
 import FooterPage from "./footer";
+import { useNavigate } from "react-router-dom";
 
 
 
 const OrdersPage = () => {
+    const navigate=useNavigate()
     const {user,userid,logout}=useContext(AuthContext)
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,7 +46,7 @@ const OrdersPage = () => {
         ) : (
             <ul className="space-y-4">
           {Array.isArray(orders)&& orders.map((order) => (
-            <li key={order.order_id} className="p-4 border rounded-lg shadow-sm">
+            <li key={order.order_id} onClick={()=>navigate("/Shipment")} className="p-4 border rounded-lg shadow-sm">
               <h3 className="font-semibold text-lg">Order #{order.order_id}</h3>
               {/* <p><strong>Shipment Status:</strong> {order.shipment_status}</p> */}
               <p><strong>Name:</strong> {order.first_name}</p>
