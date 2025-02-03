@@ -46,9 +46,11 @@ const OrdersPage = () => {
         ) : (
             <ul className="space-y-4">
           {Array.isArray(orders)&& orders.map((order) => (
-            <li key={order.order_id} onClick={()=>navigate("/Shipment")} className="p-4 border rounded-lg shadow-sm">
+            <li key={order.order_id} 
+            // onClick={()=>navigate("/Shipment")}
+             className="p-4 border rounded-lg shadow-sm">
               <h3 className="font-semibold text-lg">Order #{order.order_id}</h3>
-              {/* <p><strong>Shipment Status:</strong> {order.shipment_status}</p> */}
+              <p><strong>Shipment Status:</strong> {order.shippment_status}</p> 
               <p><strong>Name:</strong> {order.first_name}</p>
               <p><strong>Phone:</strong> {order.phone}</p>
               <p><strong>Cart Products:</strong> {order.address}</p>
