@@ -6,6 +6,12 @@ const ProductPage = () => {
   const {  products,selectedProduct,fetchProductById,fetchProducts }=useContext(ProductContext);
   const [productsAvail,setProductsAvail]=useState(false)
   const [categories, setCategories] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredProducts = products.filter(product => 
+    product.productname.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    product.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     // Fetch categories from the backend API
@@ -86,6 +92,8 @@ const ProductPage = () => {
               type="text"
               placeholder="Search An Item"
               className="w-full rounded-3xl px-3 py-2 border-[#5F5F5F] border"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)} 
             />
           </div>
 
@@ -123,19 +131,20 @@ const ProductPage = () => {
           </div>
           {/* <p className="text-sm font-semibold pt-[2vh]">Showing 1-09 of 24 item(s)</p> */}
           <div className="flex flex-wrap flex-row justify-between mt-[1vh] max-h-[48vh] overflow-y-scroll">
-          {productsAvail&& Array.isArray(products) && products.length > 0 ? (products.map((product) => (
-    <ProductPageProducts
-    key={product.productid}
-    productid={product.productid}
-    productName = {product.productname}
-    currentPrice = {product.price}
-    originalPrice = {product.oldprice}
-    description = {product.description}
-      />
-))): (
-  <p>Loading products...</p>
-)}
-          </div>
+          {productsAvail && Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
+        filteredProducts.map((product) => (
+          <ProductPageProducts
+            key={product.productid}
+            productid={product.productid}
+            productName={product.productname}
+            currentPrice={product.price}
+            originalPrice={product.oldprice}
+            description={product.description}
+          />
+        ))
+      ) : (
+        <p>No products found.</p>
+      )}    </div>
           {/* <div className="flex flex-col justify-center items-center text-center w-[22vw] mx-auto py-[2vh]">
           <p className="text-xs text-[#414141] font-semibold py-[2vh]">Showing 1-09 of 24 item(s)</p>
           <p className="flex border border-gray-600 h-0.5 w-full mb-[2vh] bg-gray-600"></p>
