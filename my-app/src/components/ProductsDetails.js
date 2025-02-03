@@ -238,13 +238,21 @@ const ProductDetails = () => {
           <div className="min-h-screen ">
             <div className="flex flex-row items-center justify-center">
               <button
-                onClick={() => setDescription(true)}
-                className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]"
+                onClick={() => setDescription(true)} 
+                style={{
+                  borderBottom: descriptionToggle ? "4px solid #8B024B" : "none", 
+                  paddingBottom: "5px" 
+                }}
+                className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 "
               >
                 Description
               </button>
               <button
                 onClick={handleReview}
+                style={{
+                  borderBottom: descriptionToggle ? "none": "4px solid #8B024B" , 
+                  paddingBottom: "5px" 
+                }}
                 className="text-[#949494] text-lg px-6 mt-[10vh] py-4 border-b-4 border-[#8B024B]"
               >
                 Review
