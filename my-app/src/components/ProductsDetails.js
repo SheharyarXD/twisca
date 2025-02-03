@@ -147,23 +147,10 @@ const ProductDetails = () => {
     .filter((feature) => feature.feature_type === "sizes")
     .flatMap((feature) => feature.feature_value.split(","))
     .map((ingredient, index) => (
-      <li key={`ingredient-${index}`}>{ingredient.trim()}</li>
+      <li key={`ingredient-${index}`} className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 w-12 min-w-fit text-center mr-1 border-2 border-[#C1C1C1] rounded-md">
+                    {ingredient.trim()}
+                  </li>
     ))}
-                  <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-1.5 mr-1 border-2 border-[#C1C1C1] rounded-md">
-                    XS
-                  </li>
-                  <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-3.5 mx-1 border-2 border-[#C1C1C1] rounded-md">
-                    S
-                  </li>
-                  <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-2.5 mx-1 border-2 border-[#C1C1C1] rounded-md">
-                    M
-                  </li>
-                  <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-3.5 mx-1 border-2 border-[#C1C1C1] rounded-md">
-                    L
-                  </li>
-                  <li className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 px-2 mx-1   border-2 border-[#C1C1C1] rounded-md">
-                    XL
-                  </li>
                 </ul>
               </div>
             </div>
