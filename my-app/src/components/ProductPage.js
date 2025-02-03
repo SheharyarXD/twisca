@@ -5,6 +5,23 @@ import { ProductContext } from "../utils/ProductsContext";
 const ProductPage = () => {
   const {  products,selectedProduct,fetchProductById,fetchProducts }=useContext(ProductContext);
   const [productsAvail,setProductsAvail]=useState(false)
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // Fetch categories from the backend API
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/categories'); 
+        const data = await response.json();
+        setCategories(data); 
+        console.log(data)
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
     useEffect(() => {
       setProductsAvail(true)
       fetchProducts()
@@ -21,13 +38,13 @@ const ProductPage = () => {
             </div>
             <div>
               <ul className="text-left pl-[4vw] py-[2vh]">
-                <li className="py-[1vh]">Personalized Gifts</li>
-                <li className="py-[1vh]">Custom Gifts</li>
-                <li className="py-[1vh]">Luxury Gifts</li>
-                <li className="py-[1vh]">Gifts for Him</li>
-                <li className="py-[1vh]">Gifts for Her</li>
-                <li className="py-[1vh]">Accessories</li>
-                <li className="py-[1vh]">Gifts & Hampers</li>
+              {categories.length > 0 ? (
+        categories.map((category, index) => (
+          <li key={index} className="py-[1vh]">{category.categoryname}</li> // Assuming each category has a 'name' field
+        ))
+      ) : (
+        <li className="py-[1vh]">No categories available</li>
+      )}
               </ul>
             </div>
           </div>
