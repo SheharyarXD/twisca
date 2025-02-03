@@ -175,7 +175,6 @@ router.get("/products/:id", async (req, res) => {
         `;
         const result = await pool.query(query, [attribute, attributeValue, ageRange]);
 
-        console.log(result.rows)
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'No products found matching the given preferences' });
         }

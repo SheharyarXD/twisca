@@ -3,7 +3,7 @@ import { useState,useEffect } from "react";
 import SurprisedProducts from "./SurprisesProducts";
 const ShopByPreferences=()=>{
     const [ToggleOptions,setToggleOptions]=useState("")
-    const [productIds, setProductIds] = useState([]);
+    const [products, setProducts] = useState([]);
     const [selectedColor, setSelectedColor] = useState('red');  // Example preference
     const [selectedSize, setSelectedSize] = useState('S');      // Example preference
     const [ageRange, setAgeRange] = useState('teen');           // Example preference
@@ -22,12 +22,12 @@ const ShopByPreferences=()=>{
                   ageRange: 'teen',          
                 }),
               });
-              console.log(response.json)
               if (!response.ok) {
                 throw new Error('Network response was not ok');
               }
         
               const data = await response.json();
+              setProducts(data);
               console.log(data); 
         
             } catch (error) {
