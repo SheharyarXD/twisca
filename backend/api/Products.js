@@ -97,5 +97,20 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+router.get('/category/:categoryId', async (req, res) => {
+    const { categoryId } = req.params;
+
+    try {
+        const result = await pool.query('SELECT * FROM Products WHERE categoryid = $1', [categoryId]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'No products found in this category' });
+        }
+
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.error('Error fetching products by category:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 module.exports = router;
 

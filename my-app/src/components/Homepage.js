@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect ,useState} from "react";
 import Header from './header';
 import LovedPorducts from "./LovedProducts";
 import SurprisedProducts from "./SurprisesProducts";
@@ -12,6 +13,7 @@ import { Navigation,Autoplay  } from 'swiper/modules';
 
 
 const HomePage=()=>{
+  const [Lovedproduct,setLovedProducts]=useState([])
       const navigate=useNavigate()
     const divStyle = {
         backgroundColor: '#D52260',
@@ -19,6 +21,33 @@ const HomePage=()=>{
         backgroundRepeat:"no-repeat",
         backgroundSize:'cover'
       };
+      
+      useEffect(() => {
+        const getProductsByCategory = async (categoryId) => {
+          try {
+            const response = await fetch(`http://localhost:3000/api/products/category/${categoryId}`);
+            if (!response.ok) {
+              throw new Error('Failed to fetch products');
+            }
+            const products = await response.json();
+            return products; // Return the list of products
+          } catch (error) {
+            console.error('Error fetching products:', error);
+            return []; // Return an empty array in case of error
+          }
+        };
+        const fetchProducts = async () => {
+          try {
+            const product = await getProductsByCategory(4); 
+            setLovedProducts(product); 
+            console.log(product);
+          } catch (error) {
+            console.error("Error fetching products:", error);
+          }
+        };
+      
+        fetchProducts(); 
+      }, []);
 return(
     <>
     {/* Main Section */}
@@ -53,15 +82,16 @@ return(
   slidesPerView="auto" // Allow slides to take up only their required space
   spaceBetween={25}
 >
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]">
+  {Array.isArray(Lovedproduct) && Lovedproduct.length > 0 ? (
+  Lovedproduct.map((product) => (
+    <LovedPorducts key={product.productid} product={product} />
+  ))
+) : (
+  <p>No products found</p> // Optional: to handle when the array is empty or not an array
+)}
+  </SwiperSlide>
+
   <button className="custom-prev text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white left-[4vw] top-[18vh] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-left py-4 px-4"></i></button>
   <button className="custom-next text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white right-[4vw]  top-[18vh] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-right py-4 px-4"></i></button>
 </Swiper>
