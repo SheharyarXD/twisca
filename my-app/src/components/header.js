@@ -1,9 +1,13 @@
 import React, { useContext ,useState} from "react";
+import { CartContext } from "../utils/CartContext";
 import { AuthContext } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
     const navigate=useNavigate()
+       const {cart,
+            updateCartItem,fetchCart,
+            removeFromCart}=useContext(CartContext)
     const {user,userid,logout}=useContext(AuthContext)
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,7 +31,7 @@ const Header = () => {
         </nav>
         </div>
         <div className="flex flex-row items-center w-[20vw] min-w-fit">
-            <div className="font-bold cursor-pointer"  onClick={() => navigate("/cart")}><i className="fa-solid fa-cart-shopping px-1.5 "></i>Cart <span className="rounded-full text-[#8B024B]">0</span></div>
+            <div className="font-bold cursor-pointer"  onClick={() => navigate("/cart")}><i className="fa-solid fa-cart-shopping px-1.5 "></i>Cart <span className="rounded-full text-[#8B024B]">{Array.isArray(cart)&& cart.length>0?cart.length:0}</span></div>
             <div>
                 {user?( 
                <div id="authContainer" className="relative pl-[5vw]">
