@@ -4,16 +4,38 @@ import ProductPageProducts from "./ProductPageProducts";
 import { ProductContext } from "../utils/ProductsContext";
 const ProductPage = () => {
   const {  products,selectedProduct,fetchProductById,fetchProducts }=useContext(ProductContext);
+  const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
   const [productsAvail,setProductsAvail]=useState(false)
   const [categories, setCategories] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoriesSet, setCategoriesSet] = useState([]);
 
+  const handlePriceRangeClick = (priceRange) => {
+    
+    setSelectedPriceRanges((prevRanges) => {
+      if (prevRanges.includes(priceRange)) {
+        return prevRanges.filter((range) => range !== priceRange);
+      } else {
+        return [...prevRanges, priceRange];
+      }
+    });
+  };
+
+
+  const isProductInPriceRange = (price) => {
+    if (selectedPriceRanges.length === 0) return true; 
+    return selectedPriceRanges.some((range) => {
+      const [minPrice, maxPrice] = range.split('-').map((p) => parseFloat(p.trim().substring(1)));
+      return price >= minPrice && price <= maxPrice;
+    });
+  };
+  
   const filteredProducts = products.filter((product) => {
     const matchesSearchQuery = product.description.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = categoriesSet.length === 0 || categoriesSet.some((category) => category.categoryid === product.categoryid);
-    
-    return matchesSearchQuery && matchesCategory;
+    const matchesPriceRange = isProductInPriceRange(product.price);
+
+    return matchesSearchQuery && matchesCategory && matchesPriceRange;
   });
 
   useEffect(() => {
@@ -72,24 +94,19 @@ const ProductPage = () => {
               PRICE RANGE
             </div>
             <div>
-              <ul className="text-left pl-[3vw] py-[2vh]">
-                <li className="py-[1vh]">
-                  <input type="checkbox" />{" "}
-                  <span className="pl-[1vw]"> $20.00 - $ 50.00</span>
-                </li>
-                <li className="py-[1vh]">
-                  <input type="checkbox" />{" "}
-                  <span className="pl-[1vw]"> $20.00 - $ 50.00</span>
-                </li>
-                <li className="py-[1vh]">
-                  <input type="checkbox" />{" "}
-                  <span className="pl-[1vw]"> $20.00 - $ 50.00</span>
-                </li>
-                <li className="py-[1vh]">
-                  <input type="checkbox" />{" "}
-                  <span className="pl-[1vw]"> $20.00 - $ 50.00</span>
-                </li>
-              </ul>
+              {/* Price Range Filters */}
+      <ul className="text-left pl-[3vw] py-[2vh]">
+        {['$0.00 - $50.00', '$51.00 - $100.00', '$101.00 - $200.00', '$200.00 - $1000.00'].map((range, index) => (
+          <li key={index} className="py-[1vh]">
+            <input
+              type="checkbox"
+              checked={selectedPriceRanges.includes(range)}
+              onChange={() => handlePriceRangeClick(range)} // Toggle price range on click
+            />
+            <span className="pl-[1vw]">{range}</span>
+          </li>
+        ))}
+      </ul>
             </div>
           </div>
           <div></div>
