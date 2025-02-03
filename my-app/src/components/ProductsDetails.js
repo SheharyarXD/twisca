@@ -122,7 +122,7 @@ const ProductDetails = () => {
                 <div className="font-semibold py-2">Ingrendients:</div>
                 <ul className="list-disc pl-9">
 
-  {additionalDetails.features
+  {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
     .filter((feature) => feature.feature_type === "ingredients")
     .flatMap((feature) => feature.feature_value.split(","))
     .map((ingredient, index) => (
@@ -294,7 +294,7 @@ const ProductDetails = () => {
                     <div className="font-semibold text-lg py-1 pb-3">
                       Description
                     </div>
-                    {additionalDetails.features
+                    {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
     .filter((feature) => feature.feature_type === "description")
     .map((feature) => (
                     <p  key={`${feature.feature_type}-${feature.feature_value}`} className="font-semibold  text-gray-600">                    
@@ -307,7 +307,7 @@ const ProductDetails = () => {
                     <div className="font-semibold text-gray-700">
                     <ul>
                     <ul>
-  {additionalDetails.features
+  {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
     .filter((feature) => feature.feature_type === "feature")
     .map((feature) => (
       <li key={`${feature.feature_type}-${feature.feature_value}`}>
