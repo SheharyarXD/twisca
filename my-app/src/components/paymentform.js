@@ -1,14 +1,18 @@
 import React, { useContext, useState } from "react";
 import PaymentRadiobtn from "./paymentSelect";
 import { AuthContext } from "../utils/AuthContext";
+import { CartContext } from "../utils/CartContext";
 
 const PaymentForm = ({ userId }) => {
-  const {currentModal, setCurrentModal}=useContext(AuthContext)
+  const {cart,
+      updateCartItem,fetchCart,
+      removeFromCart}=useContext(CartContext)
+  const {currentModal, setCurrentModal,billingId, setbillingId,paymentId, setpaymentId}=useContext(AuthContext)
   const [cardholderName, setCardholderName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvc, setCvc] = useState("");
-
+  
   const handleCardholderNameChange = (e) => {
     setCardholderName(e.target.value);
   };
@@ -47,8 +51,32 @@ const PaymentForm = ({ userId }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(paymentDetails),
     });
+    const data = await response.json();
 
     if (response.ok) {
+      setpaymentId(data.payment_id)
+      console.log(cart)
+    
+    const orderData = {
+      user_id: userId, 
+      billing_info_id: billingId, 
+      payment_info_id: paymentId, 
+      cart,
+    };
+  
+    const response = await fetch("http://localhost:3000/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+    });
+  
+    if (response.ok) {
+      const data = await response.json();
+      alert("Order created successfully!");
+      console.log(data);
+    } else {
+      alert("Failed to create order");
+    }
       setCurrentModal("thankYou")
     }
   };

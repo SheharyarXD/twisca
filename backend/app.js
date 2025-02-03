@@ -11,7 +11,7 @@ const products = require('./api/Products');
 const reviews = require('./api/Review'); 
 const cart=require('./api/Cart')
 const billing_info=require('./api/Billing')
-
+const order=require('./api/Order')
 
 
 const app = express();
@@ -35,6 +35,7 @@ app.use('/api/products', products);
 app.use('/api/reviews', reviews);
 app.use('/api/billing',billing_info)
 app.use('/api/cart',cart)
+app.use('/api/orders',order)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/', (req, res) => {
   pool.connect((err, client, release) => {

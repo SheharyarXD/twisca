@@ -11,6 +11,8 @@ export const AuthProvider = ({ children }) => {
     const [cartToggle, setcartToggle] = useState("cartP");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [billingId, setbillingId] = useState(null);
+    const [paymentId, setpaymentId] = useState(null);
        const [currentModal, setCurrentModal] = useState(null);
 
     // Check for existing user session on load
@@ -120,7 +122,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, userid,login, signup, logout, loading, error ,cartToggle, setcartToggle,currentModal, setCurrentModal}}>
+        <AuthContext.Provider value={{ user, userid,login, signup, logout, loading, error ,cartToggle, setcartToggle,currentModal, setCurrentModal,billingId, setbillingId,paymentId, setpaymentId}}>
             {children}
         </AuthContext.Provider>
     );

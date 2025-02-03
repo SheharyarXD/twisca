@@ -12,7 +12,10 @@ router.post("/", async (req, res) => {
         "INSERT INTO billing_info (userid, email, first_name, last_name, address, city, state, zip_code, phone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
         [user_id, email, first_name, last_name, address, city, state, zip_code, phone]
       );
-      res.status(201).json(result.rows[0]);
+      res.status(201).json({
+        message: "Billing info created successfully!",
+        billing_info_id: result.rows[0].id,
+      });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

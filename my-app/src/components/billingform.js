@@ -2,7 +2,7 @@ import React, { useState,useContext } from "react";
 import { AuthContext } from "../utils/AuthContext";
 
 const BillingForm = ({ userId }) => { // Pass userId as a prop
-     const {userid,cartToggle, setcartToggle}=useContext(AuthContext);
+     const {userid,cartToggle, setcartToggle,billingId, setbillingId,paymentId, setpaymentId}=useContext(AuthContext);
   const [formData, setFormData] = useState({
     email: "",
     first_name: "",
@@ -30,8 +30,10 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSend),
     });
+    const data = await response.json();
 
     if (response.ok) {
+      setbillingId(data.billing_info_id)
       alert("Billing information saved successfully!");
       setFormData({
         email: "",
