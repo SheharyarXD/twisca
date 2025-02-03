@@ -8,10 +8,12 @@ import CommentsTemplate from "./comment";
 import { ProductContext } from "../utils/ProductsContext";
 import { ReviewsContext } from "../utils/ReviewContext";
 import { AuthContext } from "../utils/AuthContext";
+import { CartContext } from "../utils/CartContext";
 
 const ProductDetails = () => {
   const { selectedProduct, fetchProductById, productDetailId } =
     useContext(ProductContext);
+      const { addToCart}=useContext(CartContext);
       const [sampleProducts,setsampleProducts]=useState([])
     const {userid}=useContext(AuthContext)
     const { reviews,
@@ -193,7 +195,7 @@ const ProductDetails = () => {
               />
               <div className="flex flex-col">
                 <div className="font-bold text-sm">
-                  Love in a Box: Deluxe Chocolate Surprise Hamper{" "}
+                {selectedProduct.productname}
                 </div>
                 <div className="font-bold text-xs text-[#8B024B]">
                   Gifts & Hampers
@@ -226,7 +228,8 @@ const ProductDetails = () => {
                   +
                 </button>
               </div>
-              <button className="bg-[#8B024B] text-white px-[5.5vw] text-[0.8rem] py-2 rounded-[0.5vw] ">
+              <button onClick={(event)=>
+                {event.stopPropagation(); addToCart(userid,selectedProduct.productid,quantity)}} className="bg-[#8B024B] text-white px-[5.5vw] text-[0.8rem] py-2 rounded-[0.5vw] ">
                 Add to Cart
               </button>
               <button className="border-[#8B024B] border text-white ml-[0.5vw] px-[0.8vw] py-[0.9vw] rounded-full ">
