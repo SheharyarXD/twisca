@@ -68,7 +68,7 @@ const CartList=( {
               </button>
             </div>
           </div>
-          <div className="w-[6vw] flex text-[#949494]">$ <p>{(originalPrice*quantity)}</p></div>
+          <div className="w-[6vw] flex text-[#949494]">$ <p>{(originalPrice*quantity).toFixed(2)}</p></div>
         </div>);
 }
 export default CartList;
