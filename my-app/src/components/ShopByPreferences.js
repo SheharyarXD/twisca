@@ -6,7 +6,12 @@ const ShopByPreferences=()=>{
     const [products, setProducts] = useState([]);
     const [selectedColor, setSelectedColor] = useState('red');  // Example preference
     const [selectedSize, setSelectedSize] = useState('S');      // Example preference
-    const [ageRange, setAgeRange] = useState('teen');           // Example preference
+    const [ageRange, setAgeRange] = useState('teen');   
+    const ageOptions = [
+        { label: 'Teen', icon: '👶' }, 
+        { label: 'Adult', icon: '🧑' },
+        { label: 'Senior', icon: '👴' },
+      ];        
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -64,8 +69,16 @@ const ShopByPreferences=()=>{
                         <i onClick={()=>setToggleOptions("")} className="fa-solid absolute text-[#8B024B] text-[2.5rem] top-[10vh] left-[5vw] fa-arrow-left  pl-[1vw]"></i>
                         <div className="font-semibold text-[#8B024B] pt-[5vh] text-[2rem]">What's Your Age?</div>
                         <div className="space-x-4">
-                            <button onClick={()=>setToggleOptions("Relation")}  className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD]">Male 👔</button>
-                            <button onClick={()=>setToggleOptions("Relation")} className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD]">Female 👗</button>
+
+                            {ageOptions.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => setToggleOptions("Relation")}
+                className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2"
+              >
+                {option.label} {option.icon}
+              </button>
+            ))}
                         </div>
                     </div>
             )}
