@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { useState } from "react";
 import Header from "./header";
 import FooterPage from "./footer";
@@ -12,6 +12,7 @@ import { AuthContext } from "../utils/AuthContext";
 const ProductDetails = () => {
   const { selectedProduct, fetchProductById, productDetailId } =
     useContext(ProductContext);
+      const [sampleProducts,setsampleProducts]=useState([])
     const {userid}=useContext(AuthContext)
     const { reviews,
       loading,
@@ -23,7 +24,33 @@ const ProductDetails = () => {
   const [reviewtext,setcommentText]=useState(null);
   const [rating,setcommentRating]=useState(null);
   const [descriptionToggle, setDescription] = useState(true);
+      
+      const getProductsByCategory = async (categoryId) => {
+        try {
+          const response = await fetch(`http://localhost:3000/api/products/category/${categoryId}`);
+          if (!response.ok) {
+            throw new Error('Failed to fetch products');
+          }
+          const products = await response.json();
+          return products; // Return the list of products
+        } catch (error) {
+          console.error('Error fetching products:', error);
+          return []; // Return an empty array in case of error
+        }
+      };
+      useEffect(() => {
+      
+        fetchSupriseProducts(5);
+      }, []);
+      const fetchSupriseProducts = async (num) => {
+        try {
+          const product = await getProductsByCategory(num); 
+          setsampleProducts(product); 
 
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      };
   const handleIncrement = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -338,9 +365,13 @@ const ProductDetails = () => {
               You May Also Like:
             </div>
             <div className="flex flex-wrap flex-row justify-between py-8">
-              <SurprisedProducts />
-              <SurprisedProducts />
-              <SurprisedProducts />
+            {sampleProducts.length > 0 ? (
+        sampleProducts.map((product) => (
+          <SurprisedProducts key={product.productId} Surpriseproduct={product} />
+        ))
+      ) : (
+        <div>No products available</div>
+      )}
             </div>
           </div>
           <FooterPage></FooterPage>

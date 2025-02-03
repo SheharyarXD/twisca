@@ -8,7 +8,7 @@ const SurprisedProducts = ({ Surpriseproduct }) => {
       <div className="h-fit overflow-hidden w-full object-cover relative ">
         {/* Dynamically set image */}
         <img
-          src={ "../Images/sampleImage2.png"}
+          src={Surpriseproduct.imageUrl || "../Images/sampleImage2.png"}
           className="object-cover w-full h-auto"
           alt={Surpriseproduct.productname || "Product Image"}
         />
