@@ -47,6 +47,7 @@ const HomePage=()=>{
         };
         
         fetchProducts(); 
+        fetchSupriseProducts(5);
       }, []);
       const fetchSupriseProducts = async (num) => {
         try {
@@ -141,7 +142,7 @@ return(
         <div className="flex flex-row justify-between mx-[13vw] py-[5vh]">
         {sampleProducts.length > 0 ? (
         sampleProducts.map((product) => (
-          <SurprisedProducts key={product.productId} product={product} />
+          <SurprisedProducts key={product.productId} Surpriseproduct={product} />
         ))
       ) : (
         <div>No products available</div>
