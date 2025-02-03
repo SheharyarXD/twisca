@@ -14,6 +14,7 @@ import { Navigation,Autoplay  } from 'swiper/modules';
 
 const HomePage=()=>{
   const [Lovedproduct,setLovedProducts]=useState([])
+  const [sampleProducts,setsampleProducts]=useState([])
       const navigate=useNavigate()
     const divStyle = {
         backgroundColor: '#D52260',
@@ -22,52 +23,60 @@ const HomePage=()=>{
         backgroundSize:'cover'
       };
       
-      useEffect(() => {
-        const getProductsByCategory = async (categoryId) => {
-          try {
-            const response = await fetch(`http://localhost:3000/api/products/category/${categoryId}`);
-            if (!response.ok) {
-              throw new Error('Failed to fetch products');
-            }
-            const products = await response.json();
-            return products; // Return the list of products
-          } catch (error) {
-            console.error('Error fetching products:', error);
-            return []; // Return an empty array in case of error
+      const getProductsByCategory = async (categoryId) => {
+        try {
+          const response = await fetch(`http://localhost:3000/api/products/category/${categoryId}`);
+          if (!response.ok) {
+            throw new Error('Failed to fetch products');
           }
-        };
+          const products = await response.json();
+          return products; // Return the list of products
+        } catch (error) {
+          console.error('Error fetching products:', error);
+          return []; // Return an empty array in case of error
+        }
+      };
+      useEffect(() => {
         const fetchProducts = async () => {
           try {
             const product = await getProductsByCategory(4); 
             setLovedProducts(product); 
-            console.log(product);
           } catch (error) {
             console.error("Error fetching products:", error);
           }
         };
-      
+        
         fetchProducts(); 
       }, []);
-      const sampleProducts = [
-        {
-          productId: 1,
-          productName: "Classic Accessories",
-          description: "Elegant essentials he’ll love to carry every day",
-          imageUrl: "../Images/sampleImage2.png",
-        },
-        {
-          productId: 2,
-          productName: "Stylish Wallet",
-          description: "A sleek wallet to fit all your essentials.",
-          imageUrl: "../Images/sampleImage2.png",
-        },
-        {
-          productId: 3,
-          productName: "Trendy Sunglasses",
-          description: "Perfect for sunny days and casual outings.",
-          imageUrl: "../Images/sampleImage2.png",
-        },
-      ];
+      const fetchSupriseProducts = async (num) => {
+        try {
+          const product = await getProductsByCategory(num); 
+          setsampleProducts(product); 
+
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      };
+      // const sampleProducts = [
+      //   {
+      //     productId: 1,
+      //     productName: "Classic Accessories",
+      //     description: "Elegant essentials he’ll love to carry every day",
+      //     imageUrl: "../Images/sampleImage2.png",
+      //   },
+      //   {
+      //     productId: 2,
+      //     productName: "Stylish Wallet",
+      //     description: "A sleek wallet to fit all your essentials.",
+      //     imageUrl: "../Images/sampleImage2.png",
+      //   },
+      //   {
+      //     productId: 3,
+      //     productName: "Trendy Sunglasses",
+      //     description: "Perfect for sunny days and casual outings.",
+      //     imageUrl: "../Images/sampleImage2.png",
+      //   },
+      // ];
       
 return(
     <>
@@ -125,8 +134,8 @@ return(
         <img className="absolute w-auto h-[20vh] top-[8vh] right-[10vw]" src="./Images/love.png" alt="" />
         <div className="font-bold text-[3rem] leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
         <div class="flex flex-row items-center justify-center h-[3.7vw] w-[20vw] mx-auto mt-[6vh] text-[#8B024B]">
-              <button id="beforeButton" class="text-[1.3vw] border-2 border-[#8B024B] hover:bg-[#8B024B] rounded-l-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default">👔 For Him</button>
-<button id="afterButton" class="text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default">👗 For Her</button>
+              <button id="beforeButton" class="text-[1.3vw] border-2 border-[#8B024B] hover:bg-[#8B024B] rounded-l-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(5)}}>👔 For Him</button>
+<button id="afterButton" class="text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(6)}}>👗 For Her</button>
 
             </div>
         <div className="flex flex-row justify-between mx-[13vw] py-[5vh]">
