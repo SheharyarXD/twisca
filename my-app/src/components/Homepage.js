@@ -48,6 +48,27 @@ const HomePage=()=>{
       
         fetchProducts(); 
       }, []);
+      const sampleProducts = [
+        {
+          productId: 1,
+          productName: "Classic Accessories",
+          description: "Elegant essentials he’ll love to carry every day",
+          imageUrl: "../Images/sampleImage2.png",
+        },
+        {
+          productId: 2,
+          productName: "Stylish Wallet",
+          description: "A sleek wallet to fit all your essentials.",
+          imageUrl: "../Images/sampleImage2.png",
+        },
+        {
+          productId: 3,
+          productName: "Trendy Sunglasses",
+          description: "Perfect for sunny days and casual outings.",
+          imageUrl: "../Images/sampleImage2.png",
+        },
+      ];
+      
 return(
     <>
     {/* Main Section */}
@@ -109,9 +130,14 @@ return(
 
             </div>
         <div className="flex flex-row justify-between mx-[13vw] py-[5vh]">
-        <SurprisedProducts/>
-        <SurprisedProducts/>
-        <SurprisedProducts/>
+        {sampleProducts.length > 0 ? (
+        sampleProducts.map((product) => (
+          <SurprisedProducts key={product.productId} product={product} />
+        ))
+      ) : (
+        <div>No products available</div>
+      )}
+
         </div>
     </div>
     {/* Motivation Line */}
