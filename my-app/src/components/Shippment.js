@@ -7,12 +7,15 @@ const Shipment=()=>{
         <>
         <Header></Header>
           <OrderProgressTracker status="Packaging" />
+          <div className="w-[50vw] mx-auto">
+
         <OrderSummary 
  key="e"
-  totalPrice={3}
-  discount={4343} 
-  estimatedDelivery="54"
+ totalPrice={3}
+ discount={4343} 
+ estimatedDelivery="54"
 />
+ </div>
         </>
     );
 }
