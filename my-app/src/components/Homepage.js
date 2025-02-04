@@ -96,7 +96,7 @@ return(
     <section>
           <div className="h-screen text-center pt-[10vh] overflow-hidden">
         <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Our Most-Loved Picks,Just for <br />You!</div>
-        <p className="text-gray-600 text-xs sm:text-base pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
+        <p className="text-gray-600 text-[0.9rem] sm:text-base pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
        
 
@@ -152,16 +152,16 @@ return(
     </div>
     {/* Motivation Line */}
     <section>
-      <div className="h-screen text-center pt-[35vh] relative overflow-hidden font-bold leading-tight text-[#CFCFCF] text-[3.5rem] ">
+      <div className="h-screen text-center pt-[35vh] relative overflow-hidden font-bold leading-tight text-[#CFCFCF]  text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] ">
         <span className="text-[#8B024B] "> Find 🎁</span>, <span className="text-[#8B024B] "> customize</span> ✍️, and  <span className="text-[#8B024B] "> send</span> 💌 the <br /> perfect gift—all in one delightful <br /> place.</div>
     </section>
     </section>
     {/* promotion Cards */}
     <section>
           <div className="h-screen text-center pt-[10vh]  relative">
-          <img className="absolute top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
-          <img className="absolute w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
-        <div className="font-bold text-[3rem] leading-tight">Your Love, Your Words, Your Way!</div>
+          <img className="absolute hidden md:flex top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
+          <img className="absolute hidden md:flex w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
+        <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Your Love, Your Words, Your Way!</div>
         <p className="text-gray-600 pt-[4vh] text-[0.9rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
         <Swiper
        
@@ -196,8 +196,8 @@ return(
         {/*Selection to Delivery */}
         <section>
           <div className="h-screen text-center pt-[10vh]  relative">
-        <div className="font-bold text-[3rem] leading-tight">From Selection to Delivery, We <br />Handle It All</div>
-        <p className="text-gray-600 pt-[4vh] text-[0.9rem] w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
+        <div className="font-bold  text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">From Selection to Delivery, We <br />Handle It All</div>
+        <p className="text-gray-600 pt-[4vh] text-[0.9rem] w-[80vw] md:w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
 
         <div className="flex flex-row justify-between px-[1vw] relative">
           <img className="absolute w-[14vw] top-[18vh] left-[42vw] h-auto" src="./Images/Arc1.png" alt="" />
@@ -206,34 +206,34 @@ return(
 
        <div className="flex flex-col justify-center items-center w-[20vw]">
         <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
-          <img className="h-[7vh]" src="./Images/explore1.png" alt="" />
+          <img className="sm:h-[7vh]" src="./Images/explore1.png" alt="" />
         </div>
-        <div className="text-[1.3rem] font-bold text-[#8B024B] py-[2vh]">Explore & Choose</div>
-        <div className="text-[#9C9C9C] text-[0.9rem]">Browse a wide range of unique <br /> gifts and select the perfect one <br /> for any occasion.</div>
+        <div className="text-[0.9rem] sm:text-[1.3rem] font-bold text-[#8B024B] py-[2vh]">Explore & Choose</div>
+        <div className="text-[#9C9C9C] text-[0.6rem] sm:text-[0.9rem]">Browse a wide range of unique <br /> gifts and select the perfect one <br /> for any occasion.</div>
        </div>
 
        <div className="flex flex-col justify-center items-center w-[20vw] pt-[14vh]">
         <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
-          <img className="h-[7vh]" src="./Images/approved-order1.png" alt="" />
+          <img className="sm:h-[7vh]" src="./Images/approved-order1.png" alt="" />
         </div>
-        <div className="text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Customize & Personalize</div>
-        <div className="text-[#9C9C9C] text-[0.9rem]">Make your gift extra special with <br /> custom messages or <br /> personalization options.</div>
+        <div className="text-[0.9rem] sm:text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Customize & Personalize</div>
+        <div className="text-[#9C9C9C] text-[0.6rem] sm:text-[0.9rem]">Make your gift extra special with <br /> custom messages or <br /> personalization options.</div>
        </div>
 
        <div className="flex flex-col justify-center items-center w-[20vw]  pt-[2vh]">
         <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
-          <img className="h-[7vh]" src="./Images/checkout1.png" alt="" />
+          <img className="sm:h-[7vh]" src="./Images/checkout1.png" alt="" />
         </div>
-        <div className="text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Place Your Order</div>
-        <div className="text-[#9C9C9C] text-[0.9rem]">Enjoy a seamless checkout <br /> experience with secure payment <br /> options.</div>
+        <div className="text-[0.9rem] sm:text-[1.3rem]text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Place Your Order</div>
+        <div className="text-[#9C9C9C] text-[0.6rem] sm:text-[0.9rem]">Enjoy a seamless checkout <br /> experience with secure payment <br /> options.</div>
        </div>
 
        <div className="flex flex-col justify-center items-center w-[20vw] pt-[12vh]">
         <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
-          <img className="h-[7vh]" src="./Images/real-time-tracking1.png" alt="" />
+          <img className="sm:h-[7vh]" src="./Images/real-time-tracking1.png" alt="" />
         </div>
-        <div className="text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Track & Deliver</div>
-        <div className="text-[#9C9C9C] text-[0.9rem]">Relax while we carefully pack and <br /> deliver your gift right to their <br /> door.</div>
+        <div className="text-[0.9rem] sm:text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Track & Deliver</div>
+        <div className="text-[#9C9C9C] text-[0.6rem] sm:text-[0.9rem]">Relax while we carefully pack and <br /> deliver your gift right to their <br /> door.</div>
        </div>
 
         </div>
