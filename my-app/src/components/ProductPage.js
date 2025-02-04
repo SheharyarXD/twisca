@@ -128,7 +128,7 @@ const ProductPage = () => {
           <div></div>
         </div>
 
-        <div id="products" className=" h-[10vh] w-[63.5vw]">
+        <div id="products" className=" h-[10vh] w-full md:w-[63.5vw]">
           <div className="font-bold text-[2rem] mb-[4vh]">
             Our Collection of Products
           </div>
