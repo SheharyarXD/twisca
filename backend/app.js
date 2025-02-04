@@ -19,9 +19,9 @@ const port = process.env.PORT || 3000;
 
 
 const corsOptions = {
-  origin: 'https://twisca.vercel.app', // Allow your client to make requests
-  methods: 'GET,POST,PUT,DELETE', // Allow specific methods
-  credentials: true, // Allow credentials (cookies, etc.)
+  origin: ['https://twisca.vercel.app', 'https://localhost:3000'], // Add multiple origins
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
