@@ -73,9 +73,9 @@ const Cart=()=>{
         <>
         <div className="min-h-screen">
         <Header/>
-        <div className="flex flex-row items-baseline">
+        <div className="flex flex-col space-y-3 md:space-y-0 md:flex-row items-baseline">
             {/* left section */}
-            <div className="w-[60vw] px-[5vw] ">
+            <div className="w-full md:w-[60vw] px-[5vw] ">
             {cartToggle=="cartP"&&(
              <div className="rounded-xl border-gray-300 border mt-[5vh] h-[70vh] ">
             
@@ -112,7 +112,7 @@ const Cart=()=>{
         )}
             </div>
             {/* right section */}
-            <div className="w-[40vw] pr-[9vw] flex h-[70vh] ">
+            <div className="w-full md:w-[40vw] pl-[9vw] md:pl-0 pr-[9vw] flex h-[70vh] ">
 <OrderSummary 
  key="e"
   totalPrice={totalPrice}

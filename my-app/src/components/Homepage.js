@@ -139,7 +139,7 @@ return(
 <button id="afterButton" class=" text-xs sm:text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(6)}}>👗 For Her</button>
 
             </div>
-        <div className="flex flex-row justify-between mx-[13vw] py-[5vh]">
+        <div className="flex flex-row flex-wrap justify-between mx-[13vw] py-[5vh]">
         {sampleProducts.length > 0 ? (
         sampleProducts.map((product) => (
           <SurprisedProducts key={product.productId} Surpriseproduct={product} />
