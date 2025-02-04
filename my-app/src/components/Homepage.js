@@ -85,8 +85,8 @@ return(
     <div className="h-screen overflow-hidden">
     <Header/>
     <div className="w-full h-[88vh] text-center items-center flex flex-col " style={divStyle}>
-        <div className="font-bold text-[3.5rem] pt-[30vh] text-white">Perfectly Wrapped, For Every Story<br /> You Want to Tell</div>
-        <div className="flex flex-row items-center justify-between space-x-2">
+        <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] pt-[30vh] text-white">Perfectly Wrapped, For Every Story<br /> You Want to Tell</div>
+        <div className="flex flex-col sm:flex-row items-center justify-between space-x-2">
         <button className="bg-white text-[#8B024B] flex font-bold px-[3vw] py-2 rounded-[0.8vw] mt-[3vh] w-fit text-[1.2rem]" onClick={()=>navigate('/shopbypreferences')}>Let AI Pick <img src="../Images/AI.png" className="pl-[0.5vw] flex" alt="" /></button>
         <button className="bg-[#8B024B] text-white px-[3vw] py-2 rounded-[0.8vw] mt-[3vh] text-[1.2rem]" onClick={()=>navigate('/products')}>Order Your Perfect Gift<i className="fa-solid fa-arrow-right pl-[1vw]"></i></button>
         </div>
@@ -95,8 +95,8 @@ return(
     {/* Loved Porducts Section */}
     <section>
           <div className="h-screen text-center pt-[10vh] overflow-hidden">
-        <div className="font-bold text-[3rem] leading-tight">Our Most-Loved Picks,Just for <br />You!</div>
-        <p className="text-gray-600 pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
+        <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Our Most-Loved Picks,Just for <br />You!</div>
+        <p className="text-gray-600 text-xs sm:text-base pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
        
 
