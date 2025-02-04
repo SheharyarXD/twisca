@@ -241,17 +241,17 @@ return(
     </section>
     {/* Let us help */}
     <section className="h-screen bg-gray-100 pt-[10vh] flex justify-between flex-col">
-      <div className="flex flex-col text-center w-[80%] mx-auto py-[6vh] bg-white">
-        <div className="font-bold text-[2.2rem]">Let Us Help You Make Every Gift Special!</div>
-        <div className="text-center font-semibold py-[1vh]">
+      <div className="flex flex-col text-center w-[95%] sm:w-[80%] mx-auto py-[6vh] bg-white">
+        <div className="font-bold  text-[1.4rem] sm:text-[1.6rem] md:text-[2rem] lg:text-[2.2rem]">Let Us Help You Make Every Gift Special!</div>
+        <div className="text-center text-xs sm:text-base font-semibold py-[1vh]">
         <p>Personalize <span className="text-[#8B024B]"> your gifts with ease!</span> From thoughtful cards to meaningful presents, we’ve got <br /> everything you need to make your loved ones smile.</p>
         </div>
         <div>
-          <div className="pt-[1vh]">
+          <div className="pt-[1vh] space-y-2 md:space-y-0">
             <button className="mr-2 py-2.5 px-6 bg-[#8B024B] text-white rounded-[1vw] shadow-sm shadow-black">Start Customizing Now</button>
             <button className="py-2.5 font-semibold px-6 bg-gray-200 rounded-[1vw]">Explore Unique Gifts</button>
           </div>
-          <div className="pt-[1.5vh] text-gray-600 text-[0.8rem]">Hassle-free customization, endless love-filled possibilities!</div>
+          <div className="pt-[1.5vh] text-gray-600 text-[0.6rem] sm:text-[0.8rem]">Hassle-free customization, endless love-filled possibilities!</div>
         </div>
       </div>
     <FooterPage/>
