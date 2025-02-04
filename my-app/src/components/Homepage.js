@@ -132,11 +132,11 @@ return(
     <section>
     <div className="h-screen text-center pt-[10vh] relative overflow-hidden">
         <img className="absolute top-[15vh] w-auto h-[11vh] left-[11vw]" src="./Images/star.png" alt="" />
-        <img className="absolute w-auto h-[20vh] top-[8vh] right-[10vw]" src="./Images/love.png" alt="" />
-        <div className="font-bold text-[3rem] leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
-        <div class="flex flex-row items-center justify-center h-[3.7vw] w-[20vw] mx-auto mt-[6vh] text-[#8B024B]">
-              <button id="beforeButton" class="text-[1.3vw] border-2 border-[#8B024B] hover:bg-[#8B024B] rounded-l-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(5)}}>👔 For Him</button>
-<button id="afterButton" class="text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(6)}}>👗 For Her</button>
+        <img className="absolute hidden md:flex w-auto h-[20vh] top-[8vh] right-[10vw]" src="./Images/love.png" alt="" />
+        <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
+        <div class="flex flex-row items-center justify-center h-[5vh] md:h-[3.7vw] w-[40vw] md:w-[20vw] mx-auto mt-[6vh] text-[#8B024B]">
+              <button id="beforeButton" class=" text-xs sm:text-[1.3vw] border-2 border-[#8B024B] hover:bg-[#8B024B] rounded-l-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(5)}}>👔 For Him</button>
+<button id="afterButton" class=" text-xs sm:text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(6)}}>👗 For Her</button>
 
             </div>
         <div className="flex flex-row justify-between mx-[13vw] py-[5vh]">
