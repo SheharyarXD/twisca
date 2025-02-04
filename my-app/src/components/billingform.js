@@ -82,12 +82,13 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
             <input type="text" name="state" value={formData.state} onChange={handleChange} className="w-full p-2 mb-4 border border-gray-300 rounded-[1vw]" required />
           </div>
         </div>
-
+    <div>
         <label className="block mb-2">Zip Code</label>
         <input type="text" name="zip_code" value={formData.zip_code} onChange={handleChange} className="w-1/2 p-2 mb-4 border border-gray-300 rounded-[1vw]" required />
 
         <label className="block mb-2">Phone Number</label>
         <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-1/2 p-2 mb-4 border border-gray-300 rounded-[1vw]" required />
+    </div>
 
         <div className="flex justify-between mt-4">
           <button type="button" className="px-4 w-[35%] py-2 border mr-2 border-gray-300 text-gray-500 rounded-[1vw] hover:bg-gray-400">Cancel</button>
