@@ -154,7 +154,7 @@ router.post("/update-review", async (req, res) => {
     console.log(column)
     try {
         const result = await pool.query(
-            `UPDATE reviews SET ${column} = ${column} + 1 WHERE reviewid = $1 RETURNING *`,
+            `UPDATE reviews SET ${column} = COALESCE(${column}, 0) + 1 WHERE reviewid = $1 RETURNING *`,
             [reviewId]
         );
         console.log(result.rows)
