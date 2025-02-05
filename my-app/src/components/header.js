@@ -38,7 +38,7 @@ const Header = () => {
 
             {/* Sidebar for Mobile */}
             {isSidebarOpen && (
-                <div className="fixed top-0 right-0 w-[70vw] h-full bg-white shadow-lg z-50 flex flex-col p-4 transition-transform">
+                <div className="fixed top-0 right-0 w-[70vw] h-full bg-white shadow-lg z-50 flex flex-col p-4 transition-transform z-[400]">
                     <button className="self-end p-2" onClick={() => setSidebarOpen(false)}>
                         <X size={28} />
                     </button>
