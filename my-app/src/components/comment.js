@@ -1,6 +1,6 @@
 import React from "react";
 
-const CommentsTemplate = ({ name, date, rating, comment, likes, dislikes, profileImage }) => {
+const CommentsTemplate = ({ name, date, rating, comment, likes, dislikes, profileImage ,reviewid}) => {
   return (
     <div className="p-4 border-[#7E7E80] border-2 w-full max-w-lg sm:max-w-full md:max-w-full md:min-w-full rounded-lg flex flex-wrap md:flex-nowrap px-6">
       {/* Profile Image */}
@@ -29,11 +29,11 @@ const CommentsTemplate = ({ name, date, rating, comment, likes, dislikes, profil
 
         {/* Like & Dislike Buttons */}
         <div className="flex space-x-4 pt-3">
-          <div className="flex items-center space-x-1 text-gray-600">
+          <div onClick={() => updateReview(reviewid, "like")} className="flex items-center space-x-1 text-gray-600">
             <i className="fa-solid fa-thumbs-up"></i>
             <span>{likes}</span>
           </div>
-          <div className="flex items-center space-x-1 text-gray-600">
+          <div onClick={() => updateReview(reviewid, "dislike")} className="flex items-center space-x-1 text-gray-600">
             <i className="fa-solid fa-thumbs-down"></i>
             <span>{dislikes}</span>
           </div>

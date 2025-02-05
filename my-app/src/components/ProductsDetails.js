@@ -330,8 +330,9 @@ const ProductDetails = () => {
                       date={formattedDate}
                       rating={review.rating}
                       comment={review.reviewtext}
-                      likes={5}
-                      dislikes={2}
+                      likes={0}
+                      reviewid={review.reviewid}
+                      dislikes={0}
                       profileImage="../Images/sampleImage2.png"
                       />
                     )

@@ -48,7 +48,7 @@ export const ReviewsProvider = ({ children }) => {
   };
 
   // Update a review
-  const updateReview = async (reviewId, rating, reviewText) => {
+  const updateReviewText = async (reviewId, rating, reviewText) => {
     try {
       const response = await fetch(`/api/reviews/${reviewId}`, {
         method: 'PUT',
@@ -86,6 +86,23 @@ export const ReviewsProvider = ({ children }) => {
       }
     } catch (error) {
       console.error('Error deleting review:', error);
+    }
+  };
+  const updateReview = async (reviewId, type) => {
+    try {
+      const response = await fetch("/api/reviews/update-review", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviewId, type }),
+      });
+
+      const updatedReview = await response.json();
+
+      setReviews((prev) =>
+        prev.map((r) => (r.reviewid === reviewId ? updatedReview : r))
+      );
+    } catch (error) {
+      console.error("Error updating review:", error);
     }
   };
 
