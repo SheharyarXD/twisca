@@ -13,7 +13,6 @@ document.getElementById("contactForm").addEventListener("submit", function (even
   const formData = {
     Name: document.getElementById("name").value,
     ContactNumber: document.getElementById("pnum").value,
-    find_us: document.getElementById("how").value,
     sender: document.getElementById("email").value,
     comment: document.getElementById('comment').value
   };
