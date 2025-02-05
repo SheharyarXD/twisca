@@ -48,65 +48,130 @@ const ShopByPreferences=()=>{
     }, [selectedGender, selectedAgeRange, selectedRelationship]);
     return(
         <>
-             <div className="font-bold text-[3rem] text-[#8B024B] leading-tight text-center pt-[7vh]">Shop by Your Preferences</div>
-             {ToggleOptions==""&& (
-             <div className="font-semibold text-[2rem] text-[#8B024B] leading-tight text-center  py-[2vh]">A Quick Quiz</div>
-             )}
-              {ToggleOptions=="Result" && (
-             <div className="font-semibold text-[1.3rem] text-[#8B024B] leading-tight text-center  py-[2vh]">Based on your preferences, we think you'll love these!</div>
-             )}
-             <div>
-                {ToggleOptions==""&& (
-                    <div  className="flex flex-row items-center justify-center space-x-4">
-                  <div onClick={()=>{setToggleOptions("Age");setSelectedGender("male");}} className="bg-[#D1A7BD] hover:bg-[#8B024B] hover:cursor-pointer w-[30vw] h-[65vh] rounded-lg flex items-center flex-col justify-center">
-                    <img className="flex items-center justify-center h-[55vh] w-auto" src="../Images/male.png" alt="" />
-                    <div className="text-[2rem] font-semibold text-white pt-[1vh]">Male</div>
-                </div>
-                <div onClick={()=>{setToggleOptions("Age");setSelectedGender("female");}}   className="bg-[#D1A7BD] hover:bg-[#8B024B] hover:cursor-pointer w-[30vw] h-[65vh] rounded-lg flex items-center flex-col justify-center">
-                    <img className="flex items-center justify-center h-[55vh] w-auto" src="../Images/female.png" alt="" />
-                    <div className="text-[2rem] font-semibold text-white pt-[1vh]">Female</div>
-                </div>
-                    </div>
-            )}
-            {ToggleOptions=="Age" &&(
-                <div  className="flex flex-col items-center justify-center space-x-4">
-                        <i onClick={()=>setToggleOptions("")} className="fa-solid absolute text-[#8B024B] text-[2.5rem] top-[10vh] left-[5vw] fa-arrow-left  pl-[1vw]"></i>
-                        <div className="font-semibold text-[#8B024B] pt-[5vh] text-[2rem]">What's Your Age?</div>
-                        <div className="space-x-4">
+ <div className="font-bold text-3xl md:text-5xl text-[#8B024B] leading-tight text-center pt-[7vh]">
+  Shop by Your Preferences
+</div>
 
-                            {ageOptions.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => {setToggleOptions("Relation");setSelectedAgeRange(option.label)}}
-                className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2"
-              >
-                {option.label} {option.icon}
-              </button>
-            ))}
-                        </div>
-                    </div>
-            )}
-                {ToggleOptions=="Relation" &&(
-                 <div  className="flex flex-col items-center justify-center space-x-4">
-                     <i onClick={()=>setToggleOptions("Age")} className="fa-solid absolute text-[#8B024B] text-[2.5rem] top-[10vh] left-[5vw] fa-arrow-left  pl-[1vw]"></i>
-                 <div className="font-semibold text-[#8B024B] pt-[5vh] text-[2rem]">What's Your Relationship?</div>
-                 <div className="flex jutify-center flex-wrap w-[50vw]">
-                     <button onClick={()=>{setToggleOptions("Result");setSelectedRelationship("family");}}  className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">🎉 Family</button>
-                     <button  onClick={()=>{setToggleOptions("Result");setSelectedRelationship("friendship")}}  className="px-20 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">💙 Friendship</button>
-                     <button  onClick={()=>{setToggleOptions("Result");setSelectedRelationship("professional")}}  className="px-12 rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">💼 Professional</button>
-                     <button  onClick={()=>{setToggleOptions("Result");setSelectedRelationship("birthday gift")}}  className="px-[67px] rounded-lg py-3 text-white text-[1.6rem] mt-[5vh] hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD] mx-2">🎂 Birthday Gift</button>   
-                 </div>
-             </div>
-                )}
-                {ToggleOptions=="Result" &&(
-                    <div className="flex flex-row w-[80vw] justify-center mx-auto space-x-5 pb-6 pt-[10vh] rounded-md mt-[2vh] bg-[#D1A7BD]">
-                        <i onClick={()=>setToggleOptions("Relation")} className="fa-solid absolute text-[#8B024B] text-[2.5rem] top-[10vh] left-[5vw] fa-arrow-left  pl-[1vw]"></i>
-                        <SurprisedProducts/>
-                        <SurprisedProducts/>
-                        <SurprisedProducts/>
-                    </div>
-                )}
-             </div>
+{ToggleOptions === "" && (
+  <div className="font-semibold text-xl md:text-3xl text-[#8B024B] leading-tight text-center py-[2vh]">
+    A Quick Quiz
+  </div>
+)}
+
+{ToggleOptions === "Result" && (
+  <div className="font-semibold text-lg md:text-2xl text-[#8B024B] leading-tight text-center py-[2vh]">
+    Based on your preferences, we think you'll love these!
+  </div>
+)}
+
+<div>
+  {ToggleOptions === "" && (
+    <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+      <div
+        onClick={() => {
+          setToggleOptions("Age");
+          setSelectedGender("male");
+        }}
+        className="bg-[#D1A7BD] hover:bg-[#8B024B] hover:cursor-pointer w-11/12 md:w-1/3 h-[50vh] md:h-[65vh] rounded-lg flex flex-col items-center justify-center"
+      >
+        <img
+          className="h-[40vh] md:h-[55vh] w-auto"
+          src="../Images/male.png"
+          alt="Male"
+        />
+        <div className="text-xl md:text-2xl font-semibold text-white pt-[1vh]">
+          Male
+        </div>
+      </div>
+      <div
+        onClick={() => {
+          setToggleOptions("Age");
+          setSelectedGender("female");
+        }}
+        className="bg-[#D1A7BD] hover:bg-[#8B024B] hover:cursor-pointer w-11/12 md:w-1/3 h-[50vh] md:h-[65vh] rounded-lg flex flex-col items-center justify-center"
+      >
+        <img
+          className="h-[40vh] md:h-[55vh] w-auto"
+          src="../Images/female.png"
+          alt="Female"
+        />
+        <div className="text-xl md:text-2xl font-semibold text-white pt-[1vh]">
+          Female
+        </div>
+      </div>
+    </div>
+  )}
+
+  {ToggleOptions === "Age" && (
+    <div className="flex flex-col items-center justify-center">
+      <i
+        onClick={() => setToggleOptions("")}
+        className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
+      ></i>
+      <div className="font-semibold text-[#8B024B] pt-[5vh] text-xl md:text-2xl">
+        What's Your Age?
+      </div>
+      <div className="flex flex-wrap justify-center gap-4 mt-[3vh]">
+        {ageOptions.map((option, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setToggleOptions("Relation");
+              setSelectedAgeRange(option.label);
+            }}
+            className="px-8 md:px-16 py-2 md:py-3 text-white text-lg md:text-xl rounded-lg hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD]"
+          >
+            {option.label} {option.icon}
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {ToggleOptions === "Relation" && (
+    <div className="flex flex-col items-center justify-center">
+      <i
+        onClick={() => setToggleOptions("Age")}
+        className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
+      ></i>
+      <div className="font-semibold text-[#8B024B] pt-[5vh] text-xl md:text-2xl">
+        What's Your Relationship?
+      </div>
+      <div className="flex flex-wrap justify-center gap-4 w-full md:w-2/3">
+        {[
+          { label: "🎉 Family", value: "family" },
+          { label: "💙 Friendship", value: "friendship" },
+          { label: "💼 Professional", value: "professional" },
+          { label: "🎂 Birthday Gift", value: "birthday gift" },
+        ].map((relation, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setToggleOptions("Result");
+              setSelectedRelationship(relation.value);
+            }}
+            className="px-8 md:px-12 py-2 md:py-3 text-white text-lg md:text-xl rounded-lg hover:bg-[#8B024B] cursor-pointer bg-[#D1A7BD]"
+          >
+            {relation.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {ToggleOptions === "Result" && (
+    <div className="flex flex-col md:flex-row w-11/12 md:w-4/5 justify-center mx-auto gap-4 pb-6 pt-[5vh] rounded-md bg-[#D1A7BD]">
+      <i
+        onClick={() => setToggleOptions("Relation")}
+        className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
+      ></i>
+      <SurprisedProducts />
+      <SurprisedProducts />
+      <SurprisedProducts />
+    </div>
+  )}
+</div>
+
         </>
     );
 }
