@@ -1,5 +1,6 @@
 import React, { useContext,useEffect, useState } from "react";
 import Header from "./header";
+import FooterPage from "./footer";
 import ProductPageProducts from "./ProductPageProducts";
 import { ProductContext } from "../utils/ProductsContext";
 const ProductPage = () => {
@@ -202,6 +203,7 @@ const ProductPage = () => {
           </div> */}
         </div>
       </div>
+      <FooterPage></FooterPage>
     </>
   );
 };
