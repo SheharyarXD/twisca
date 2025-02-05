@@ -144,6 +144,9 @@ router.delete('/:reviewId', async (req, res) => {
 });
 router.post("/update-review", async (req, res) => {
     const { reviewId, type } = req.body; // type = "like" or "dislike"
+    console.log(reviewId)
+    console.log(type)
+    console.log(req.body)
   
     if (!["like", "dislike"].includes(type)) {
       return res.status(400).json({ error: "Invalid type" });
