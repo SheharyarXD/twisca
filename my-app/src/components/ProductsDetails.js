@@ -92,9 +92,9 @@ const ProductDetails = () => {
         <div>
           <Header className="overflow-hidden"></Header>
 
-          <div className="flex flex-row items-center overflow-hidden justify-between px-[5vw]">
+          <div className="flex flex-col-reverse md:flex-row items-center overflow-hidden justify-between px-[5vw]">
             {/* text section */}
-            <div className="w-[50vw] pr-[5vw]">
+            <div className="md:w-[50vw] pr-[5vw]">
               {/* <p>Product Listing - Top Category - Gifts & Hampers</p> */}
               <div className="text-white bg-red-600 w-fit px-4 py-1 mt-[2vh]  text-xs rounded-[0.3vw]">
                 SALE!
@@ -158,8 +158,8 @@ const ProductDetails = () => {
               </div>
             </div>
             {/* image section */}
-            <div className="w-full h-[70vh] w-[50vw] pr-[3vw] mt-[1vh] overflow-hidden">
-              <div className="w-full h-[54vh] overflow-hidden">
+            <div className="w-full md:h-[70vh] md:w-[50vw] pr-[3vw] mt-[1vh] overflow-hidden">
+              <div className="w-full max-h-[300px] md:max-h-[54vh] md:h-[54vh] overflow-hidden">
                 <img
                   className="cover w-full h-auto"
                   src="../Images/sampleImage.png"
@@ -167,36 +167,36 @@ const ProductDetails = () => {
                 />
               </div>
               {/* sub Images */}
-              <div className="w-full h-[15vh] flex flex-row items-center justify-between pt-[3vh] space-x-3">
-                <div className="w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
+              <div className="w-full md:h-[15vh] flex flex-row items-center justify-between pt-[3vh] space-x-3">
+                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
                   <img
                     className="cover h-full w-full"
                     src="../Images/sampleImage2.png"
                     alt=""
                   />
                 </div>
-                <div className="w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
+                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
                   <img
                     className="cover h-full w-full"
                     src="../Images/sampleImage2.png"
                     alt=""
                   />
                 </div>
-                <div className="w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
+                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
                   <img
                     className="cover h-full w-full"
                     src="../Images/sampleImage2.png"
                     alt=""
                   />
                 </div>
-                <div className="w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
+                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
                   <img
                     className="cover h-full w-full"
                     src="../Images/sampleImage2.png"
                     alt=""
                   />
                 </div>
-                <div className="w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
+                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
                   <img
                     className="cover h-full w-full"
                     src="../Images/sampleImage2.png"
@@ -285,8 +285,8 @@ const ProductDetails = () => {
             {/* description */}
             {descriptionToggle ? (
               <div className="Description pt-[10vh] pb-[14vh] overflow-hidden px-[18vw]">
-                <div className="flex flex-row  justify-between">
-                  <div className="w-[45vw]">
+                <div className="flex flex-col-reverse md:flex-row  justify-between">
+                  <div className="md:w-[45vw]">
                     <div className="font-semibold text-lg py-1 pb-3">
                       Description
                     </div>
@@ -298,7 +298,7 @@ const ProductDetails = () => {
                     </p>
     ))}
                   </div>
-                  <div className="w-[15vw]">
+                  <div className="md:w-[15vw]">
                     <div className="font-semibold py-1 text-lg">Feature</div>
                     <div className="font-semibold text-gray-700">
                     <ul>
