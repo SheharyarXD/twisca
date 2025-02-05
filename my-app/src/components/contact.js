@@ -90,7 +90,7 @@ const Contact=()=>{
       </div>
 
   
-      <div className="w-full lg:w-1/2 hidden lg:block relative min-h-full md:min-h-0">
+      <div className="w-full lg:w-1/2 hidden lg:block relative min-h-full md:min-h-0 ">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13596.04142745665!2d74.33444081659832!3d31.57876385488925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b98b46808fb%3A0xb97ac7ef65a2d0a2!2sSincSol!5e0!3m2!1sen!2s!4v1734690540382!5m2!1sen!2s"
          className="w-full h-full absolute"
          style={{border:0}} 
