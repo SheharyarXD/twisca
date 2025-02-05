@@ -90,13 +90,16 @@ export const ReviewsProvider = ({ children }) => {
   };
   const updateReview = async (reviewId, type) => {
     try {
-      const response = await fetch("/api/reviews/update-review", {
+      console.log(reviewId)
+      console.log(type)
+      const response = await fetch(`${basicUrl}/api/reviews/update-review`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reviewId, type }),
       });
 
       const updatedReview = await response.json();
+      console.log(updateReview)
 
       setReviews((prev) =>
         prev.map((r) => (r.reviewid === reviewId ? updatedReview : r))
