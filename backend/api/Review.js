@@ -144,20 +144,19 @@ router.delete('/:reviewId', async (req, res) => {
 });
 router.post("/update-review", async (req, res) => {
     const { reviewId, type } = req.body; // type = "like" or "dislike"
-    console.log(reviewId)
-    console.log(type)
-    console.log(req.body)
-  
+    
+    
     if (!["like", "dislike"].includes(type)) {
-      return res.status(400).json({ error: "Invalid type" });
+        return res.status(400).json({ error: "Invalid type" });
     }
-  
+    
     const column = type === "like" ? "likes" : "dislikes";
     try {
-      const result = await pool.query(
-        `UPDATE reviews SET ${column} = ${column} + 1 WHERE reviewid = $1 RETURNING *`,
-        [reviewId]
-      );
+        const result = await pool.query(
+            `UPDATE reviews SET ${column} = ${column} + 1 WHERE reviewid = $1 RETURNING *`,
+            [reviewId]
+        );
+        console.log(result.rows)
       res.json(result.rows[0]);
     } catch (err) {
       res.status(500).json({ error: err.message });
