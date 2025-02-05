@@ -203,7 +203,7 @@ const ProductPage = () => {
           </div> */}
         </div>
       </div>
-      <div className="pt-[50px]">
+      <div className="pt-[70vh] md:pt-[50px]">
       <FooterPage></FooterPage>
       </div>
     </>
