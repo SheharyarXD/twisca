@@ -376,7 +376,7 @@ const ProductDetails = () => {
           </div>
 
           <div className="px-[10vw] flex-col  justify-center items-center">
-            <div className="flex font-bold text-[2.5rem]">
+            <div className="flex font-bold text-[1.8rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[2.5rem]">
               You May Also Like:
             </div>
             <div className="flex flex-wrap flex-row justify-between py-8">
