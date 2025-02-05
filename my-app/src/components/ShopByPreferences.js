@@ -106,7 +106,7 @@ const ShopByPreferences=()=>{
     <div className="flex flex-col items-center justify-center">
       <i
         onClick={() => setToggleOptions("")}
-        className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
+        className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-4 sm:top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
       ></i>
       <div className="font-semibold text-[#8B024B] pt-[5vh] text-xl md:text-2xl">
         What's Your Age?
@@ -132,7 +132,7 @@ const ShopByPreferences=()=>{
     <div className="flex flex-col items-center justify-center">
       <i
         onClick={() => setToggleOptions("Age")}
-        className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
+        className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-4 sm:top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
       ></i>
       <div className="font-semibold text-[#8B024B] pt-[5vh] text-xl md:text-2xl">
         What's Your Relationship?
