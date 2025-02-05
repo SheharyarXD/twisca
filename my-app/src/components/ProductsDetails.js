@@ -207,8 +207,8 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between px-[15vw] pt-[1vh]  items-center">
-            <div className="flex flex-row items-center">
+          <div className="flex flex-row justify-between  sm:px-[15vw] pt-[1vh]  items-center">
+            <div className="flex hidden sm:flex sm:flex-row items-center">
               <img
                 className="h-12 pr-4 rounded-lg"
                 src="../Images/sampleImage2.png"
@@ -223,7 +223,7 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row items-center justify-center pt-[1vh]">
+            <div className="flex flex-row px-10 sm:px-0 items-center justify-center pt-[1vh]">
               <div className="flex items-center px-2 relative">
                 {/* Minus Button */}
                 <button
