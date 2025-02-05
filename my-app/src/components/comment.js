@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ReviewsContext } from "../utils/ReviewContext";
 
 const CommentsTemplate = ({ name, date, rating, comment, likes, dislikes, profileImage ,reviewid}) => {
+  const {updateReview}=useContext(ReviewsContext)
   return (
     <div className="p-4 border-[#7E7E80] border-2 w-full max-w-lg sm:max-w-full md:max-w-full md:min-w-full rounded-lg flex flex-wrap md:flex-nowrap px-6">
       {/* Profile Image */}
