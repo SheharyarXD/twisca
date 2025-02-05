@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Header from "./header";
 import FooterPage from "./footer";
 import emailjs from "@emailjs/browser";
@@ -6,34 +7,44 @@ const Contact=()=>{
     emailjs.init("OfmlMCjmuKg7pjl35");
 
 
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-
-  const formData = {
-    Name: document.getElementById("name").value,
-    ContactNumber: document.getElementById("pnum").value,
-    sender: document.getElementById("email").value,
-    comment: document.getElementById('comment').value
-  };
-  // console.log
-  if(formData.comment==null || formData.comment==undefined || formData.comment==''){
-    alert('Please Input Message')
-    return
-  }
-  emailjs
-    .send("xdgaming", "template_7j0ekxq", formData) 
-    .then(
-      (response) => {
-        console.log("Email sent successfully!", response);
-        alert("Thank you! Your message has been sent.");
-      },
-      (error) => {
-        console.error("Failed to send email:", error);
-        alert("Oops! Something went wrong. Please try again.");
+    const [name, setName] = useState('');
+    const [pnum, setPnum] = useState('');
+    const [email, setEmail] = useState('');
+    const [comment, setComment] = useState('');
+  
+    // Handle form submission
+    const handleSubmit = (event) => {
+      event.preventDefault();
+  
+      // Check if comment is empty
+      if (!comment) {
+        alert('Please input a message');
+        return;
       }
-    );
-});
+  
+      // Create form data
+      const formData = {
+        Name: name,
+        ContactNumber: pnum,
+        sender: email,
+        comment: comment,
+      };
+      console.log(formData)
+  
+      // Send the email using emailjs
+      emailjs
+        .send('xdgaming', 'template_7j0ekxq', formData)
+        .then(
+          (response) => {
+            console.log('Email sent successfully!', response);
+            alert('Thank you! Your message has been sent.');
+          },
+          (error) => {
+            console.error('Failed to send email:', error);
+            alert('Oops! Something went wrong. Please try again.');
+          }
+        );
+    };
     return(
         <>
         <Header></Header>
@@ -50,22 +61,22 @@ document.getElementById("contactForm").addEventListener("submit", function (even
 
         <form id="contactForm"  method="POST" className="space-y-4 py-[1vw] pb-[4vw]">
         <div className="form-group mb-3 relative">
-            <input type="text" id="name" className="peer  h-[30px] md:h-[3.2vw] form-control block w-full px-3 py-2.5 text-[12px] md:text-sm text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]  rounded-[1vw] md:rounded-[0.5vw]" placeholder=" " required />
-            <label for="name" className="form-label bg-white px-1 absolute  text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Name<span className="text-[#8B024B] px-1">*</span></label>
+            <input type="text" id="name" onChange={(e) => setName(e.target.value)} className="peer  h-[30px] md:h-[3.2vw] form-control block w-full px-3 py-2.5 text-[12px] md:text-sm text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]  rounded-[1vw] md:rounded-[0.5vw]" placeholder=" " required />
+            <label htmlFor="name" className="form-label bg-white px-1 absolute  text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Name<span className="text-[#8B024B] px-1">*</span></label>
         </div>
         <div className="form-group mb-6 relative">
-          <input type="email" id="email" className="peer h-[30px] md:h-[3.2vw] form-control block w-full px-3 py-[0.8vw] text-[12px] md:text-sm text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]  rounded-[1vw] md:rounded-[0.5vw]" placeholder=" " required />
-          <label for="email" className="form-label bg-white px-1 absolute  text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Email<span className="text-[#8B024B] px-1">*</span></label>
+          <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} className="peer h-[30px] md:h-[3.2vw] form-control block w-full px-3 py-[0.8vw] text-[12px] md:text-sm text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]  rounded-[1vw] md:rounded-[0.5vw]" placeholder=" " required />
+          <label htmlFor="email" className="form-label bg-white px-1 absolute  text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Email<span className="text-[#8B024B] px-1">*</span></label>
       </div>
       <div className="form-group mb-6 relative">
-        <input type="tel" id="pnum" className="peer rounded-[1vw] md:rounded-[0.5vw]  h-[30px] md:h-[3.2vw] form-control block w-full px-3 py-2.5 text-[12px] md:text-sm text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B] " placeholder=" "  />
-        <label for="pnum" className="form-label bg-white px-1 absolute  text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Phone Number
+        <input type="tel" id="pnum" onChange={(e) => setPnum(e.target.value)} className="peer rounded-[1vw] md:rounded-[0.5vw]  h-[30px] md:h-[3.2vw] form-control block w-full px-3 py-2.5 text-[12px] md:text-sm text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B] " placeholder=" "  />
+        <label htmlFor="pnum" className="form-label bg-white px-1 absolute  text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Phone Number
 
         </label>
     </div>
     <div className="form-group mb-6 relative">
-      <textarea id="comment" className="peer  rounded-[1vw] md:rounded-[0.5vw] h-[80px] md:h-[5.2vw] form-control block w-full px-3 py-2.5 text-[12px] text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B] " placeholder=" " ></textarea>
-      <label for="comment" className="form-label bg-white px-1 absolute text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Message<span className="text-[#8B024B] px-1">*</span>
+      <textarea id="comment" onChange={(e) => setComment(e.target.value)} className="peer  rounded-[1vw] md:rounded-[0.5vw] h-[80px] md:h-[5.2vw] form-control block w-full px-3 py-2.5 text-[12px] text-gray-900 bg-transparent border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B] " placeholder=" " ></textarea>
+      <label htmlFor="comment" className="form-label bg-white px-1 absolute text-[12px] md:text-[1.1vw] text-gray-500 duration-300 transform -translate-y-3 md:-translate-y-5 top-[0.7vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[3vw] md:peer-focus:-translate-y-[1.5vw]">Message<span className="text-[#8B024B] px-1">*</span>
 
       </label>
   </div>
@@ -74,7 +85,7 @@ document.getElementById("contactForm").addEventListener("submit", function (even
 
 
 
-          <button type="submit" className="w-full bg-[#8B024B] text-white py-[1.5vw] md:py-[1vw] text-[12px] md:text-[1.2vw] font-bold hover:bg-[#8B234B] focus:outline-none  rounded-[1vw] md:rounded-[0.5vw]">Send Message</button>
+          <button onClick={(e)=>handleSubmit(e)} type="submit" className="w-full bg-[#8B024B] text-white py-[1.5vw] md:py-[1vw] text-[12px] md:text-[1.2vw] font-bold hover:bg-[#8B234B] focus:outline-none  rounded-[1vw] md:rounded-[0.5vw]">Send Message</button>
         </form>
       </div>
 
