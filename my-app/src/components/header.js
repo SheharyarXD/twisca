@@ -28,7 +28,7 @@ const Header = () => {
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/products")}>Products</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/orders")}>Orders</a></li>
                 <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>About Us</a></li>
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>Contact</a></li>
+                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600" onClick={() => navigate("/contact")}><a>Contact</a></li>
             </ul>
         </nav>
         {/* Mobile Menu Button */}
