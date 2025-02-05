@@ -151,6 +151,7 @@ router.post("/update-review", async (req, res) => {
     }
     
     const column = type === "like" ? "likes" : "dislikes";
+    console.log(column)
     try {
         const result = await pool.query(
             `UPDATE reviews SET ${column} = ${column} + 1 WHERE reviewid = $1 RETURNING *`,
