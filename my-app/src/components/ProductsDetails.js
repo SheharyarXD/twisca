@@ -25,7 +25,7 @@ const ProductDetails = () => {
       deleteReview,}=useContext(ReviewsContext);
   const [quantity, setQuantity] = useState(1);
   const [reviewtext,setcommentText]=useState(null);
-  const [rating,setcommentRating]=useState(null);
+  const [commentRating,setCommentRating]=useState(null);
   const [descriptionToggle, setDescription] = useState(true);
       
       const getProductsByCategory = async (categoryId) => {
@@ -356,14 +356,19 @@ const ProductDetails = () => {
                     <div className="pl-[5vw]">
                       {" "}
                       Your Ratings:{" "}
-                      <i className="fa fa-star"    onClick={(e) => setcommentRating(1)} aria-hidden="true"></i>
-                      <i className="fa fa-star"    onClick={(e) => setcommentRating(2)} aria-hidden="true"></i>
-                      <i className="fa fa-star"    onClick={(e) => setcommentRating(3)} aria-hidden="true"></i>
-                      <i className="fa fa-star"    onClick={(e) => setcommentRating(4)} aria-hidden="true"></i>
-                      <i className="fa fa-star"    onClick={(e) => setcommentRating(5)} aria-hidden="true"></i>
+                      {[1, 2, 3, 4, 5].map((star) => (
+        <i
+          key={star}
+          className={`fa fa-star cursor-pointer text-gray-400 text-xl transition-all duration-200 ${
+            star <= commentRating ? "text-yellow-500" : "text-gray-400"
+          }`}
+          onClick={() => setCommentRating(star)}
+          aria-hidden="true"
+        ></i>
+      ))}
                     </div>
                     <div>
-                      <button onClick={()=>addReview(userid,productDetailId,rating,reviewtext)} className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">
+                      <button onClick={()=>addReview(userid,productDetailId,commentRating,reviewtext)} className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] ">
                         Post Review
                         <i className="fa-solid fa-arrow-right pl-3"></i>
                       </button>
