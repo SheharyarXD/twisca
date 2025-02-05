@@ -134,7 +134,7 @@ const ProductPage = () => {
             Our Collection of Products
           </div>
           <div className="relative">
-            <i className="fas fa-search absolute right-[0.3vw] z-50 cursor-pointer bg-[#8B024B] p-2.5 rounded-full text-white top-[0.3vh]"></i>
+            <i className="fas fa-search absolute right-[0.3vw] z-10 cursor-pointer bg-[#8B024B] p-2.5 rounded-full text-white top-[0.3vh]"></i>
             <input
               type="text"
               placeholder="Search An Item"
