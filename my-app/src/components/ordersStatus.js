@@ -32,10 +32,27 @@ const OrdersPage = () => {
 
     fetchOrders();
   }, [userid]);
+  if (loading) 
+    return (
+      <>
+        <Header />
+        <p>Loading orders...</p>
+        <FooterPage />
+      </>
+    );
+  
+  if (error) 
+    return (
+      < >
+      <div className="flex flex-col justify-between w-full min-h-screen">
+        <Header />
+        <p className="text-red-500 text-center font-bold text-[2rem]">{error}</p>
 
-  if (loading) return <p>Loading orders...</p>;
-  if (error) return <p className="text-red-500">{error}</p>;
+        <FooterPage />
 
+      </div>
+      </>
+    );
   return (
     <>
         <Header/>
