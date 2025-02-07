@@ -113,7 +113,7 @@ const ProductPage = () => {
             <div>
               {/* Price Range Filters */}
       <ul className="text-left pl-[3vw] py-[2vh]">
-        {['$0.00 - $50.00', '$51.00 - $100.00', '$101.00 - $200.00', '$200.00 - $1000.00'].map((range, index) => (
+        {['PKR 0.00 - PKR 500', 'PKR 501 - PKR 1000', 'PKR 1,001 - PKR 2,000', 'PKR 2,001 - PKR 10,000'].map((range, index) => (
           <li key={index} className="py-[1vh]">
             <input
               type="checkbox"
