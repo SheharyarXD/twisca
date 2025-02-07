@@ -39,7 +39,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Discount</div>
-                    <div>{(1-(((totalPrice - discount)/totalPrice)*100)).toFixed(2)} %</div>
+                    <div>{(100-(((discount)/totalPrice)*100)).toFixed(2)} %</div>
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-black font-semibold py-[1vh] ">
                     <div>Shipping</div>
