@@ -38,7 +38,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Discount</div>
-                    <div>{((discount / totalPrice) * 100).toFixed(2)} %</div>
+                    <div>PKR {discount.toFixed(2)}</div>
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-black font-semibold py-[1vh] ">
                     <div>Shipping</div>
@@ -46,7 +46,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                 </div>
                 <div className="flex font-bold flex-row justify-between px-[1.5vw] py-[1vh] ">
                     <div>Total</div>
-                    <div>PKR{(totalPrice - discount+300).toFixed(2)}</div>
+                    <div>PKR{(totalPrice+300).toFixed(2)}</div>
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Estimated Delivery by</div>
