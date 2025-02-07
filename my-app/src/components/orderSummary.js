@@ -43,11 +43,11 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-black font-semibold py-[1vh] ">
                     <div>Shipping</div>
-                    <div className="text-[#8B024B]">Free</div>
+                    <div className="text-[#8B024B]">PKR 300</div>
                 </div>
                 <div className="flex font-bold flex-row justify-between px-[1.5vw] py-[1vh] ">
                     <div>Total</div>
-                    <div>PKR{(totalPrice - discount).toFixed(2)}</div>
+                    <div>PKR{(totalPrice - discount+300).toFixed(2)}</div>
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Estimated Delivery by</div>
