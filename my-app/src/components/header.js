@@ -2,6 +2,7 @@ import React, { useContext ,useState} from "react";
 import { CartContext } from "../utils/CartContext";
 import { AuthContext } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
+import NewsTicker from "./promotionBar";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
@@ -15,6 +16,7 @@ const Header = () => {
 
   return (
     <header className="px-[5vw] py-[3vh] h-[12vh] flex justify-between bg-white w-full text-[0.9rem] sticky top-0 z-50">
+        <NewsTicker></NewsTicker>
         <div className="flex flex-row items-center w-[20vw] cursor-default"  onClick={() => navigate("/")}> 
             <img className="h-[6vh] w-auto pr-2" src="../logo.png" alt="png" />
         <div className="font-bold text-[1.5rem] text-[#8B024B]">
