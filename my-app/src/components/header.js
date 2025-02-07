@@ -15,8 +15,9 @@ const Header = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <header className="px-[5vw] py-[3vh] h-[12vh] flex justify-between bg-white w-full text-[0.9rem] sticky top-0 z-50">
+    <>
         <NewsTicker></NewsTicker>
+    <header className="px-[5vw] mt-6 py-[3vh] h-[12vh] flex justify-between bg-white w-full text-[0.9rem] sticky top-0 z-50">
         <div className="flex flex-row items-center w-[20vw] cursor-default"  onClick={() => navigate("/")}> 
             <img className="h-[6vh] w-auto pr-2" src="../logo.png" alt="png" />
         <div className="font-bold text-[1.5rem] text-[#8B024B]">
@@ -52,19 +53,19 @@ const Header = () => {
                         <li className="py-2 cursor-pointer hover:text-gray-600" onClick={() => navigate("/contact")}>Contact</li>
                         <div>
                 {user?( 
-               <div id="authContainer" className="relative pl-[5vw]">
+                    <div id="authContainer" className="relative pl-[5vw]">
                <div
                    id="userAvatar"
                    className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold cursor-pointer"
                    onClick={() => setMenuOpen(!menuOpen)}
-               >
+                   >
                    PFP
                </div>
 
                {menuOpen && (
                    <div
-                       id="userMenu"
-                       className="absolute top-14 right-0 bg-white shadow-lg rounded-lg w-48 text-black z-50"
+                   id="userMenu"
+                   className="absolute top-14 right-0 bg-white shadow-lg rounded-lg w-48 text-black z-50"
                    >
                        <button
                            id="logoutButton"
@@ -73,7 +74,7 @@ const Header = () => {
                                setMenuOpen(false);
                            }}
                            className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100 rounded-b-lg"
-                       >
+                           >
                            Logout
                        </button>
                    </div>)}
@@ -94,19 +95,19 @@ const Header = () => {
             <div className="font-bold cursor-pointer"  onClick={() => navigate("/cart")}><i className="fa-solid fa-cart-shopping px-1.5 "></i>Cart <span className="rounded-full text-[#8B024B]">{Array.isArray(cart)&& cart.length>0?cart.length:0}</span></div>
             <div className="hidden lg:flex">
                 {user?( 
-               <div id="authContainer" className="relative pl-[5vw]">
+                    <div id="authContainer" className="relative pl-[5vw]">
                <div
                    id="userAvatar"
                    className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold cursor-pointer"
                    onClick={() => setMenuOpen(!menuOpen)}
-               >
+                   >
                    PFP
                </div>
 
                {menuOpen && (
                    <div
-                       id="userMenu"
-                       className="absolute top-14 right-0 bg-white shadow-lg rounded-lg w-48 text-black z-50"
+                   id="userMenu"
+                   className="absolute top-14 right-0 bg-white shadow-lg rounded-lg w-48 text-black z-50"
                    >
                        <button
                            id="logoutButton"
@@ -130,6 +131,7 @@ const Header = () => {
             </div>
         </div>
     </header>
+            </>
   );
 };
 

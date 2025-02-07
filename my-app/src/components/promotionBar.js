@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const NewsTicker = () => {
   return (
-    <div className="absolute w-full inset-0">
+    <div className="fixed z-[51] h-[10px] w-full inset-0">
     <div className="bg-red-600 text-white overflow-hidden relative">
       <motion.div
         className="whitespace-nowrap font-semibold"
