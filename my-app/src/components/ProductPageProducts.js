@@ -37,7 +37,7 @@ const ProductPageProducts=(
             </div>
             <div className="flex flex-row text-[1.1rem] font-bold px-2 pt-[2vh]">
                 <div className="w-[65vw]  text-start">{productName}</div>
-                <div className="w-[35vw] text-end">PKR {currentPrice}</div>
+                <div className="w-[35vw] text-[0.85rem] text-end">PKR {currentPrice}</div>
             </div>
             <div className="flex flex-row text-[0.7rem] px-2 pt-[0.8vh]">
                 <div className="w-[70vw] text-start text-gray-600 font-semibold">{description}</div>
