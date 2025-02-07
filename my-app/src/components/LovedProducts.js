@@ -17,9 +17,9 @@ const LovedPorducts=({product })=>{
             <div className="text-white bg-red-700 w-fit px-4 py-1 absolute top-0 -left-1 text-xs rounded-[0.3vw]">SALE!</div>
             <img src="./Images/sampleImage.png" className="object-cover" alt="" />
             </div>
-            <div className="flex flex-row text-[1.1rem] font-bold px-2 pt-[2vh]">
+            <div className="flex flex-row text-[0.85rem] font-bold px-2 pt-[2vh]">
                 <div className="w-[70vw]  text-start">{product.productname}</div>
-                <div className="w-[30vw] text-[0.85rem] text-end">PKR {product.price}</div>
+                <div className="w-[30vw]  text-end">PKR {product.price}</div>
             </div>
             <div className="flex flex-row text-[0.7rem] px-2 pt-[0.8vh]">
                 <div className="w-[70vw] text-start text-gray-600 font-semibold">{product.description}</div>
