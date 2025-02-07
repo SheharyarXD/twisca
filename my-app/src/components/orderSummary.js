@@ -20,6 +20,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
             {Array.isArray(cart)&& cart.length>0&& cart.map((carts)=>(
                         
             <OrderDiv 
+
     image="../Images/sampleImage2.png"
     title={carts.productName}
     category="Gift & Hampers"
@@ -29,8 +30,6 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                     ))
                     }
 
-
-
             </div>
             <div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
@@ -39,7 +38,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Discount</div>
-                    <div>{(100-(((discount)/totalPrice)*100)).toFixed(2)} %</div>
+                    <div>{((discount / totalPrice) * 100).toFixed(2)} %</div>
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-black font-semibold py-[1vh] ">
                     <div>Shipping</div>
