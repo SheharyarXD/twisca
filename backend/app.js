@@ -19,7 +19,7 @@ const port = process.env.PORT || 3000;
 
 
 const corsOptions = {
-  origin: 'https://twisca.vercel.app',  // Allow this specific origin
+  origin: 'https://twisca.shop/',  // Allow this specific origin
   methods: 'GET,POST,PUT,DELETE',
   credentials: true,  // Allow cookies/credentials to be sent
   allowedHeaders: ['Content-Type', 'Authorization'],  // Add necessary headers
