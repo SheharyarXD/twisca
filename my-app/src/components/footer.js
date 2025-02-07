@@ -1,5 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 const FooterPage=()=>{
+    const navigate=useNavigate()
 return(   <footer className="text-white bg-[#8B024B] text-[0.8rem] rounded-t-[3rem] px-[5vw] mt-[5vh]" style={{boxShadow: '0 -10px 100px rgba(227, 32, 136, 0.5)'}}>
     <div className="upperSection flex flex-col sm:flex-row pt-[6vh] min-h-fit pb-[15vh]">
       <div className="w-[16%] flex flex-row items-center h-fit">
@@ -10,24 +13,23 @@ return(   <footer className="text-white bg-[#8B024B] text-[0.8rem] rounded-t-[3r
           </div>
       <div className="sm:w-[70%] pt-[5vh] sm:pt-0 flex flex-row justify-around">
         <div className="flex flex-col sm:w-[10%]">
-          <a className="pb-3" href="">Home</a>
-          <a className="pb-3" href="">Products</a>
-          <a className="pb-3" href="">Occasion</a>
-          <a className="pb-3" href="">About Us</a>
-          <a className="pb-3" href="">Contact</a>
-          <a className="pb-3" href="">Newsletter</a>
+          <a className="pb-3" onClick={()=>navigate('/')} href="">Home</a>
+          <a className="pb-3" onClick={()=>navigate('/products')} href="">Products</a>
+          <a className="pb-3" onClick={()=>navigate('/orders')} href="">Orders</a>
+          <a className="pb-3" onClick={()=>navigate('')} href="">About Us</a>
+          <a className="pb-3" onClick={()=>navigate('/contact')} href="">Contact</a>
         </div>
         <div  className="flex flex-col sm:w-[10%]">
-          <a className="pb-3" href="">Information</a>
+          {/* <a className="pb-3" href="">Information</a>
           <a className="pb-3" href="">Data Attributes</a>
-          <a className="pb-3" href="">Support</a>
+          <a className="pb-3" href="">Support</a> */}
         </div>
         <div  className="flex flex-col sm:w-[10%]">
-          <a className="pb-3" href="">Company</a>
+          {/* <a className="pb-3" href="">Company</a>
           <a className="pb-3" href="">About Us</a>
           <a className="pb-3" href="">Careers</a>
           <a className="pb-3" href="">Press</a>
-          <a className="pb-3" href="">Customers</a>
+          <a className="pb-3" href="">Customers</a> */}
         </div>
       </div>
     </div>
