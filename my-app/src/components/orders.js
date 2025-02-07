@@ -9,7 +9,7 @@ const OrderDiv = ({ image, title, category, price, rating }) => {
             <div className="flex text-sm px-3 font-bold flex-col min-w-[60%]">
                 <div>{title}</div>
                 <div>Category: <span className="font-semibold">{category}</span></div>
-                <div className="text-[#8B024B] font-semibold text-[1rem]">${price}</div>
+                <div className="text-[#8B024B] font-semibold text-[1rem]">PKR{price}</div>
                 <div className="flex flex-row pt-1">
                     <img className="pr-1" src="../Images/ri-star-fill.png" alt="rating star" /> {rating}
                 </div>

@@ -40,7 +40,7 @@ const CartList=( {
                 {productName}
               </div>
           </div>
-          <div className="w-[5%] flex text-[#949494]">$ <p>{originalPrice}</p></div>
+          <div className="w-[5%] flex text-[#949494]">PKR <p>{originalPrice}</p></div>
           <div className="flex w-[8vw] flex-row items-center justify-center pt-[1vh]">
             <div className="flex items-center px-2 relative">
               {/* Minus Button */}
@@ -68,7 +68,7 @@ const CartList=( {
               </button>
             </div>
           </div>
-          <div className="w-[6vw] flex text-[#949494]">$ <p>{(originalPrice*quantity).toFixed(2)}</p></div>
+          <div className="w-[6vw] flex text-[#949494]">PKR <p>{(originalPrice*quantity).toFixed(2)}</p></div>
         </div>);
 }
 export default CartList;
