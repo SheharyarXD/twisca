@@ -119,7 +119,11 @@ const ProductDetails = () => {
                 </p>
               </div>
               <div>
-                <div className="font-semibold py-2">Details:</div>
+              {Array.isArray(additionalDetails.features) && 
+ additionalDetails.features.filter((feature) => feature.feature_type === "ingredients").length > 0 && (
+  <div className="font-semibold py-2">Details:</div>
+)}
+
                 <ul className="list-disc pl-9">
 
   {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
@@ -131,7 +135,10 @@ const ProductDetails = () => {
                 </ul>
               </div>
               <div>
-                <div className="font-semibold py-2">Color</div>
+              {Array.isArray(additionalDetails.features) && 
+ additionalDetails.features.filter((feature) => feature.feature_type === "color").length > 0 && (
+   <div className="font-semibold py-2">Color</div>
+)}
                 <div className="flex flex-row justify-start items-center space-x-3">
                 {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
     .filter((feature) => feature.feature_type === "color")
@@ -144,13 +151,16 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div>
-                <div className="font-semibold py-2">Size</div>
+              {Array.isArray(additionalDetails.features) && 
+ additionalDetails.features.filter((feature) => feature.feature_type === "sizes").length > 0 && (
+   <div className="font-semibold py-2">Size</div>
+)}
                 <ul className="flex flex-row">
                 {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
     .filter((feature) => feature.feature_type === "sizes")
     .flatMap((feature) => feature.feature_value.split(","))
     .map((ingredient, index) => (
-      <li key={`ingredient-${index}`} className="text-2xl hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 w-12 min-w-fit text-center mr-1 border-2 border-[#C1C1C1] rounded-md">
+      <li key={`ingredient-${index}`} className="text-lg hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 w-12 min-w-fit text-center mr-1 border-2 border-[#C1C1C1] rounded-md">
                     {ingredient.trim()}
                   </li>
     ))}
