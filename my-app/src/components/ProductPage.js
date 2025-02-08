@@ -191,6 +191,7 @@ const ProductPage = () => {
             currentPrice={product.price}
             originalPrice={product.oldprice}
             description={product.description}
+            imageUrl={product.imageurl}
           />
         ))
       ) : (

@@ -33,7 +33,7 @@ const ProductPageProducts=(
             <div className="flex flex-row px-2 text-xs absolute items-center top-2 right-1 text-white">
             <img src="./Images/ri-star-fill.png" className="pr-1" alt="" /> <p><span className="pr-3">{rating.toFixed(1)}</span>|<span className="pl-3">{soldCount}</span> sold</p>
             </div>
-            <img src="./Images/sampleImage2.png" className="object-cover" alt="" />
+            <img src={imageUrl} className="object-cover" alt="" />
             </div>
             <div className="flex flex-row text-[0.85rem] font-bold px-2 pt-[2vh]">
                 <div className="w-[60vw]  text-start">{productName}</div>
