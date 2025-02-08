@@ -14,6 +14,7 @@ const LoginPage = () => {
   const [showResetModal, setShowResetModal] = useState(false);
 
   const [password,setPassword]=useState(null)
+  const [confirmPassword,setConfirmPassword]=useState(null)
   const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
   let verificationCode; 
@@ -345,6 +346,7 @@ const generateRandomSixDigitNumber=()=> {
               <div className="form-group mb-5 lg:mb-[1.8vh] relative">
                 <input
                   type={passwordVisible ? "text" : "password"}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   id="passwordField"
                   className="peer h-10 lg:h-[4.9vw] form-control block w-full px-[1vw] py-[0.8vw] lg:text-[1.2vw] text-gray-900 bg-transparent border border-gray-300 rounded-[0.5vw] appearance-none focus:outline-none focus:ring-0 focus:border-[#8B024B]"
                   placeholder=" "
@@ -354,7 +356,7 @@ const generateRandomSixDigitNumber=()=> {
                   htmlFor="passwordField"
                   className="form-label bg-white px-[0.25vw] absolute text-xs lg:text-[1.4vw] text-gray-500 duration-300 transform -translate-y-[2vw] top-[1.6vw] left-[1vw] z-10 origin-[0] peer-focus:left-[1vw] peer-focus:text-[#8B024B] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-[0vw] peer-focus:-translate-y-[2.6vw] p-[0.1vw]"
                 >
-                  Password
+                 Confirm Password
                 </label>
                 <button
                   type="button"
@@ -368,7 +370,24 @@ const generateRandomSixDigitNumber=()=> {
                   ></i>
                 </button>
               </div>
-              <button onClick={async ()=>{const success=await signup(email,password);success?setShowLogin(true):alert("Sign Up Failed")}} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
+              <button onClick={async () => {
+    if (password === confirmPassword) {
+      try {
+        const success = await signup(email, password);
+        if (success) {
+          setShowLogin(true);
+        } else {
+          alert("Sign Up Failed");
+        }
+      } catch (error) {
+        console.error("Signup Error:", error);
+        alert("An error occurred during signup.");
+      }
+    } else {
+      alert("Passwords do not match!");
+    }
+  }}
+                className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign Up
               </button>
               <div

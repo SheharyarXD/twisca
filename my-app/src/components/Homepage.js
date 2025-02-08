@@ -10,6 +10,7 @@ import 'swiper/css';
 import { useNavigate } from "react-router-dom";
 import 'swiper/css/navigation';
 import { Navigation,Autoplay  } from 'swiper/modules';
+import ProductCard from "./customCard";
 
 
 const HomePage=()=>{
@@ -179,15 +180,55 @@ return(
   slidesPerView="auto" // Allow slides to take up only their required space
   spaceBetween={25}
 >
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><LovedPorducts /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><ProductCard
+        title="Custom Message"
+        image="https://yourimageurl.com/image.png"
+        rating={5.0}
+        sales={56}
+        price={85}
+      /></SwiperSlide>
+      <SwiperSlide className="max-w-[250px]"><ProductCard
+        title="Custom Message"
+        image="https://yourimageurl.com/image.png"
+        rating={5.0}
+        sales={56}
+        price={85}
+      /></SwiperSlide>
+      <SwiperSlide className="max-w-[250px]"><ProductCard
+        title="Custom Message"
+        image="https://yourimageurl.com/image.png"
+        rating={5.0}
+        sales={56}
+        price={85}
+      /></SwiperSlide>
+      <SwiperSlide className="max-w-[250px]"><ProductCard
+        title="Custom Message"
+        image="https://yourimageurl.com/image.png"
+        rating={5.0}
+        sales={56}
+        price={85}
+      /></SwiperSlide>
+      <SwiperSlide className="max-w-[250px]"><ProductCard
+        title="Custom Message"
+        image="https://yourimageurl.com/image.png"
+        rating={5.0}
+        sales={56}
+        price={85}
+      /></SwiperSlide>
+      <SwiperSlide className="max-w-[250px]"><ProductCard
+        title="Custom Message"
+        image="https://yourimageurl.com/image.png"
+        rating={5.0}
+        sales={56}
+        price={85}
+      /></SwiperSlide>
+  <SwiperSlide className="max-w-[250px]"><ProductCard
+        title="Custom Message"
+        image="https://yourimageurl.com/image.png"
+        rating={5.0}
+        sales={56}
+        price={85}
+      /></SwiperSlide>
   <button className="custom-prev text-[#8B024B] border  border-[#8B024B] text-[1.5rem] rounded-full bg-white  z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-left py-4 px-4"></i></button>
   <button className="custom-next text-[#8B024B] border  border-[#8B024B] text-[1.5rem] rounded-full bg-white mt-[5vh] ml-[1vw] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-right py-4 px-4"></i></button>
 </Swiper>

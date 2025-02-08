@@ -17,6 +17,22 @@ const ShopByPreferences=()=>{
         { label: 'Adult', icon: '🧑' },
         { label: 'Senior', icon: '👴' },
       ];        
+      const [productDetails, setProductDetails] = useState({});
+
+useEffect(() => {
+  const fetchDetails = async () => {
+    const details = {};
+    for (const productId of productsids) {
+      details[productId] = await fetchProductById(productId);
+    }
+    setProductDetails(details);
+  };
+
+  if (productsids.length > 0) {
+    fetchDetails();
+  }
+}, [productsids]);
+
       useEffect(() => {
         
               const fetchProducts = async () => {
@@ -50,6 +66,42 @@ const ShopByPreferences=()=>{
         
         fetchProducts();
     }, [selectedGender, selectedAgeRange, selectedRelationship]);
+    useEffect(() => {
+      if (!selectedGender || !selectedAgeRange || !selectedRelationship) return;
+    
+      // Group products by product_id
+      const productMap = new Map();
+    
+      products.forEach((item) => {
+        if (!productMap.has(item.product_id)) {
+          productMap.set(item.product_id, []);
+        }
+        productMap.get(item.product_id).push(item.attribute);
+      });
+    
+      // Filter products that match all three attributes
+      let filteredProducts = [...productMap.entries()]
+        .filter(([_, attributes]) => 
+          attributes.includes("gender") &&
+          attributes.includes("agerange") &&
+          attributes.includes("relationship")
+        )
+        .map(([productId]) => productId);
+    
+      // If less than 3 products, add those with at least 2 attributes
+      if (filteredProducts.length < 3) {
+        const additionalProducts = [...productMap.entries()]
+          .filter(([_, attributes]) => 
+            attributes.filter(attr => ["gender", "agerange", "relationship"].includes(attr)).length === 2
+          )
+          .map(([productId]) => productId);
+    
+        filteredProducts = [...new Set([...filteredProducts, ...additionalProducts])].slice(0, 3);
+      }
+    
+      setProductsids(filteredProducts);
+    }, [products, selectedGender, selectedAgeRange, selectedRelationship]);
+
     return(
         <>
  <div className="font-bold text-3xl md:text-5xl text-[#8B024B] leading-tight text-center pt-[7vh]">
@@ -169,10 +221,14 @@ const ShopByPreferences=()=>{
         onClick={() => setToggleOptions("Relation")}
         className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
       ></i>
- {setProductsids([...new Set(products.map(item => item.product_id))]) && productsids.map((productid) => {
-      const product = fetchProductById(productid);
-     <SurprisedProducts key={productid} Surpriseproduct={product} />;
-    })}
+{productsids.slice(0, 3).map((productid) => (
+  productDetails[productid] ? (
+    <SurprisedProducts key={productid} Surpriseproduct={productDetails[productid]} />
+  ) : (
+    <div key={productid}>Loading...</div> // Show loading while fetching
+  )
+))}
+
 
     </div>
   )}
