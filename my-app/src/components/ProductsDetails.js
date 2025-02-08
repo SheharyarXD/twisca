@@ -102,8 +102,8 @@ const ProductDetails = () => {
               <div className="flex flex-row text-xs items-center pt-[1vh] text-gray-500">
                 <img src="../Images/ri-star-fill.png" className="pr-1" alt="" />{" "}
                 <p>
-                  <span className="pr-3">5.0</span>|
-                  <span className="pl-3">56</span> sold
+                  <span className="pr-3">{(Math.random() * (5 - 4) + 4).toFixed(1)}</span>|
+                  <span className="pl-3">{Math.floor(Math.random() * (10 - 3 + 1)) + 3}</span> sold
                 </p>
               </div>
               <div className="font-bold text-[2.4rem] pt-[1vh] leading-tight">
