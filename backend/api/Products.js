@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await pool.query('SELECT * FROM Products WHERE ProductID = $1', [id]);
+        const result = await pool.query(' Select * FROM products p JOIN categories c ON p.categoryid = c.categoryid WHERE p.productid = $1', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Product not found' });
         }
