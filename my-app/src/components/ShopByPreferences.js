@@ -1,7 +1,10 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import SurprisedProducts from "./SurprisesProducts";
+import { ProductContext } from "../utils/ProductsContext";
 const ShopByPreferences=()=>{
+    const { selectedProduct, fetchProductById, productDetailId } =
+      useContext(ProductContext);
     const [ToggleOptions,setToggleOptions]=useState("")
     const [products, setProducts] = useState([]);
     const [productsids, setProductsids] = useState([]);
