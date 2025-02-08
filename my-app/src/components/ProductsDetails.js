@@ -304,7 +304,7 @@ const ProductDetails = () => {
                     <ul>
                     <ul>
   {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
-    .filter((feature) => feature.feature_type === "feature")
+    .filter((feature) => feature.feature_type === "features")
     .map((feature) => (
       <li key={`${feature.feature_type}-${feature.feature_value}`}>
  {feature.feature_value}
