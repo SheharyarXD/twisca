@@ -63,7 +63,7 @@ const ProductDetails = () => {
       }, [productDetailId]);
       useEffect(() => {
       
-        fetchSupriseProducts(5);
+        fetchSupriseProducts(8);
       }, []);
       const fetchSupriseProducts = async (num) => {
         try {
@@ -229,7 +229,7 @@ const ProductDetails = () => {
                 {selectedProduct.productname}
                 </div>
                 <div className="font-bold text-xs text-[#8B024B]">
-                  Gifts & Hampers
+                {selectedProduct.categoryname}
                 </div>
               </div>
             </div>
