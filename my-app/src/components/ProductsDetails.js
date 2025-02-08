@@ -211,7 +211,7 @@ const ProductDetails = () => {
             <div className="flex hidden sm:flex sm:flex-row items-center">
               <img
                 className="h-12 pr-4 rounded-lg"
-                src="../Images/sampleImage2.png"
+                src={selectedProduct.imageurl||"../Images/sampleImage2.png"}
                 alt=""
               />
               <div className="flex flex-col">
