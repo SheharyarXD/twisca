@@ -165,9 +165,9 @@ const ShopByPreferences=()=>{
         onClick={() => setToggleOptions("Relation")}
         className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
       ></i>
-      <SurprisedProducts />
-      <SurprisedProducts />
-      <SurprisedProducts />
+      <SurprisedProducts Surpriseproduct={""} />
+      <SurprisedProducts Surpriseproduct={""}/>
+      <SurprisedProducts Surpriseproduct={""}/>
     </div>
   )}
 </div>
