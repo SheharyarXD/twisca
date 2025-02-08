@@ -162,7 +162,7 @@ const ProductDetails = () => {
               <div className="w-full max-h-[300px] md:max-h-[54vh] md:h-[54vh] overflow-hidden">
                 <img
                   className="cover w-full h-auto"
-                  src={selectedProduct.imageUrl||"../Images/sampleImage.png"}
+                  src={selectedProduct.imageurl||"../Images/sampleImage.png"}
                   alt=""
                 />
               </div>
