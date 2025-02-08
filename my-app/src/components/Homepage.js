@@ -98,34 +98,34 @@ return(
         <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Our Most-Loved Picks,Just for <br />You!</div>
         <p className="text-gray-600 text-[0.9rem] sm:text-base pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
-       
-
   navigation={{
     prevEl: '.custom-prev',
     nextEl: '.custom-next',
   }}
   autoplay={{
-    delay:2500, 
-    disableOnInteraction: false, 
+    delay: 2500,
+    disableOnInteraction: false,
   }}
-  modules={[Navigation,Autoplay]}
+  modules={[Navigation, Autoplay]}
   className="mySwiper mt-[5vh] w-[90vw] relative"
-  slidesPerView="auto" // Allow slides to take up only their required space
+  slidesPerView="auto" 
   spaceBetween={25}
 >
-  <SwiperSlide className="max-w-[250px]">
   {Array.isArray(Lovedproduct) && Lovedproduct.length > 0 ? (
-  Lovedproduct.map((product) => (
-    <LovedPorducts key={product.productid} product={product} />
-  ))
-) : (
-  <p>No products found</p> // Optional: to handle when the array is empty or not an array
-)}
-  </SwiperSlide>
+    Lovedproduct.map((product) => (
+      <SwiperSlide key={product.productid} className="max-w-[250px]">
+        <LovedPorducts product={product} />
+      </SwiperSlide>
+    ))
+  ) : (
+    <SwiperSlide>
+      <p>No products found</p>
+    </SwiperSlide>
+  )}
+</Swiper>
 
   <button className="custom-prev text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white left-[4vw] top-[18vh] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-left py-4 px-4"></i></button>
   <button className="custom-next text-[#8B024B] border absolute border-[#8B024B] text-[1.5rem] rounded-full bg-white right-[4vw]  top-[18vh] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-right py-4 px-4"></i></button>
-</Swiper>
     </div>
     </section>
     {/* Surprise Products Section */}
