@@ -4,6 +4,7 @@ import SurprisedProducts from "./SurprisesProducts";
 const ShopByPreferences=()=>{
     const [ToggleOptions,setToggleOptions]=useState("")
     const [products, setProducts] = useState([]);
+    const [productsids, setProductsids] = useState([]);
     const [selectedGender, setSelectedGender] = useState(null);
     const [selectedAgeRange, setSelectedAgeRange] = useState(null);
     const [selectedRelationship, setSelectedRelationship] = useState(null);
@@ -165,9 +166,11 @@ const ShopByPreferences=()=>{
         onClick={() => setToggleOptions("Relation")}
         className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
       ></i>
-      <SurprisedProducts Surpriseproduct={""} />
-      <SurprisedProducts Surpriseproduct={""}/>
-      <SurprisedProducts Surpriseproduct={""}/>
+ {setProductsids([...new Set(data.map(item => item.product_id))]) && productsids.map((productid) => {
+      const product = fetchProductById(productid);
+     <SurprisedProducts key={productid} Surpriseproduct={product} />;
+    })}
+
     </div>
   )}
 </div>
