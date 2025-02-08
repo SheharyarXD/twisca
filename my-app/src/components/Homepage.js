@@ -47,7 +47,7 @@ const HomePage=()=>{
         };
         
         fetchProducts(); 
-        fetchSupriseProducts(5);
+        fetchSupriseProducts(8);
       }, []);
       const fetchSupriseProducts = async (num) => {
         try {
@@ -136,7 +136,7 @@ return(
         <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
         <div class="flex flex-row items-center justify-center h-[5vh] md:h-[3.7vw] w-[40vw] md:w-[20vw] mx-auto mt-[6vh] text-[#8B024B]">
               <button id="beforeButton" class=" text-xs sm:text-[1.3vw] border-2 border-[#8B024B] hover:bg-[#8B024B] rounded-l-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(8)}}>👔 For Him</button>
-<button id="afterButton" class=" text-xs sm:text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(10)}}>👗 For Her</button>
+<button id="afterButton" class=" text-xs sm:text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(11)}}>👗 For Her</button>
 
             </div>
         <div className="flex flex-row flex-wrap justify-between mx-[13vw] py-[5vh]">
