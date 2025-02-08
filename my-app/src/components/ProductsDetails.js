@@ -119,7 +119,7 @@ const ProductDetails = () => {
                 </p>
               </div>
               <div>
-                <div className="font-semibold py-2">Ingrendients:</div>
+                <div className="font-semibold py-2">Details:</div>
                 <ul className="list-disc pl-9">
 
   {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
