@@ -9,7 +9,7 @@ const SurprisedProducts = ({ Surpriseproduct }) => {
         {/* Dynamically set image */}
         <img
           src={Surpriseproduct.imageurl || "../Images/sampleImage2.png"}
-          className="object-cover w-full h-auto"
+          className="object-cover w-full h-auto max-h-[230px]"
           alt={Surpriseproduct.productname || "Product Image"}
         />
       </div>
