@@ -18,12 +18,12 @@ const LovedPorducts=({product })=>{
             <img src="./Images/sampleImage.png" className="object-cover" alt="" />
             </div>
             <div className="flex flex-row text-[0.85rem] font-bold px-2 pt-[2vh]">
-                <div className="w-[65vw]  text-start">{product.productname}</div>
-                <div className="w-[35vw]  text-end">PKR {product.price}</div>
+                <div className="w-[60vw]  text-start">{product.productname}</div>
+                <div className="w-[40vw]  text-end">PKR {product.price}</div>
             </div>
             <div className="flex flex-row text-[0.7rem] px-2 pt-[0.8vh]">
-                <div className="w-[70vw] text-start text-gray-600 font-semibold">{product.description}</div>
-                <div className="w-[30vw] text-end line-through font-bold text-red-700">PKR {product.oldprice}</div>
+                <div className="w-[60vw] text-start text-gray-600 font-semibold">{product.description}</div>
+                <div className="w-[40vw] text-end line-through font-bold text-red-700">PKR {product.oldprice}</div>
             </div>
             <div className="flex flex-row px-2 text-xs items-center pt-[1vh] text-gray-500">
             <img src="./Images/ri-star-fill.png" className="pr-1" alt="" /> <p><span className="pr-3">5.0</span>|<span className="pl-3">{product.stockquantity}</span> sold</p>

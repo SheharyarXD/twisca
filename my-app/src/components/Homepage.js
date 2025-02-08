@@ -94,7 +94,7 @@ return(
     </div>
     {/* Loved Porducts Section */}
     <section>
-          <div className="h-screen text-center pt-[10vh] overflow-hidden">
+          <div className="h-screen text-center relative pt-[10vh] overflow-hidden">
         <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Our Most-Loved Picks,Just for <br />You!</div>
         <p className="text-gray-600 text-[0.9rem] sm:text-base pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
