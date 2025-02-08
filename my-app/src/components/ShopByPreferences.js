@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext } from "react";
 import SurprisedProducts from "./SurprisesProducts";
 import { ProductContext } from "../utils/ProductsContext";
 const ShopByPreferences=()=>{
@@ -169,7 +169,7 @@ const ShopByPreferences=()=>{
         onClick={() => setToggleOptions("Relation")}
         className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
       ></i>
- {setProductsids([...new Set(data.map(item => item.product_id))]) && productsids.map((productid) => {
+ {setProductsids([...new Set(products.map(item => item.product_id))]) && productsids.map((productid) => {
       const product = fetchProductById(productid);
      <SurprisedProducts key={productid} Surpriseproduct={product} />;
     })}
