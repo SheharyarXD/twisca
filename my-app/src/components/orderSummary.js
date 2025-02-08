@@ -23,7 +23,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
 
     image="../Images/sampleImage2.png"
     title={carts.productName}
-    category="Gift & Hampers"
+    category={cart.category}
     price={carts.price}
     rating="5.0"
 />
@@ -34,7 +34,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
             <div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Price</div>
-                    <div>PKR{totalPrice.toFixed(2)}</div>
+                    <div>PKR {totalPrice.toFixed(2)}</div>
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Discount</div>
@@ -46,7 +46,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                 </div>
                 <div className="flex font-bold flex-row justify-between px-[1.5vw] py-[1vh] ">
                     <div>Total</div>
-                    <div>PKR{(totalPrice+300).toFixed(2)}</div>
+                    <div>PKR {(totalPrice+300).toFixed(2)}</div>
                 </div>
                 <div className="flex flex-row justify-between px-[1.5vw] text-[#414141] py-[1vh] ">
                     <div>Estimated Delivery by</div>
