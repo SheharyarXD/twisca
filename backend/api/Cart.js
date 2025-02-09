@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     const { userId, productId, quantity } = req.body;
     console.log(req.body)
-    if (!userId || !productId || !quantity) {
+    if ( !productId || !quantity) {
         return res.status(400).json({ error: 'User ID, Product ID, and Quantity are required' });
     }
 
