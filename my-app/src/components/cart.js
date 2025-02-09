@@ -9,7 +9,11 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { CartContext } from "../utils/CartContext";
 import { AuthContext } from "../utils/AuthContext";
+import FooterPage from "./footer";
+import { useNavigate } from "react-router-dom";
+
 const Cart=()=>{
+      const navigate=useNavigate()
     const {cart,
         updateCartItem,fetchCart,
         removeFromCart}=useContext(CartContext)
@@ -140,7 +144,9 @@ const Cart=()=>{
                 >
                 Continue Shopping
               </button>
-              <button  onClick={()=>{setCurrentModal("trackOrder")}} className="px-12 py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B]">
+              <button  onClick={()=>{navigate("/orders")
+                // setCurrentModal("trackOrder")
+                }} className="px-12 py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B]">
                 Track Order
               </button>
             </div>
@@ -185,6 +191,7 @@ const Cart=()=>{
           </div>
         </div>
       )}
+      <FooterPage></FooterPage>
         </>
     );
 }
