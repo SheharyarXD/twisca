@@ -14,6 +14,82 @@ import ProductCard from "./customCard";
 
 
 const HomePage=()=>{
+  
+ 
+  const products = [
+    {
+      title: "Custom Message",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "Together Forever",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "Perfect Pair",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "Bee Mine",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "A Popping Love!",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "Cherry-Sweet Love",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "No Refunds on Love!",
+      tagline: "A Heartfelt Win!",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "A Heartfelt Win!",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "Valentine's Vibes",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+    {
+      title: "Cuddly Confessions",
+      image: "https://yourimageurl.com/image.png",
+      rating: 5.0,
+      sales: 56,
+      price: 85,
+    },
+  ];
+
   const [Lovedproduct,setLovedProducts]=useState([])
   const [sampleProducts,setsampleProducts]=useState([])
       const navigate=useNavigate()
@@ -164,13 +240,18 @@ return(
           <img className="absolute hidden md:flex w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
         <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-tight">Your Love, Your Words, Your Way!</div>
         <p className="text-gray-600 pt-[4vh] text-[0.9rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
+
         <Swiper
        
 
-  navigation={{
-    prevEl: '.custom-prev',
-    nextEl: '.custom-next',
-  }}
+  onBeforeInit={(swiper) => {
+        swiper.params.navigation.prevEl = ".custom-prev";
+        swiper.params.navigation.nextEl = ".custom-next";
+      }}
+      navigation={{
+        prevEl: ".custom-prev",
+        nextEl: ".custom-next",
+      }}
   autoplay={{
     delay:2500, 
     disableOnInteraction: false, 
@@ -180,55 +261,19 @@ return(
   slidesPerView="auto" // Allow slides to take up only their required space
   spaceBetween={25}
 >
-  <SwiperSlide className="max-w-[250px]"><ProductCard
-        title="Custom Message"
-        image="https://yourimageurl.com/image.png"
-        rating={5.0}
-        sales={56}
-        price={85}
-      /></SwiperSlide>
-      <SwiperSlide className="max-w-[250px]"><ProductCard
-        title="Custom Message"
-        image="https://yourimageurl.com/image.png"
-        rating={5.0}
-        sales={56}
-        price={85}
-      /></SwiperSlide>
-      <SwiperSlide className="max-w-[250px]"><ProductCard
-        title="Custom Message"
-        image="https://yourimageurl.com/image.png"
-        rating={5.0}
-        sales={56}
-        price={85}
-      /></SwiperSlide>
-      <SwiperSlide className="max-w-[250px]"><ProductCard
-        title="Custom Message"
-        image="https://yourimageurl.com/image.png"
-        rating={5.0}
-        sales={56}
-        price={85}
-      /></SwiperSlide>
-      <SwiperSlide className="max-w-[250px]"><ProductCard
-        title="Custom Message"
-        image="https://yourimageurl.com/image.png"
-        rating={5.0}
-        sales={56}
-        price={85}
-      /></SwiperSlide>
-      <SwiperSlide className="max-w-[250px]"><ProductCard
-        title="Custom Message"
-        image="https://yourimageurl.com/image.png"
-        rating={5.0}
-        sales={56}
-        price={85}
-      /></SwiperSlide>
-  <SwiperSlide className="max-w-[250px]"><ProductCard
-        title="Custom Message"
-        image="https://yourimageurl.com/image.png"
-        rating={5.0}
-        sales={56}
-        price={85}
-      /></SwiperSlide>
+  {products.map((product, index) => (
+        <SwiperSlide key={index} className="max-w-[250px]">
+          <ProductCard
+            title={product.title}
+            image={product.image}
+            rating={product.rating}
+            sales={product.sales}
+            price={product.price}
+            // Pass tagline only if it exists
+            tagline={product.tagline}
+          />
+        </SwiperSlide>
+      ))}
   <button className="custom-prev text-[#8B024B] border  border-[#8B024B] text-[1.5rem] rounded-full bg-white  z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-left py-4 px-4"></i></button>
   <button className="custom-next text-[#8B024B] border  border-[#8B024B] text-[1.5rem] rounded-full bg-white mt-[5vh] ml-[1vw] z-50 hover:text-white hover:bg-[#8B024B]"><i className="fa-solid fa-arrow-right py-4 px-4"></i></button>
 </Swiper>
