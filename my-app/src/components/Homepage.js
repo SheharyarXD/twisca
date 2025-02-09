@@ -159,7 +159,7 @@ return(
             </div>
         <div className="flex flex-row flex-wrap justify-between mx-[13vw] py-[5vh]">
         {sampleProducts.length > 0 ? (
-        sampleProducts.map((product) => (
+        sampleProducts.slice(0, 3).map((product) => (
           <SurprisedProducts key={product.productId} Surpriseproduct={product} />
         ))
       ) : (

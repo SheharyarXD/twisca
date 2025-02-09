@@ -5,14 +5,14 @@ import { AuthContext } from "../utils/AuthContext";
 
 const ProductCard = ({productid, title, imageurl, rating, sales, price }) => {
   const darkShades = [
-    "bg-[#FFE01A]",  // Dark Yellow
-    "bg-[#E1B7FF]",  // Dark Yellow
-    "bg-[#F9A474]",  // Dark Purple
-    "bg-[#EF0BA3]",  // Medium Dark Purple
-    "bg-[#98DFFF]",     // Dark Red
-    "bg-[#CF235C]",    // Dark Pink
-    "bg-[#D9AFD9]",    // Rose Shade
-    "bg-[#929BFF]"  // Deep Fuchsia
+    "bg-[#FFE01A]", 
+    "bg-[#E1B7FF]", 
+    "bg-[#F9A474]", 
+    "bg-[#EF0BA3]", 
+    "bg-[#98DFFF]", 
+    "bg-[#CF235C]", 
+    "bg-[#D9AFD9]", 
+    "bg-[#929BFF]"  
   ];
   const randomBg = darkShades[Math.floor(Math.random() * darkShades.length)];
    const {userid}=useContext(AuthContext)

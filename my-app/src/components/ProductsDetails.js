@@ -178,41 +178,19 @@ const ProductDetails = () => {
               </div>
               {/* sub Images */}
               <div className="w-full md:h-[15vh] flex flex-row items-center justify-between pt-[3vh] space-x-3">
-                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
-                  <img
-                    className="cover h-full w-full"
-                    src="../Images/sampleImage2.png"
-                    alt=""
-                  />
-                </div>
-                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
-                  <img
-                    className="cover h-full w-full"
-                    src="../Images/sampleImage2.png"
-                    alt=""
-                  />
-                </div>
-                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
-                  <img
-                    className="cover h-full w-full"
-                    src="../Images/sampleImage2.png"
-                    alt=""
-                  />
-                </div>
-                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
-                  <img
-                    className="cover h-full w-full"
-                    src="../Images/sampleImage2.png"
-                    alt=""
-                  />
-                </div>
-                <div className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
-                  <img
-                    className="cover h-full w-full"
-                    src="../Images/sampleImage2.png"
-                    alt=""
-                  />
-                </div>
+              {Array.isArray(additionalDetails.features) &&
+  additionalDetails.features.filter((feature) => feature.feature_type === "images").length > 0 &&
+  additionalDetails.features
+    .filter((feature) => feature.feature_type === "images")
+    .map((feature, index) => (
+      <div key={index} className="md:w-[6vw] overflow-hidden h-[14vh] p-1 border-2 border-gray-400 hover:border-[#8B024B] rounded-lg">
+        <img
+          className="cover h-full w-full"
+          src={feature.feature_value || "../Images/sampleImage2.png"}
+          alt="feature"
+        />
+      </div>
+    ))}
               </div>
             </div>
           </div>
@@ -397,12 +375,12 @@ const ProductDetails = () => {
             </div>
             <div className="flex flex-wrap flex-row justify-between py-8">
             {sampleProducts.length > 0 ? (
-        sampleProducts.map((product) => (
-          <SurprisedProducts key={product.productId} Surpriseproduct={product} />
-        ))
-      ) : (
-        <div>No products available</div>
-      )}
+  sampleProducts.slice(0, 3).map((product) => (
+    <SurprisedProducts key={product.productId} Surpriseproduct={product} />
+  ))
+) : (
+  <div>No products available</div>
+)}
             </div>
           </div>
           <FooterPage></FooterPage>

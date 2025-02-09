@@ -182,21 +182,24 @@ const ProductPage = () => {
           </div>
           {/* <p className="text-sm font-semibold pt-[2vh]">Showing 1-09 of 24 item(s)</p> */}
           <div className="flex flex-wrap flex-row justify-between mt-[1vh] max-h-[58vh] overflow-y-scroll">
-          {productsAvail && Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
-        filteredProducts.map((product) => (
-          <ProductPageProducts
-            key={product.productid}
-            productid={product.productid}
-            productName={product.productname}
-            currentPrice={product.price}
-            originalPrice={product.oldprice}
-            description={product.description}
-            imageUrl={product.imageurl}
-          />
-        ))
-      ) : (
-        <p>No products found.</p>
-      )}    </div>
+          {productsAvail && Array.isArray(filteredProducts) && filteredProducts.filter(p => p.categoryid !== 13).length > 0 ? (
+    filteredProducts
+      .filter(p => p.categoryid !== 13) 
+      .map((product) => (
+        <ProductPageProducts
+          key={product.productid}
+          productid={product.productid}
+          productName={product.productname}
+          currentPrice={product.price}
+          originalPrice={product.oldprice}
+          description={product.description}
+          imageUrl={product.imageurl}
+        />
+      ))
+  ) : (
+    <p>No products found.</p>
+  )}
+   </div>
           {/* <div className="flex flex-col justify-center items-center text-center w-[22vw] mx-auto py-[2vh]">
           <p className="text-xs text-[#414141] font-semibold py-[2vh]">Showing 1-09 of 24 item(s)</p>
           <p className="flex border border-gray-600 h-0.5 w-full mb-[2vh] bg-gray-600"></p>
