@@ -94,7 +94,7 @@ const Header = () => {
         <div className="flex flex-row items-center w-[20vw] min-w-fit">
             <div className="font-bold cursor-pointer"  onClick={() => navigate("/cart")}><i className="fa-solid fa-cart-shopping px-1.5 "></i>Cart <span className="rounded-full text-[#8B024B]">{Array.isArray(cart)&& cart.length>0?cart.length:0}</span></div>
             <div className="hidden lg:flex">
-                {user?( 
+                {userid!=0&&user?( 
                     <div id="authContainer" className="relative pl-[5vw]">
                <div
                    id="userAvatar"
