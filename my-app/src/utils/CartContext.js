@@ -29,7 +29,8 @@ export const CartProvider = ({ children }) => {
               productName: productDetails ? productDetails.productname : 'Unknown Product', // Add product name
               price: productDetails ? productDetails.price : 'N/A', // Add product price
               oldprice: productDetails ? productDetails.oldprice : 'N/A', // Add product price
-              category: productDetails ? productDetails.categoryname : 'N/A' // Add product price
+              category: productDetails ? productDetails.categoryname : 'N/A' ,// Add product price
+              imageurl: productDetails ? productDetails.imageurl : 'N/A' // Add product price
             };
           }));
           

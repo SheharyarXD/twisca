@@ -79,20 +79,21 @@ const Cart=()=>{
             {cartToggle=="cartP"&&(
              <div className="rounded-xl border-gray-300 border mt-[5vh] h-[70vh] ">
             
-                <div className="flex text-[1.1rem] sticky top-0 z-10 flex-row items-center bg-[#8B024B] justify-center  text-white py-[2vh] overflow-hidden rounded-t-xl" >
-                    <div className="w-[23vw]">Product</div>
+                <div className="flex text-[1.1rem] sticky top-0 z-10 flex-row items-center bg-[#8B024B] md:justify-center  text-white py-[2vh] overflow-hidden rounded-t-xl" >
+                    <div className="w-[23vw] pl-[8vw] md:pl-0 md:w-[23vw]">Product</div>
                     <div className="w-[18vw] flex">
-                    <div className="w-[6vw] text-center">Price</div>
-                    <div className=" text-center w-[10vw]">Quantity</div>
-                    <div className="w-[2vw]">Total</div>
+                    <div className="w-[6vw] hidden md:flex text-center">Price</div>
+                    <div className="pl-[22vw] md:pl-0 text-center md:w-[10vw]">Quantity</div>
+                    <div className="pl-[10vw] md:pl-0 w-[2vw]">Total</div>
                     </div>
                 </div>
               
-                <div className=" flex flex-col">
+                <div className=" flex flex-col max-h-[60vh] overflow-y-scroll">
                     {Array.isArray(cart)&& cart.length>0&& cart.map((carts)=>(
                         
                         <CartList
                         key={carts.cartid}
+                        imageurl={carts.imageurl}
                         productName ={carts.productName}
                         productid={carts.productid}
                         originalPrice = {carts.price}

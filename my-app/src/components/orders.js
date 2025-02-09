@@ -1,10 +1,10 @@
 import React from "react";
 
-const OrderDiv = ({ image, title, category, price, rating }) => {
+const OrderDiv = ({ imageurl, title, category, price, rating }) => {
     return (
         <div className="flex flex-row h-[12vh] pb-[1vh]">
             <div className="max-w-[30%]">
-                <img className="h-full w-auto" src={image} alt={title} />
+                <img className="h-full w-auto" src={imageurl} alt={title} />
             </div>
             <div className="flex text-sm px-3 font-bold flex-col min-w-[60%]">
                 <div>{title}</div>

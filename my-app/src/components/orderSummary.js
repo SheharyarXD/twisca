@@ -3,11 +3,16 @@ import { useState,useContext } from "react";
 import OrderDiv from "./orders";
 import { CartContext } from "../utils/CartContext";
 import { AuthContext } from "../utils/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+
+
 const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
+    const navigate=useNavigate()
   const {cart,
       updateCartItem,fetchCart,
       removeFromCart}=useContext(CartContext)
-      const {cartToggle, setcartToggle}=useContext(AuthContext);
+      const {userid,cartToggle, setcartToggle}=useContext(AuthContext);
 
 
   
@@ -16,16 +21,17 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
         <div className="flex flex-col w-full min-h-fit border-gray-300 border px-[2vw] rounded-lg">
             <div className="font-semibold py-[2vh] text-[1.3rem]">Order Summary</div>
             <div className="text-[#8B024B] px-[0.1vw] py-[1vh] font-semibold border-y border-[#949494] mb-[2vh]"> {cart.length} {cart.length === 1 ? "item" : "items"}</div>
-            <div className=" border-b border-[#949494]">
+            <div className=" border-b border-[#949494] space-y-2 overflow-y-scroll">
             {Array.isArray(cart)&& cart.length>0&& cart.map((carts)=>(
                         
             <OrderDiv 
 
     image="../Images/sampleImage2.png"
     title={carts.productName}
-    category={cart.category}
+    category={carts.category}
     price={carts.price}
     rating="5.0"
+    imageurl={carts.imageurl}
 />
                     ))
                     }
@@ -53,7 +59,7 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                     <div>{estimatedDelivery}</div>
                 </div>
             </div>
-            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" onClick={()=>{setcartToggle("billing")}}>Continue</button></div>
+            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-full" onClick={()=>{userid===0?navigate("/login"):setcartToggle("billing")}}>Continue</button></div>
 
       </div>
     );

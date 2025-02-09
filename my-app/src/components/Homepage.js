@@ -11,86 +11,15 @@ import { useNavigate } from "react-router-dom";
 import 'swiper/css/navigation';
 import { Navigation,Autoplay  } from 'swiper/modules';
 import ProductCard from "./customCard";
-
+import { ProductContext } from "../utils/ProductsContext";
 
 const HomePage=()=>{
   
  
-  const products = [
-    {
-      title: "Custom Message",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "Together Forever",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "Perfect Pair",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "Bee Mine",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "A Popping Love!",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "Cherry-Sweet Love",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "No Refunds on Love!",
-      tagline: "A Heartfelt Win!",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "A Heartfelt Win!",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "Valentine's Vibes",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-    {
-      title: "Cuddly Confessions",
-      image: "https://yourimageurl.com/image.png",
-      rating: 5.0,
-      sales: 56,
-      price: 85,
-    },
-  ];
+  
 
   const [Lovedproduct,setLovedProducts]=useState([])
+  const [ ProductsCards,setProductsCards]=useState([])
   const [sampleProducts,setsampleProducts]=useState([])
       const navigate=useNavigate()
     const divStyle = {
@@ -125,6 +54,18 @@ const HomePage=()=>{
         
         fetchProducts(); 
         fetchSupriseProducts(8);
+      }, []);
+      useEffect(() => {
+        const fetchProductsCards = async () => {
+          try {
+            const product = await getProductsByCategory(13); 
+            setProductsCards(product); 
+          } catch (error) {
+            console.error("Error fetching products:", error);
+          }
+        };
+        
+        fetchProductsCards(); 
       }, []);
       const fetchSupriseProducts = async (num) => {
         try {
@@ -261,14 +202,16 @@ return(
   slidesPerView="auto" // Allow slides to take up only their required space
   spaceBetween={25}
 >
-  {products.map((product, index) => (
+  {ProductsCards.map((product, index) => (
         <SwiperSlide key={index} className="max-w-[250px]">
           <ProductCard
-            title={product.title}
+            title={product.productname}
+            productid={product.productid}
             image={product.image}
-            rating={product.rating}
-            sales={product.sales}
+            rating={(Math.random() * (5 - 4) + 4).toFixed(1)}
+            sales=   {Math.floor(Math.random() * (10 - 3 + 1)) + 3}   
             price={product.price}
+            imageurl={product.imageurl}
             // Pass tagline only if it exists
             tagline={product.tagline}
           />

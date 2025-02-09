@@ -1,27 +1,22 @@
 import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../utils/CartContext";
+import { AuthContext } from "../utils/AuthContext";
 
-const ProductCard = ({ title, image, rating, sales, price }) => {
+const ProductCard = ({productid, title, imageurl, rating, sales, price }) => {
+   const {userid}=useContext(AuthContext)
+      const { addToCart}=useContext(CartContext);
   return (
-    <div className="bg-yellow-300 p-4 text-start rounded-2xl overflow-visible shadow-lg h-[50vh] w-[260px]">
+    <div className="bg-yellow-300 p-4 text-start rounded-2xl overflow-visible shadow-lg min-h-[50vh] w-[260px]">
       <h2 className="text-[1.24rem] font-bold italic">{title}</h2>
       <div className="relative mt-2 rounded-sm h-[30vh] my-[5vh] overflow-visible">
-      <div className="rounded-xs bg-[#F682A5]  px-1 shadow-md pt-[16vh] absolute -left-[16px] top-8 z-50 flex justify-between items-baseline font-bold text-[#8B024B] text-[0.7rem] ml-auto  h-[20vh] w-[95%] shadow-2xl ">
-            <div>www.twisca.shop</div>
-            <div className="flex flex-row items-center cursor-default" > 
-            <img className="h-5 w-auto pr-1" src="../logo.png" alt="png" />
-        <div className="font-bold text-[0.8rem] text-[#8B024B]">
-            twisca
-        </div>
-        </div>
+      <div className="rounded-xs  object-cover   absolute -left-[16px] top-8 z-50 flex justify-between items-baseline font-bold text-[#8B024B] text-[0.7rem]   h-[20vh] shadow-2xl p-0 m-0">
+
+         <img className="cover  w-full h-full" src={imageurl} alt="" />
             </div> 
-        <div className="rounded-xs bg-[#F682A5]  px-1 shadow-md pt-[16vh] absolute -right-2 bottom-0 flex justify-between items-baseline font-bold text-[#8B024B] text-[0.7rem] ml-auto  h-[20vh] w-[93%] shadow-2xl ">
-            <div>www.twisca.shop</div>
-            <div className="flex flex-row items-center cursor-default" > 
-            <img className="h-5 w-auto pr-1" src="../logo.png" alt="png" />
-        <div className="font-bold text-[0.8rem] text-[#8B024B]">
-            twisca
-        </div>
-        </div>
+        <div className="rounded-xs  shadow-md cover absolute -right-2 bottom-0 flex justify-between items-baseline font-bold text-[#8B024B] text-[0.7rem]  h-[20vh] w-[93%] ml-auto shadow-2xl ">
+        <img className=" cover  w-full h-full" src="https://i.ibb.co/dv4pFYs/card1.png" alt="" />
+      
             </div> 
       </div>
       <div className="flex justify-between items-center">
@@ -31,6 +26,8 @@ const ProductCard = ({ title, image, rating, sales, price }) => {
       </div>
       <p className="text-[1rem] font-bold mt-1">PKR {price}</p>
       </div>
+      <button onClick={(event)=>
+                {event.stopPropagation(); addToCart(userid,productid,1)}} className="bg-[#8B024B] text-white w-full mt-2 text-[0.8rem] py-2 rounded-[0.5vw] ">Add to Cart</button>
     </div>
   );
 };
