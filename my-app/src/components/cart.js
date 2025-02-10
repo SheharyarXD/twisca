@@ -117,7 +117,7 @@ const Cart=()=>{
         )}
             </div>
             {/* right section */}
-            <div className="w-full md:w-[40vw] pl-[9vw] md:pl-0 pr-[9vw] flex h-[70vh] ">
+            <div className="w-full md:w-[40vw] pl-[9vw] md:pl-0 pr-[9vw] flex min-h-[70vh] ">
 <OrderSummary 
  key="e"
   totalPrice={totalPrice}
