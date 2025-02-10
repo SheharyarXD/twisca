@@ -128,31 +128,41 @@ const Cart=()=>{
             </div>
         </div>
         </div>
-        {currentModal=="thankYou" && (
-          <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100]">
-          <div className="bg-white px-[5vw] py-[5vh] rounded-lg shadow-lg min-h-fit w-[60vw] text-center">
-            <img src="../Images/tick.png" className="mx-auto " alt="" />
-            <h2 className="text-[3rem] font-bold my-4">Thank You!</h2>
-            <p className="text-gray-600 mb-2 w-[40vw] mx-auto">
-              Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.
-            </p>
-            <p className="text-gray-800 font-medium">Your Order ID is <span className="font-bold text-black">#96459761</span></p>
-            <div className="flex justify-center mt-6">
-              <button
-                className="px-4 py-2 border mx-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
-                onClick={closeModal}
-                >
-                Continue Shopping
-              </button>
-              <button  onClick={()=>{navigate("/orders")
-                // setCurrentModal("trackOrder")
-                }} className="px-12 py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B]">
-                Track Order
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+        {currentModal == "thankYou" && (
+  <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100] px-4">
+    <div className="bg-white px-[5vw] py-[5vh] rounded-lg shadow-lg w-[90vw] sm:w-[60vw] max-w-[90vw] text-center">
+      <img src="../Images/tick.png" className="mx-auto w-[20%] max-w-[80px]" alt="Success" />
+      
+      <h2 className="sm:text-[1rem] md:text-[2.5rem] sm:text-[2rem] font-bold my-4">
+        Thank You!
+      </h2>
+
+      <p className="text-gray-600 mb-2 w-[40vw] max-w-[90%] mx-auto sm:text-[1.2rem] sm:text-[1rem]">
+        Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.
+      </p>
+
+      <p className="text-gray-800 font-medium text-[1.2rem] sm:text-[1rem]">
+        Your Order is <span className="font-bold text-black">Placed</span>
+      </p>
+
+      <div className="flex flex-col sm:flex-row justify-center mt-6 gap-4">
+        <button
+          className="px-6 py-3 sm:px-4 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 w-full sm:w-auto"
+          onClick={closeModal}
+          >
+          Continue Shopping
+        </button>
+        <button
+          onClick={() => navigate("/orders")}
+          className="px-12 py-3 sm:px-6 sm:py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B] w-full sm:w-auto"
+          >
+          Track Order
+        </button>
+      </div>
+    </div>
+  </div>
+)} 
+
       {/* Track Order Modal */}
       {currentModal === "trackOrder" && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100]">
