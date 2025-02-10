@@ -57,6 +57,7 @@ export const CartProvider = ({ children }) => {
       const data = await response.json();
       if (data.cartItem) {
         setCart((prevCart) => [...prevCart, data.cartItem]);
+        console.log(data)
       }
     } catch (error) {
       console.error('Error adding item to cart:', error);
