@@ -91,7 +91,7 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
     </div>
 
         <div className="flex justify-between mt-4">
-          <button type="button" className="px-4 w-[35%] py-2 border mr-2 border-gray-300 text-gray-500 rounded-[1vw] hover:bg-gray-400">Cancel</button>
+          <button type="button" onClick={()=>  setcartToggle("cartP")} className="px-4 w-[35%] py-2 border mr-2 border-gray-300 text-gray-500 rounded-[1vw] hover:bg-gray-400">Cancel</button>
           <button type="submit"  className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-[65%]">Save & Continue</button>
         </div>
       </form>

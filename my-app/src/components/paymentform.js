@@ -113,7 +113,7 @@ const PaymentForm = ({ userId }) => {
         <input
           type="email"
           className="w-full p-2 mb-4 border border-gray-300 rounded-[1vw]"
-          onChange={handleCardNumberChange} // Should this be connected to email as well?
+           // Should this be connected to email as well?
         />
 
         <div className="grid grid-cols-2 gap-4">
@@ -141,10 +141,10 @@ const PaymentForm = ({ userId }) => {
 
         <div className="flex justify-between mt-4">
           <button
-            type="button"
+            type="button" onClick={()=>  setcartToggle("billing")}
             className="px-4 w-[35%] py-2 border mr-2 border-gray-300 text-gray-500 rounded-[1vw]  hover:bg-gray-400"
           >
-            Cancel
+            Back
           </button>
           <button
             type="submit"
