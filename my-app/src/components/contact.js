@@ -55,7 +55,7 @@ const Contact=()=>{
     <div className="bg-white z-10 overflow-hidden flex flex-col md:flex-row w-full px-4 md:px-0 md:max-w-[85%] md:mx-[1.6vw]  md:min-h-[62vh] ">
 
       <div className="w-full  lg:w-1/2 px-[3.1vw] flex flex-col justify-center ">
-        <h2 className="text-4xl md:text-[3.5rem] leading-tight font-bold  mb-[0.8vw] flex  items-center pt-[1vw]">
+        <h2 className="text-4xl md:text-[3.5rem] leading-tight font-bold  mb-[0.8vw] flex  lg:text-[4rem] allura-regular items-center pt-[1vw]">
         Got Questions? <br />
         Let Us Help You! </h2>
 

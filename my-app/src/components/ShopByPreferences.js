@@ -104,13 +104,13 @@ useEffect(() => {
 
     return(
         <>
- <div className="font-bold text-3xl md:text-5xl text-[#8B024B] leading-tight text-center pt-[7vh]">
+ <div className="font-bold text-3xl md:text-5xl text-[#8B024B] leading-tight text-center pt-[12vh]">
   Shop by Your Preferences
 </div>
 
 {ToggleOptions === "" && (
   <div className="font-semibold text-xl md:text-3xl text-[#8B024B] leading-tight text-center py-[2vh]">
-    A Quick Quiz
+   
   </div>
 )}
 
@@ -159,7 +159,7 @@ useEffect(() => {
   )}
 
   {ToggleOptions === "Age" && (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center w-full pt-[10vh]">
       <i
         onClick={() => setToggleOptions("")}
         className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-4 sm:top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
@@ -216,7 +216,7 @@ useEffect(() => {
   )}
 
   {ToggleOptions === "Result" && (
-    <div className="flex flex-col md:flex-row w-11/12 md:w-4/5 justify-center mx-auto gap-4 pb-6 pt-[5vh] rounded-md bg-[#D1A7BD]">
+    <div className="flex flex-col md:flex-row w-11/12 md:w-4/5 items-center justify-center mx-auto gap-4 pb-6 pt-[5vh] rounded-md bg-[#D1A7BD]">
       <i
         onClick={() => setToggleOptions("Relation")}
         className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"

@@ -12,8 +12,14 @@ const Header = () => {
             removeFromCart}=useContext(CartContext)
     const {user,userid,logout}=useContext(AuthContext)
     const [menuOpen, setMenuOpen] = useState(false);
+    
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
+
+    
+  
+
+  
   return (
     <>
         <NewsTicker></NewsTicker>
@@ -25,13 +31,13 @@ const Header = () => {
         </div>
         </div>
         <div className="flex items-center w-[40vw]">
-        <nav>
+        <nav >
             <ul className="flex flex-row justify-between text-[#222222] hidden lg:flex">
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/")}>Home</a></li>
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/products")}>Products</a></li>
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a onClick={() => navigate("/orders")}>Orders</a></li>
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600"><a>About Us</a></li>
-                <li className="px-[1.5vw] cursor-pointer hover:text-gray-600" onClick={() => navigate("/contact")}><a>Contact</a></li>
+                <li className='px-[1.5vw]  cursor-pointer'><a className="text-[#8b024b] text-[15px] font-semibold transition ease-in hover:text-[#bd1c71] hover:border-b hover:border-[#8b024b] hover:pb-1" onClick={() => navigate("/")}>Home</a></li>
+                <li className='px-[1.5vw]  cursor-pointer'><a className="text-[#8b024b] text-[15px] font-semibold transition ease-in hover:text-[#bd1c71] hover:border-b hover:border-[#8b024b] hover:pb-1" onClick={() => navigate("/products")}>Products</a></li>
+                <li className='px-[1.5vw]  cursor-pointer'><a className="text-[#8b024b] text-[15px] font-semibold transition ease-in hover:text-[#bd1c71] hover:border-b hover:border-[#8b024b] hover:pb-1" onClick={() => navigate("/orders")}>Orders</a></li>
+                <li className='px-[1.5vw]  cursor-pointer'><a className="text-[#8b024b] text-[15px] font-semibold transition ease-in hover:text-[#bd1c71] hover:border-b hover:border-[#8b024b] hover:pb-1">About Us</a></li>
+                <li className='px-[1.5vw]  cursor-pointer' onClick={() => navigate("/contact")}><a className="text-[#8b024b] text-[15px] font-semibold transition ease-in hover:text-[#bd1c71] hover:border-b hover:border-[#8b024b] hover:pb-1">Contact</a></li>
             </ul>
         </nav>
         {/* Mobile Menu Button */}

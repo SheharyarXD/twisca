@@ -218,7 +218,7 @@ const generateRandomSixDigitNumber=()=> {
               className="flex flex-col pb-[0.5vh]"
               onSubmit={handleLogin}
             >
-              <h1 className="h-[10%] text-3xl md:text-[3.4vw] font-bold text-black my-12 lg:my-[10vh]">
+              <h1 className="h-[10%]  text-[#8B024B] allura-regular text-3xl md:text-[4.5vw] font-bold my-12 lg:my-[10vh]">
                 Sign In
               </h1>
 
@@ -296,7 +296,7 @@ const generateRandomSixDigitNumber=()=> {
               className="flex flex-col pb-[1.2vw]"
               onSubmit={handleSignup}
             >
-              <h1 className="text-3xl md:text-[3.4vw] font-bold text-black my-12 lg:mt-[3vh] lg:mb-[8vh] py-[5.2vh] lg:py-0">
+              <h1 className="text-3xl text-[#8B024B] allura-regular  md:text-[4.5vw] font-bold  my-12 lg:mt-[3vh] lg:mb-[8vh] py-[5.2vh] lg:py-0">
                 Sign Up
               </h1>
               <div className="form-group mb-5 lg:mb-[1.8vh] relative">

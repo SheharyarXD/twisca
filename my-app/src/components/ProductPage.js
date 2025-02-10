@@ -130,7 +130,7 @@ const ProductPage = () => {
         </div>
 
         <div id="products" className=" h-[10vh] w-full md:w-[63.5vw]">
-          <div className="font-bold text-[2rem] mb-[4vh]">
+          <div className="font-bold text-[2rem] mb-[4vh]  lg:text-[3rem] allura-regular">
             Our Collection of Products
           </div>
           <div className="relative">
