@@ -31,7 +31,7 @@ const OrdersPage = () => {
     };
 
     fetchOrders();
-  }, [userid]);
+  }, [userid,userid!==0]);
   if (loading) 
     return (
       <>
