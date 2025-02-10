@@ -5,28 +5,22 @@ import { AuthContext } from "../utils/AuthContext";
 
 const ProductCard = ({productid, title, imageurl, rating, sales, price }) => {
   const darkShades = [
-    "bg-[#FFE01A]", 
-    "bg-[#E1B7FF]", 
-    "bg-[#F9A474]", 
-    "bg-[#EF0BA3]", 
-    "bg-[#98DFFF]", 
-    "bg-[#CF235C]", 
-    "bg-[#D9AFD9]", 
-    "bg-[#929BFF]"  
+    "bg-[rgba(139, 2, 75, 0.09)]", 
+  
   ];
   const randomBg = darkShades[Math.floor(Math.random() * darkShades.length)];
    const {userid}=useContext(AuthContext)
       const { addToCart}=useContext(CartContext);
   return (
-    <div className={`bg-yellow-300 p-4 text-start rounded-2xl overflow-visible shadow-lg min-h-[50vh] w-[260px] ${randomBg}`}>
-      <h2 className="text-[1.24rem] font-bold italic">{title}</h2>
+    <div className={`p-4 text-start rounded-2xl overflow-visible shadow-lg min-h-[50vh] w-[260px] ${randomBg}`}>
+      <h2 className="text-[1.24rem] color-[#8b024b] font-bold italic">{title}</h2>
       <div className="relative mt-2 rounded-sm h-[30vh] my-[5vh] overflow-visible">
       <div className="rounded-xs  object-cover   absolute -left-[16px] top-8 z-50 flex justify-between items-baseline font-bold text-[#8B024B] text-[0.7rem]   h-[20vh] shadow-2xl p-0 m-0">
 
-         <img className="cover  w-full h-full" src={imageurl} alt="" />
+         <img className="cover top-[0.3rem] left-[-10px]  w-full h-full" src={imageurl} alt="" />
             </div> 
         <div className="rounded-xs  shadow-md cover absolute -right-2 bottom-0 flex justify-between items-baseline font-bold text-[#8B024B] text-[0.7rem]  h-[20vh] w-[93%] ml-auto shadow-2xl ">
-        <img className=" cover  w-full h-full" src="https://i.ibb.co/dv4pFYs/card1.png" alt="" />
+        <img className=" cover bottom-[-31px] right-[-0.4rem] w-full h-full" src="https://i.ibb.co/dv4pFYs/card1.png" alt="" />
       
             </div> 
       </div>
