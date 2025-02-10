@@ -17,21 +17,24 @@ const OrdersPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch(`https://twisca-gpel.vercel.app/api/orders/${userid}`);
-        if (!response.ok) throw new Error("Failed to fetch orders");
+        if(userid!==0){
 
-        const data = await response.json();
-        console.log("Fetched Orders:", data); 
-        setOrders(Array.isArray(data) ? data : []);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
+          const response = await fetch(`https://twisca-gpel.vercel.app/api/orders/${userid}`);
+          if (!response.ok) throw new Error("Failed to fetch orders");
+          
+          const data = await response.json();
+          console.log("Fetched Orders:", data); 
+          setOrders(Array.isArray(data) ? data : []);
+        }
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false);
+        }
     };
 
     fetchOrders();
-  }, [userid,userid!==0]);
+  }, [userid]);
   if (loading) 
     return (
       <>
