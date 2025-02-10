@@ -77,7 +77,7 @@ const Cart=()=>{
         <>
         <div className="min-h-screen">
         <Header/>
-        <div className="flex flex-col space-y-3 mt-[12vh] md:space-y-0 md:flex-row items-baseline">
+        <div className="flex flex-col mb-[100px] sm:mb-0 space-y-3 mt-[12vh] md:space-y-0 md:flex-row items-baseline">
             {/* left section */}
             <div className="w-full md:w-[60vw] px-[5vw] ">
             {cartToggle=="cartP"&&(
