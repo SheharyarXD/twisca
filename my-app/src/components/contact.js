@@ -48,7 +48,7 @@ const Contact=()=>{
     return(
         <>
         <Header></Header>
-        <div id="contactUs" className=" overflow-hidden block relative md:h-[85vw] lg:h-fit">
+        <div id="contactUs" className="mt-[12vh] overflow-hidden block relative md:h-[85vw] lg:h-fit">
   <div className="bg-white h-full absolute w-[70%] left-0"></div>
   <div className="green-bg3  h-full absolute w-[30%] right-0"></div>
   <div className="h-auto  md:py-[5vh]  flex items-center justify-center">

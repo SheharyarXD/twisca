@@ -102,7 +102,7 @@ return(
     {/* Main Section */}
     <div className="h-screen overflow-hidden">
     <Header/>
-    <div className="w-full h-[88vh] text-center items-center flex flex-col " style={divStyle}>
+    <div className="w-full mt-[12vh] h-[88vh] text-center items-center flex flex-col " style={divStyle}>
         <div className="font-bold text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] allura-regular pt-[30vh] text-white">Perfectly Wrapped, For Every Story<br /> You Want to Tell</div>
         <div className="flex flex-col sm:flex-row items-center justify-between space-x-2">
         <button className="bg-white text-[#8B024B] flex font-bold px-[3vw] py-2 rounded-[0.8vw] mt-[3vh] w-fit text-[1.2rem]" onClick={()=>navigate('/shopbypreferences')}>Let AI Pick <img src="../Images/AI.png" className="pl-[0.5vw] flex" alt="" /></button>

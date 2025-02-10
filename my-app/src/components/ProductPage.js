@@ -88,7 +88,7 @@ const ProductPage = () => {
   return (
     <>
       <Header></Header>
-      <div className="flex flex-row justify-between w-full px-[5vw]">
+      <div className="flex flex-row justify-between mt-[15vh] w-full px-[5vw]">
         <div id="SideBar" className="w-[23vw] hidden md:flex flex-col px-3">
           <div className="text-center border border-[#414141] w-full rounded-[0.5vw] overflow-hidden">
             <div className="bg-[#8B024B] text-white py-[2vh] px-4">
