@@ -60,7 +60,7 @@ const PaymentForm = ({ userId }) => {
     const orderData = {
       user_id: userId, 
       billing_info_id: billingId, 
-      payment_info_id: paymentId, 
+      payment_info_id: data.payment_id, 
       cart,
     };
   
