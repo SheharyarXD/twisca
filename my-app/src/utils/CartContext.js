@@ -2,21 +2,33 @@ import React, { createContext, useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { ProductContext } from './ProductsContext';
 
-// Create the Cart Context
+
+
 export const CartContext = createContext();
 
 // CartProvider component to provide context values to child components
 export const CartProvider = ({ children }) => {
-    const basicUrl = 'https://twisca-gpel.vercel.app'; 
+  
+  const basicUrl = 'https://twisca-gpel.vercel.app'; 
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
-    const { selectedProduct, 
-      fetchProductById}=useContext(ProductContext)
+  const [clearCarts, setclearCart] = useState(false);
+  const { selectedProduct, 
+    fetchProductById}=useContext(ProductContext)
+
 
   // Fetch cart data for a user from the backend
   const fetchCart = async (userId) => {
     setLoading(true);
     try {
+      if (userId === 0 && !clearCarts) {
+        clearCart(0); 
+        setclearCart(true); 
+        return
+      } else if (userId !== 0) {
+        console.log(cart)
+        setCart((prevCart) => prevCart.map((carts) => ({ ...carts, userId })));
+      }
       const response = await fetch(`${basicUrl}/api/cart/${userId}`);
       const data = await response.json();
       
@@ -49,6 +61,7 @@ export const CartProvider = ({ children }) => {
   // Add item to the cart
   const addToCart = async (userId, productId, quantity) => {
     try {
+
       const response = await fetch(`${basicUrl}/api/cart`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -57,9 +70,9 @@ export const CartProvider = ({ children }) => {
       const data = await response.json();
       if (data.cartItem) {
         setCart((prevCart) => [...prevCart, data.cartItem]);
-        console.log(data)
       }
     } catch (error) {
+    
       console.error('Error adding item to cart:', error);
     }
   };

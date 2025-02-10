@@ -6,8 +6,8 @@ import { CartContext } from "../utils/CartContext";
 const PaymentForm = ({ userId }) => {
   const {cart,
       updateCartItem,fetchCart,
-      removeFromCart}=useContext(CartContext)
-  const {currentModal, setCurrentModal,billingId, setbillingId,paymentId, setpaymentId}=useContext(AuthContext)
+      removeFromCart,clearCart}=useContext(CartContext)
+  const {currentModal, setCurrentModal,billingId, setbillingId,paymentId,setcartToggle, setpaymentId}=useContext(AuthContext)
   const [cardholderName, setCardholderName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
@@ -73,6 +73,8 @@ const PaymentForm = ({ userId }) => {
     if (response.ok) {
       const data = await response.json();
       alert("Order created successfully!");
+      setcartToggle("cartP")
+      clearCart(userId)
       console.log(data);
     } else {
       alert("Failed to create order");
