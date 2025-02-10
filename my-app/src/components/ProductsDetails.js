@@ -92,7 +92,7 @@ const ProductDetails = () => {
         <div>
           <Header className="overflow-hidden"></Header>
 
-          <div className="flex flex-col-reverse mt-[12vh] md:mt-0 md:flex-row items-center overflow-hidden justify-between px-[5vw]">
+          <div className="flex flex-col-reverse mt-[12vh] md:mt-[6vh] md:flex-row items-center overflow-hidden justify-between px-[5vw]">
             {/* text section */}
             <div className="md:w-[50vw] pr-[5vw]">
               {/* <p>Product Listing - Top Category - Gifts & Hampers</p> */}
