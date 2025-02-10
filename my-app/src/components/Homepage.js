@@ -119,7 +119,7 @@ return(
     {/* Loved Porducts Section */}
     <section>
           <div className="h-screen text-center relative pt-[10vh] overflow-hidden">
-        <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[4rem] allura-regular leading-tight">Our Most-Loved Picks,Just for You!</div>
+        <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] allura-regular leading-tight">Our Most-Loved Picks,Just for You!</div>
         <p className="text-gray-600 text-[0.9rem] sm:text-base pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
   navigation={{
@@ -154,10 +154,10 @@ return(
     </section>
     {/* Surprise Products Section */}
     <section>
-    <div className="h-screen text-center pt-[10vh] relative overflow-hidden">
+    <div className="min-h-screen text-center pt-[10vh] relative ">
         <img className="absolute top-[15vh] w-auto h-[11vh] left-[11vw]" src="./Images/star.png" alt="" />
         <img className="absolute hidden md:flex w-auto h-[20vh] top-[8vh] right-[10vw]" src="./Images/love.png" alt="" />
-        <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem]  lg:text-[4rem] allura-regular leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
+        <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
         <div class="flex flex-row items-center justify-center h-[5vh] md:h-[3.7vw] w-[40vw] md:w-[20vw] mx-auto mt-[6vh] text-[#8B024B]">
               <button id="beforeButton"
                   ref={buttonRef}  class=" text-xs sm:text-[1.3vw] border-2 border-[#8B024B] hover:bg-[#8B024B] rounded-l-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(8)}}>👔 For Him</button>
@@ -186,7 +186,7 @@ return(
           <div className="h-screen text-center pt-[10vh]  relative">
           <img className="absolute hidden md:flex top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
           <img className="absolute hidden md:flex w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
-        <div className="font-bold text-[1.4rem] sm:text-[2rem] md:text-[2.5rem]  lg:text-[4rem] allura-regular leading-tight">Your Love, Your Words, Your Way!</div>
+        <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Your Love, Your Words, Your Way!</div>
         <p className="text-gray-600 pt-[4vh] text-[0.9rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
 
         <Swiper
@@ -232,7 +232,7 @@ return(
         {/*Selection to Delivery */}
         <section>
           <div className="h-screen text-center pt-[10vh]  relative">
-        <div className="font-bold  text-[1.4rem] sm:text-[2rem] md:text-[2.5rem]  lg:text-[4rem] allura-regular leading-tight">From Selection to Delivery, We <br />Handle It All</div>
+        <div className="font-bold  text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">From Selection to Delivery, We <br />Handle It All</div>
         <p className="text-gray-600 pt-[4vh] text-[0.9rem] w-[80vw] md:w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
 
         <div className="flex flex-row justify-between px-[1vw] relative">
@@ -278,14 +278,14 @@ return(
     {/* Let us help */}
     <section className="h-screen bg-gray-100 pt-[10vh] flex justify-between flex-col">
       <div className="flex flex-col z-10 text-center w-[95%] sm:w-[80%] mx-auto py-[6vh] bg-white">
-        <div className="font-bold  text-[1.4rem] sm:text-[1.6rem] md:text-[2rem] lg:text-[2.2rem]">Let Us Help You Make Every Gift Special!</div>
+        <div className="font-bold  text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] allura-regular lg:text-[2.7rem]">Let Us Help You Make Every Gift Special!</div>
         <div className="text-center text-xs sm:text-base font-semibold py-[1vh]">
         <p>Personalize <span className="text-[#8B024B]"> your gifts with ease!</span> From thoughtful cards to meaningful presents, we’ve got <br /> everything you need to make your loved ones smile.</p>
         </div>
         <div>
           <div className="pt-[1vh] space-y-2 md:space-y-0">
-            <button className="mr-2 py-2.5 px-6 bg-[#8B024B] text-white rounded-[1vw] shadow-sm shadow-black">Start Customizing Now</button>
-            <button className="py-2.5 font-semibold px-6 bg-gray-200 rounded-[1vw]">Explore Unique Gifts</button>
+            <button className="mr-2 py-2.5 px-6 bg-[#8B024B] text-white rounded-[1vw] shadow-sm shadow-black" onClick={()=>navigate('/products')}>Start Customizing Now</button>
+            <button className="py-2.5 font-semibold px-6 bg-gray-200 rounded-[1vw]" onClick={()=>navigate('/products')}>Explore Unique Gifts</button>
           </div>
           <div className="pt-[1.5vh] text-gray-600 text-[0.6rem] sm:text-[0.8rem]">Hassle-free customization, endless love-filled possibilities!</div>
         </div>

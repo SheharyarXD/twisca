@@ -58,7 +58,7 @@ const Header = () => {
                         <li className="py-2 cursor-pointer hover:text-gray-600">About Us</li>
                         <li className="py-2 cursor-pointer hover:text-gray-600" onClick={() => navigate("/contact")}>Contact</li>
                         <div>
-                {user?( 
+                {userid!=0&&user?( 
                     <div id="authContainer" className="relative pl-[5vw]">
                <div
                    id="userAvatar"

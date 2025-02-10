@@ -6,7 +6,7 @@ const FooterPage=()=>{
 return(   <footer className="text-white bg-[#8B024B] overflow-hidden text-[0.8rem] rounded-t-[3rem] px-[5vw] mt-[5vh]" style={{boxShadow: '0 -10px 100px rgba(227, 32, 136, 0.5)'}}>
     <div className="upperSection flex flex-col sm:items-center sm:flex-row pt-[6vh] min-h-fit pb-[15vh]">
       <div className="w-[16%] flex flex-row items-center h-fit">
-        <img src="./Images/logoWhite.png" className="h-[4.5vh] w-auto mr-[0.4vw]" alt="" />
+        <img src="./logo.png" className="h-[4.5vh] w-auto mr-[0.4vw]" alt="" />
         <div className="text-[1.5rem] font-semibold">
            twisca
           </div>
