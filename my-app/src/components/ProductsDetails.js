@@ -96,7 +96,7 @@ const ProductDetails = () => {
             {/* text section */}
             <div className="md:w-[50vw] pr-[5vw]">
               {/* <p>Product Listing - Top Category - Gifts & Hampers</p> */}
-              <div className="text-white bg-red-600 w-fit px-4 py-1 mt-[2vh]  text-xs rounded-[0.3vw]">
+              <div className="text-white bg-red-600 w-fit px-4 py-1   text-xs rounded-[0.3vw]">
                 SALE!
               </div>
               <div className="flex flex-row text-xs items-center pt-[1vh] text-gray-500">
