@@ -12,16 +12,38 @@ const Contact=()=>{
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
   
-    // Handle form submission
     const handleSubmit = (event) => {
       event.preventDefault();
-  
-      // Check if comment is empty
-      if (!comment) {
-        alert('Please input a message');
+    
+      // Simple regex for email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // Regex for phone number (allows only digits, 7-15 length)
+      const phoneRegex = /^[0-9]{7,15}$/;
+    
+      // Check if name is empty
+      if (!name.trim()) {
+        alert('Please enter your name.');
         return;
       }
-  
+    
+      // Check if email is valid
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+    
+      // Check if phone number is valid
+      if (!phoneRegex.test(pnum)) {
+        alert('Please enter a valid phone number (7-15 digits).');
+        return;
+      }
+    
+      // Check if comment is empty
+      if (!comment.trim()) {
+        alert('Please input a message.');
+        return;
+      }
+    
       // Create form data
       const formData = {
         Name: name,
@@ -29,8 +51,8 @@ const Contact=()=>{
         sender: email,
         comment: comment,
       };
-      console.log(formData)
-  
+      console.log(formData);
+    
       // Send the email using emailjs
       emailjs
         .send('xdgaming', 'template_7j0ekxq', formData)
@@ -45,6 +67,7 @@ const Contact=()=>{
           }
         );
     };
+    
     return(
         <>
         <Header></Header>
