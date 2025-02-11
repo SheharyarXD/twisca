@@ -17,6 +17,68 @@ const LoginPage = () => {
   const [confirmPassword,setConfirmPassword]=useState(null)
   const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [verificationCodes, setVerificationCode] = useState(null);
+const [userEnteredCode, setUserEnteredCode] = useState("");
+
+const handleSignup = async (e) => {
+  e.preventDefault();
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  // Generate a verification code
+  const generatedCode = Math.floor(100000 + Math.random() * 900000);
+  setVerificationCode(generatedCode);
+
+  const templateParams = {
+    email: email,
+    verificationCode: generatedCode,
+  };
+
+  // Send email with the verification code
+  emailjs
+    .send("xdgaming", "template_n0ejzqc", templateParams)
+    .then((response) => {
+      alert("Verification code sent to your email.");
+    })
+    .catch((error) => {
+      console.error("Email sending failed", error);
+      alert("Failed to send verification code. Please try again.");
+    });
+};
+
+// Function to verify the entered code
+const verifyCodeAndSignup = async () => {
+  if (parseInt(userEnteredCode) !== verificationCodes) {
+    alert("Invalid verification code!");
+    window.location.reload();
+    return;
+  }
+
+  // Proceed with signup
+  try {
+    const response = await fetch("https://twisca-gpel.vercel.app/api/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert("Signup successful!");
+      navigate("/login");
+    } else {
+      alert(data.error || "Signup failed.");
+    }
+  } catch (error) {
+    console.error("Signup error:", error);
+    alert("An error occurred. Please try again.");
+  }
+};
   let verificationCode; 
 let resetemail; 
 // Show the Reset Password modal
@@ -114,10 +176,10 @@ const generateRandomSixDigitNumber=()=> {
     // Handle login logic
   };
 
-  const handleSignup = (e) => {
-    e.preventDefault();
-    // Handle signup logic
-  };
+  // const handleSignup = (e) => {
+  //   e.preventDefault();
+  //   // Handle signup logic
+  // };
 
   return (
     <div className="main flex flex-row w-full justify-between font-sans">
@@ -277,7 +339,10 @@ const generateRandomSixDigitNumber=()=> {
                 </div>
               </div>
 
-              <button onClick={async ()=>{const success=await login(email,password);success?navigate("/"):alert("Login Failed");console.log("s",success)}} className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
+              <button onClick={
+                async ()=>{const success=await login(email,password);if(success){navigate("/");}else{alert("Login Failed");console.log("s",success)}}
+                }
+                 className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign In
               </button>
               <div className="flex justify-center h-fit pt-5 lg:pt-0 lg:h-[3.8vw] items-center cursor-pointer font-bold text-[#444444] text-xs lg:text-[0.95vw]">
@@ -370,23 +435,7 @@ const generateRandomSixDigitNumber=()=> {
                   ></i>
                 </button>
               </div>
-              <button onClick={async () => {
-    if (password === confirmPassword) {
-      try {
-        const success = await signup(email, password);
-        if (success) {
-          setShowLogin(true);
-        } else {
-          alert("Sign Up Failed");
-        }
-      } catch (error) {
-        console.error("Signup Error:", error);
-        alert("An error occurred during signup.");
-      }
-    } else {
-      alert("Passwords do not match!");
-    }
-  }}
+              <button 
                 className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign Up
               </button>
@@ -412,6 +461,26 @@ const generateRandomSixDigitNumber=()=> {
 </div>
   )}
 
+{verificationCodes && (
+  <div className="absolute inset-0 top-[30vh] bg-white h-fit rounded-md shadow-lg shadow-black p-5 md:w-[50vw] mx-auto">
+  <div className="form-group mb-5 relative">
+    <input
+      type="text"
+      onChange={(e) => setUserEnteredCode(e.target.value)}
+      className="peer h-10 form-control block w-full px-4 py-2 text-gray-900 bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:ring-0 focus:border-[#8B024B]"
+      placeholder="Enter verification code"
+      required
+      />
+    <button
+      type="button"
+      onClick={verifyCodeAndSignup}
+      className="bg-[#8B024B] text-white px-4 py-2 rounded-lg mt-3"
+      >
+      Verify & Signup
+    </button>
+  </div>
+      </div>
+)}
 
     </div>
   );

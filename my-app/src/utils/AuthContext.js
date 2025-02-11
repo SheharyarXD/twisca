@@ -17,32 +17,18 @@ export const AuthProvider = ({ children }) => {
 
     // Check for existing user session on load
     useEffect(() => {
-        const checkSession = async () => {
-            try {
-                const response = await fetch(`${basicUrl}/api/auth/check-session`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    credentials: 'include', // This is important if you're using cookies
-                });
+        const checkLocalStorage = () => {
+            const storedUser = localStorage.getItem("user");
+            const storedUserId = localStorage.getItem("userId");
 
-                if (!response.ok) {
-                    throw new Error('Session check failed');
-                }
-
-                const data = await response.json();
-                if (data.user) {
-                    setUser(data.user);
-                }
-            } catch (err) {
-                console.log("Session check failed", err);
-            } finally {
-                setLoading(false);
+            if (storedUser && storedUserId) {
+                setUser(JSON.parse(storedUser));
+                setUserid(storedUserId)
             }
+            setLoading(false);
         };
 
-        checkSession();
+        checkLocalStorage();
     }, []);
 
     // Login function
@@ -64,6 +50,8 @@ export const AuthProvider = ({ children }) => {
             const data = await response.json();
             setUser(data.user);
             setUserid(data.user.id)
+            localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("userId", data.user.id)
             // console.log(userid)
             setError(null);
             return true;
@@ -102,6 +90,8 @@ export const AuthProvider = ({ children }) => {
     // Logout function
     const logout = async () => {
         try {
+            localStorage.removeItem("user");
+            localStorage.removeItem("userId");
             const response = await fetch(`${basicUrl}/api/auth/logout`, {
                 method: 'POST',
                 headers: {
@@ -116,6 +106,7 @@ export const AuthProvider = ({ children }) => {
 
             setUser(null);
             setUserid(null)
+            window.location.reload()
         } catch (err) {
             console.log("Logout failed", err);
         }
