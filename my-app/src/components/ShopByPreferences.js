@@ -1,10 +1,13 @@
 import React from "react";
 import { useState,useEffect,useContext } from "react";
+import LovedPorducts from "./LovedProducts";
+import { useNavigate } from "react-router-dom";
 import SurprisedProducts from "./SurprisesProducts";
 import { ProductContext } from "../utils/ProductsContext";
 const ShopByPreferences=()=>{
     const { selectedProduct, fetchProductById, productDetailId } =
       useContext(ProductContext);
+        const navigate=useNavigate();
     const [ToggleOptions,setToggleOptions]=useState("")
     const [products, setProducts] = useState([]);
     const [productsids, setProductsids] = useState([]);
@@ -110,6 +113,10 @@ useEffect(() => {
 
 {ToggleOptions === "" && (
   <div className="font-semibold text-xl md:text-3xl text-[#8B024B] leading-tight text-center py-[2vh]">
+    <i
+    onClick={() => navigate("/")}
+    className="fa-solid text-[#8B024B] text-2xl md:text-3xl absolute top-4 sm:top-[5vh] left-[5vw] fa-arrow-left cursor-pointer"
+  ></i>
    
   </div>
 )}
@@ -223,7 +230,7 @@ useEffect(() => {
       ></i>
 {productsids.slice(0, 3).map((productid) => (
   productDetails[productid] ? (
-    <SurprisedProducts key={productid} Surpriseproduct={productDetails[productid]} />
+    <LovedPorducts key={productid}  product={productDetails[productid]} />
   ) : (
     <div key={productid}>Loading...</div> // Show loading while fetching
   )

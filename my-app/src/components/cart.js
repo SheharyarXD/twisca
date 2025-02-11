@@ -54,18 +54,12 @@ const Cart=()=>{
         const ordersData = [
             {
               image: "../Images/sampleImage2.png",
-              title: "Deluxe Chocolate Surprise Hamper",
-              category: "Gift & Hampers",
-              price: 39.99,
+              title: "",
+              category: "",
+              price: 0,
               rating: "5.0",
             },
-            {
-              image: "../Images/sampleImage2.png",
-              title: "Luxury Candy Box",
-              category: "Gift & Hampers",
-              price: 29.99,
-              rating: "4.8",
-            },
+
           ];
           
           useEffect(() => {
