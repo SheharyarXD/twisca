@@ -146,7 +146,7 @@ const ProductDetails = () => {
     .map((color, index) => (
 
         <div key={`color-${index}`} style={{ backgroundColor: color }}
-        className="rounded-full h-8 w-8  border-2 border-gray-300 hover:border-black"></div>
+        className="rounded-full h-8 w-8  border-2 border-gray-300 hover:border-black focus:border-black " tabIndex="0"></div>
     ))}
                 </div>
               </div>
@@ -169,13 +169,14 @@ const ProductDetails = () => {
             </div>
             {/* image section */}
             <div className="w-full md:h-[70vh] md:w-[50vw] pr-[3vw] mt-[1vh] overflow-hidden">
-              <div className="w-full max-h-[300px] md:max-h-[54vh] md:h-[54vh] overflow-hidden">
-                <img
-                  className="cover w-full h-auto"
-                  src={selectedProduct.imageurl||"../Images/sampleImage.png"}
-                  alt=""
-                />
-              </div>
+            <div className="w-full max-h-[300px] md:max-h-[54vh] md:h-[54vh] overflow-hidden">
+  <img
+    className="w-full h-full object-contain"
+    src={selectedProduct.imageurl || "../Images/sampleImage.png"}
+    alt=""
+  />
+</div>
+
               {/* sub Images */}
               <div className="w-full md:h-[15vh] flex flex-row items-center justify-between pt-[3vh] space-x-3">
               {Array.isArray(additionalDetails.features) &&

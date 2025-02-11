@@ -130,7 +130,7 @@ const Cart=()=>{
         </div>
         {currentModal == "thankYou" && (
   <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-[100] px-4">
-    <div className="bg-white px-[5vw] py-[5vh] rounded-lg shadow-lg w-[90vw] sm:w-[60vw] max-w-[90vw] text-center">
+    <div className="bg-white px-[5vw] py-[5vh] rounded-[1vw] md:rounded-[0.5vw] shadow-lg w-[90vw] sm:w-[60vw] max-w-[90vw] text-center">
       <img src="../Images/tick.png" className="mx-auto w-[20%] max-w-[80px]" alt="Success" />
       
       <h2 className="sm:text-[1rem] md:text-[2.5rem] sm:text-[2rem] font-bold my-4">
@@ -147,14 +147,14 @@ const Cart=()=>{
 
       <div className="flex flex-col sm:flex-row justify-center mt-6 gap-4">
         <button
-          className="px-6 py-3 sm:px-4 sm:py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 w-full sm:w-auto"
+          className="px-6 py-3 sm:px-4 sm:py-2 border border-gray-300 text-gray-700 rounded-[1vw] md:rounded-[0.5vw] hover:bg-gray-400 w-full sm:w-auto"
           onClick={closeModal}
           >
           Continue Shopping
         </button>
         <button
           onClick={() => navigate("/orders")}
-          className="px-12 py-3 sm:px-6 sm:py-2 bg-[#8B024B] text-white rounded-lg hover:bg-[#8A004B] w-full sm:w-auto"
+          className="px-12 py-3 sm:px-6 sm:py-2 bg-[#8B024B] text-white rounded-[1vw] md:rounded-[0.5vw] hover:bg-[#8A004B] w-full sm:w-auto"
           >
           Track Order
         </button>

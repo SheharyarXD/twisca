@@ -21,6 +21,23 @@ const HomePage=()=>{
   const [Lovedproduct,setLovedProducts]=useState([])
   const [ ProductsCards,setProductsCards]=useState([])
   const [sampleProducts,setsampleProducts]=useState([])
+  const taglineOrder = [
+    "Custom Message",
+    "Together Forever",
+    "Perfect Pair",
+    "Bee Mine",
+    "A Popping Love!",
+    "Cherry-Sweet Love",
+    "No Refunds on Love!",
+    "A Heartfelt Win!",
+    "Valentine's Vibes",
+    "Cuddly Confessions"
+  ];
+  
+  // Sort ProductsCards based on taglineOrder
+  const sortedProducts = [...ProductsCards].sort((a, b) => {
+    return taglineOrder.indexOf(a.productname) - taglineOrder.indexOf(b.productname);
+  });
       const navigate=useNavigate()
     const divStyle = {
         backgroundColor: '#D52260',
@@ -203,7 +220,7 @@ return(
   slidesPerView="auto" // Allow slides to take up only their required space
   spaceBetween={25}
 >
-  {ProductsCards.map((product, index) => (
+  {sortedProducts.map((product, index) => (
         <SwiperSlide key={index} className="max-w-[250px]">
           <ProductCard
             title={product.productname}

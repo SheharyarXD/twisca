@@ -142,13 +142,13 @@ const PaymentForm = ({ userId }) => {
         <div className="flex justify-between mt-4">
           <button
             type="button" onClick={()=>  setcartToggle("billing")}
-            className="px-4 w-[35%] py-2 border mr-2 border-gray-300 text-gray-500 rounded-[1vw]  hover:bg-gray-400"
+            className="px-4 w-[35%] py-2 border mr-2 border-gray-300 text-gray-500 rounded-[1vw] md:rounded-[0.5vw]  hover:bg-gray-400"
           >
             Back
           </button>
           <button
             type="submit"
-            className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] mt-[0.5vh] w-[65%]"
+            className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] md:rounded-[0.5vw] mt-[0.5vh] w-[65%]"
           >
             Proceed to Payment
           </button>

@@ -13,9 +13,9 @@ const LovedPorducts=({product })=>{
       }
     return(
         <div className="max-h-fit bg-[#FFE8FF] w-[250px] rounded-[1vw] p-3">
-            <div className="h-fit overflow-hidden object-cover relative rounded-[1vw]">
-            <div className="text-white bg-red-700 w-fit px-4 py-1 absolute top-0 -left-1 text-xs rounded-[0.3vw]">SALE!</div>
-            <img src={product.imageurl||"./Images/sampleImage.png"} className="object-cover max-h-[200px] w-full" alt="" />
+            <div className="h-fit max-h-[200px] overflow-hidden  relative rounded-[1vw]">
+            <div className="text-white bg-red-700 w-fit px-4 py-1 absolute top-0 -left-1  text-xs rounded-[0.3vw]">SALE!</div>
+            <img src={product.imageurl||"./Images/sampleImage.png"} className="object-contain h-full w-full" alt="" />
             </div>
             <div className="flex flex-row text-[0.85rem] font-bold px-2 pt-[2vh]">
                 <div className="w-[60vw]  text-start">{product.productname}</div>
