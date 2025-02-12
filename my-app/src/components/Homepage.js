@@ -131,7 +131,7 @@ return(
     <section>
           <div className="h-screen text-center relative pt-[10vh] overflow-hidden">
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] allura-regular leading-tight">Our Most-Loved Picks,Just for You!</div>
-        <p className="text-gray-600 text-[1.2rem] montez-regular sm:text-2xl pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
+        <p className="text-gray-600 text-[1.2rem] montez-regular sm:text-[1.8rem] pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
   navigation={{
     prevEl: '.custom-prev',
@@ -196,9 +196,9 @@ return(
     <section>
           <div className="h-screen text-center pt-[10vh]  relative">
           <img className="absolute hidden md:flex top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
-          <img className="absolute hidden md:flex w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
+          <img className="absolute hidden md:flex w-auto h-[10vh] top-[12vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Your Love, Your Words, Your Way!</div>
-        <p className="text-gray-600 pt-[4vh]  text-[0.9rem] montez-regular sm:text-[1.4rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
+        <p className="text-gray-600 pt-[4vh]  text-[0.9rem] montez-regular sm:text-[1.8rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
 
         <Swiper
        
@@ -244,7 +244,7 @@ return(
         <section>
           <div className="h-screen text-center pt-[10vh]  relative">
         <div className="font-bold  text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">From Selection to Delivery, We <br />Handle It All</div>
-        <p className="text-gray-600 pt-[4vh]  text-[0.9rem] montez-regular sm:text-2xl w-[80vw] md:w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
+        <p className="text-gray-600 pt-[4vh]  text-[0.9rem] montez-regular sm:text-[1.8rem] w-[80vw] md:w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
 
         <div className="flex flex-row justify-between px-[1vw] relative">
           <img className="absolute w-[14vw] top-[18vh] left-[42vw] h-auto" src="./Images/Arc1.png" alt="" />

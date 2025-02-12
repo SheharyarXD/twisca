@@ -36,12 +36,12 @@ return(   <footer className="text-white bg-[#8B024B]  h-fit text-[0.8rem] rounde
     <div className="baseline flex flex-col ">
       <div className="h-[0.09px] bg-gray-400"></div>
       <div className="py-[2vh] md:text-base text-[0.6rem] flex justify-between lg:w-[50%]">
-     <a href="">Trust Center</a> 
+     {/* <a href="">Trust Center</a> 
      <a href="">Privacy Policy</a> 
      <a href="">Status</a> 
      <a href="">Legal</a> 
      <a href="">Do Not Sell My Info</a> 
-     <a href="">Opt out</a> 
+     <a href="">Opt out</a>  */}
       </div>
       <div></div>
     </div>
