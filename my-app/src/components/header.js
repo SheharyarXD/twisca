@@ -1,9 +1,10 @@
-import React, { useContext ,useState} from "react";
+import React, { useContext,useEffect ,useState} from "react";
 import { CartContext } from "../utils/CartContext";
 import { AuthContext } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
 import NewsTicker from "./promotionBar";
 import { Menu, X } from "lucide-react";
+
 
 const Header = () => {
     const navigate=useNavigate()
@@ -13,10 +14,13 @@ const Header = () => {
     const {user,userid,logout}=useContext(AuthContext)
     const [menuOpen, setMenuOpen] = useState(false);
     
+
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
 
-    
+    useEffect(()=>{
+        fetchCart(userid)
+    },[])
   
 
   

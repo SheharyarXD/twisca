@@ -212,7 +212,7 @@ return(
         nextEl: ".custom-next",
       }}
   autoplay={{
-    delay:2500, 
+    delay:10000, 
     disableOnInteraction: false, 
   }}
   modules={[Navigation,Autoplay]}

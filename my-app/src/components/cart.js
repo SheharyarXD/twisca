@@ -50,6 +50,11 @@ const Cart=()=>{
         
               setEstimatedDelivery(formattedDate.replace(" ", " "));
             }
+            else{
+              setTotalPrice(0);
+              setTotalDiscount(0);
+              setEstimatedDelivery("")
+            }
           }, [cart]);
         const ordersData = [
             {

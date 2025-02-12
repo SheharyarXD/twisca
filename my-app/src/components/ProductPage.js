@@ -97,8 +97,8 @@ const ProductPage = () => {
             <div>
               <ul className="text-left pl-[4vw] py-[2vh]">
               {categories.length > 0 ? (
-        categories.map((category, index) => (
-          <li key={index} className="py-[1vh]" onClick={() => handleCategoryClick(category)} >{category.categoryname}</li> // Assuming each category has a 'name' field
+      categories.filter((category) => category.categoryid !== 13) .map((category, index) => (
+            <li key={index} className="py-[1vh]" onClick={() => handleCategoryClick(category)} >{category.categoryname}</li> // Assuming each category has a 'name' field
         ))
       ) : (
         <li className="py-[1vh]">No categories available</li>

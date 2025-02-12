@@ -59,7 +59,9 @@ const OrderSummary=({ orders, totalPrice, discount, estimatedDelivery })=>{
                     <div>{estimatedDelivery}</div>
                 </div>
             </div>
-            <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] md:rounded-[0.5vw] mt-[0.5vh] w-full" onClick={()=>{userid===0?navigate("/login"):setcartToggle("billing")}}>Continue</button></div>
+            {cartToggle==="cartP"&&(
+                <div> <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] md:rounded-[0.5vw] mt-[0.5vh] w-full" onClick={()=>{userid===0?navigate("/login"):setcartToggle("billing")}}>Continue</button></div>
+            )}
 
       </div>
     );
