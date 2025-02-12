@@ -131,7 +131,7 @@ return(
     <section>
           <div className="h-screen text-center relative pt-[10vh] overflow-hidden">
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] allura-regular leading-tight">Our Most-Loved Picks,Just for You!</div>
-        <p className="text-gray-600 text-[0.9rem] sm:text-base pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
+        <p className="text-gray-600 text-[1.2rem] montez-regular sm:text-2xl pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
   navigation={{
     prevEl: '.custom-prev',
@@ -198,7 +198,7 @@ return(
           <img className="absolute hidden md:flex top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
           <img className="absolute hidden md:flex w-auto h-[10vh] top-[22vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Your Love, Your Words, Your Way!</div>
-        <p className="text-gray-600 pt-[4vh] text-[0.9rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
+        <p className="text-gray-600 pt-[4vh]  text-[0.9rem] montez-regular sm:text-[1.4rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
 
         <Swiper
        
@@ -244,7 +244,7 @@ return(
         <section>
           <div className="h-screen text-center pt-[10vh]  relative">
         <div className="font-bold  text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">From Selection to Delivery, We <br />Handle It All</div>
-        <p className="text-gray-600 pt-[4vh] text-[0.9rem] w-[80vw] md:w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
+        <p className="text-gray-600 pt-[4vh]  text-[0.9rem] montez-regular sm:text-2xl w-[80vw] md:w-[55vw] mx-auto">Choose the perfect gift, add your personal touch, and let us take care of the rest. Fast, secure, and delivered with a smile—gift-giving has never been this effortless!</p>
 
         <div className="flex flex-row justify-between px-[1vw] relative">
           <img className="absolute w-[14vw] top-[18vh] left-[42vw] h-auto" src="./Images/Arc1.png" alt="" />
@@ -271,7 +271,7 @@ return(
         <div className="border shadow-sm shadow-[#8B024B] p-5  rounded-full w-fit">
           <img className="sm:h-[7vh]" src="./Images/checkout1.png" alt="" />
         </div>
-        <div className="text-[0.9rem] sm:text-[1.3rem]text-[1.3rem] text-[#8B024B] font-bold py-[2vh]">Place Your Order</div>
+        <div className="text-[0.9rem] sm:text-[1.3rem]  text-[#8B024B] font-bold py-[2vh]">Place Your Order</div>
         <div className="text-[#9C9C9C] text-[0.6rem] sm:text-[0.9rem]">Enjoy a seamless checkout <br /> experience with secure payment <br /> options.</div>
        </div>
 
@@ -290,7 +290,7 @@ return(
     <section className="h-screen bg-gray-100 pt-[10vh] flex justify-between flex-col">
       <div className="flex flex-col z-10 text-center w-[95%] sm:w-[80%] mx-auto py-[6vh] bg-white">
         <div className="font-bold  text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] allura-regular lg:text-[2.7rem]">Let Us Help You Make Every Gift Special!</div>
-        <div className="text-center text-xs sm:text-base font-semibold py-[1vh]">
+        <div className="text-center montez-regular text-base sm:text-2xl italic font-semibold py-[1vh]">
         <p>Personalize <span className="text-[#8B024B]"> your gifts with ease!</span> From thoughtful cards to meaningful presents, we’ve got <br /> everything you need to make your loved ones smile.</p>
         </div>
         <div>

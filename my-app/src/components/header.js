@@ -69,7 +69,7 @@ const Header = () => {
                    className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold cursor-pointer"
                    onClick={() => setMenuOpen(!menuOpen)}
                    >
-                   PFP
+                   <img className="h-full w-full object-cover" src="../Images/user.png" alt="" />
                </div>
 
                {menuOpen && (
@@ -111,7 +111,7 @@ const Header = () => {
                    className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold cursor-pointer"
                    onClick={() => setMenuOpen(!menuOpen)}
                    >
-                   PFP
+                         <img className="h-full w-full object-cover" src="../Images/user.png" alt="" />
                </div>
 
                {menuOpen && (

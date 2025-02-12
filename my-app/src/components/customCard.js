@@ -13,7 +13,7 @@ const ProductCard = ({productid, title, imageurl, rating, sales, price }) => {
       const { addToCart}=useContext(CartContext);
   return (
     <div style={{ backgroundColor: "rgba(139, 2, 75, 0.09)" }} className={`p-4 text-start rounded-2xl overflow-visible shadow-lg min-h-[50vh] w-[260px] ${randomBg}`}>
-      <h2 className="text-[1.24rem] color-[#8b024b] font-bold italic">{title}</h2>
+      <h2 className="text-[1.74rem] montez-regular color-[#8b024b] font-bold italic">{title}</h2>
       <div className="relative mt-2 rounded-sm h-[30vh] my-[5vh] overflow-visible">
       <div className="rounded-xs  object-cover   absolute -left-[16px] top-8 z-50 flex justify-between items-baseline font-bold text-[#8B024B] text-[0.7rem]   h-[20vh] shadow-2xl p-0 m-0">
 
