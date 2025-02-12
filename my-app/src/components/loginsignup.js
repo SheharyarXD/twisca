@@ -53,7 +53,7 @@ const handleSignup = async (e) => {
 const verifyCodeAndSignup = async () => {
   if (parseInt(userEnteredCode) !== verificationCodes) {
     alert("Invalid verification code!");
-    window.location.reload();
+    navigate('/login')
     return;
   }
 
