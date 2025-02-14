@@ -116,11 +116,12 @@ const ProductPage = () => {
         {['PKR 0.00 - PKR 500', 'PKR 501 - PKR 1000', 'PKR 1,001 - PKR 2,000', 'PKR 2,001 - PKR 10,000'].map((range, index) => (
           <li key={index} className="py-[1vh]">
             <input
+            id={index}
               type="checkbox"
               checked={selectedPriceRanges.includes(range)}
               onChange={() => handlePriceRangeClick(range)} // Toggle price range on click
             />
-            <span className="pl-[1vw]">{range}</span>
+            <label htmlFor={index} className="pl-[1vw]">{range}</label>
           </li>
         ))}
       </ul>
