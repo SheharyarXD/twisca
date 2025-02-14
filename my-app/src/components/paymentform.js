@@ -55,7 +55,7 @@ const PaymentForm = ({ userId }) => {
 
     if (response.ok) {
       setpaymentId(data.payment_id)
-      console.log(cart)
+      // console.log(cart)
     
     const orderData = {
       user_id: userId, 
@@ -75,7 +75,7 @@ const PaymentForm = ({ userId }) => {
       alert("Order created successfully!");
       setcartToggle("cartP")
       clearCart(userId)
-      console.log(data);
+      // console.log(data);
     } else {
       alert("Failed to create order");
     }

@@ -23,7 +23,7 @@ const OrdersPage = () => {
           if (!response.ok) throw new Error("Failed to fetch orders");
           
           const data = await response.json();
-          console.log("Fetched Orders:", data); 
+          // console.log("Fetched Orders:", data); 
           setOrders(Array.isArray(data) ? data : []);
         }
         } catch (err) {

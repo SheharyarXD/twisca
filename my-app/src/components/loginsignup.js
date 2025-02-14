@@ -340,7 +340,7 @@ const generateRandomSixDigitNumber=()=> {
               </div>
 
               <button onClick={
-                async ()=>{const success=await login(email,password);if(success){navigate("/");}else{alert("Login Failed");console.log("s",success)}}
+                async ()=>{const success=await login(email,password);if(success){navigate("/");}else{alert("Login Failed");}}
                 }
                  className="bg-[#8B024B] text-[#F3F3F3] my-6 lg:my-0 h-10 lg:h-[4vw] rounded-[0.5vw] lg:text-[1.2vw] font-semibold">
                 Sign In

@@ -53,7 +53,7 @@ const ProductDetails = () => {
             // Parse the JSON response
             const data = await response.json();
             setadditionalDetails(data);
-            console.log(data)
+            // console.log(data)
           } catch (err) {
 
             console.error(err);
@@ -84,7 +84,7 @@ const ProductDetails = () => {
   const handleReview=()=>{
     setDescription(false)
     fetchReviews(productDetailId)
-    console.log(reviews)
+    // console.log(reviews)
   }
   return (
     <>

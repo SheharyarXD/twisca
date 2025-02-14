@@ -6,7 +6,7 @@ import { CartContext } from "../utils/CartContext";
 const Redirect = (productid, setproductDetailId,navigate,fetchProductById) => {
     setproductDetailId(productid);
     fetchProductById(productid);
-    console.log(productid)
+    // console.log(productid)
     navigate("/products/productDetails")
 };
 

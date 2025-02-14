@@ -26,7 +26,7 @@ export const CartProvider = ({ children }) => {
         setclearCart(true); 
         return
       } else if (userId !== 0) {
-        console.log(cart)
+        // console.log(cart)
         setCart((prevCart) => prevCart.map((carts) => ({ ...carts, userId })));
       }
       const response = await fetch(`${basicUrl}/api/cart/${userId}`);
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
           }));
           
           setCart(cartWithProducts);
-          console.log(cartWithProducts);
+          // console.log(cartWithProducts);
       } else {
         console.error('No cart items found');
       }

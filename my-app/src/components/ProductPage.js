@@ -62,7 +62,7 @@ const ProductPage = () => {
         const response = await fetch('https://twisca-gpel.vercel.app/api/categories'); 
         const data = await response.json();
         setCategories(data); 
-        console.log(data)
+        // console.log(data)
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -73,7 +73,7 @@ const ProductPage = () => {
     useEffect(() => {
       setProductsAvail(true)
       fetchProducts()
-      console.log(products)
+      // console.log(products)
       }, []);
 
       const handleCategoryClick = (category) => {

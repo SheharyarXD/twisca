@@ -4,7 +4,7 @@ import { AuthContext } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../utils/CartContext";
 const LovedPorducts=({product })=>{
-    console.log(product)
+    // console.log(product)
     const {userid}=useContext(AuthContext)
     const {productDetailId,setproductDetailId,fetchProductById}=useContext(ProductContext)
     const { addToCart}=useContext(CartContext);

@@ -51,14 +51,14 @@ const Contact=()=>{
         sender: email,
         comment: comment,
       };
-      console.log(formData);
+      // console.log(formData);
     
       // Send the email using emailjs
       emailjs
         .send('xdgaming', 'template_7j0ekxq', formData)
         .then(
           (response) => {
-            console.log('Email sent successfully!', response);
+            // console.log('Email sent successfully!', response);
             alert('Thank you! Your message has been sent.');
           },
           (error) => {

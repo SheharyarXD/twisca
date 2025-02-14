@@ -68,7 +68,7 @@ const Cart=()=>{
           ];
           
           useEffect(() => {
-            console.log(userid)
+            // console.log(userid)
             fetchCart(userid);
           }, []);
         

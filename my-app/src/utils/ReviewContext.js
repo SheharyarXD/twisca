@@ -36,7 +36,7 @@ export const ReviewsProvider = ({ children }) => {
         body: JSON.stringify({ userId, productId, rating, reviewText }),
       });
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       if (data.review) {
         setReviews((prevReviews) => [...prevReviews, data.review]);
       } else {
@@ -90,8 +90,8 @@ export const ReviewsProvider = ({ children }) => {
   };
   const updateReview = async (reviewId, type) => {
     try {
-      console.log(reviewId)
-      console.log(type)
+      // console.log(reviewId)
+      // console.log(type)
       const response = await fetch(`${basicUrl}/api/reviews/update-review`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -99,7 +99,7 @@ export const ReviewsProvider = ({ children }) => {
       });
 
       const updatedReview = await response.json();
-      console.log(updateReview)
+      // console.log(updateReview)
 
       setReviews((prev) =>
         prev.map((r) => (r.reviewid === reviewId ? updatedReview : r))
