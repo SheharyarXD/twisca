@@ -20,6 +20,13 @@ const HomePage=()=>{
 
   const [Lovedproduct,setLovedProducts]=useState([])
   const [ ProductsCards,setProductsCards]=useState([])
+  const [selected, setSelected] = useState("forHim");
+
+  const handleSelection = (type) => {
+      setSelected(type);
+      fetchSupriseProducts(type === "forHim" ? 8 : 11);
+  };
+
   const [sampleProducts,setsampleProducts]=useState([])
   const taglineOrder = [
     "Custom Message",
@@ -170,9 +177,21 @@ return(
         <img className="absolute hidden md:flex w-auto h-[20vh] top-[8vh] right-[10vw]" src="./Images/love.png" alt="" />
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
         <div class="flex flex-row items-center justify-center h-[5vh] md:h-[3.7vw] w-[40vw] md:w-[20vw] mx-auto mt-[6vh] text-[#8B024B]">
-              <button id="beforeButton"
-                 class=" text-xs sm:text-[1.3vw] border-2 border-[#8B024B] hover:bg-[#8B024B] rounded-l-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(8)}}>👔 For Him</button>
-<button id="afterButton" class=" text-xs sm:text-[1.3vw] hover:bg-[#8B024B] border-2 border-[#8B024B] rounded-r-[40px] focus:bg-[#8B024B] focus:text-white hover:text-white h-full w-1/2 cursor-default" onClick={()=>{fetchSupriseProducts(11)}}>👗 For Her</button>
+        <button
+                className={`text-xs sm:text-[1.3vw] border-2 border-[#8B024B] rounded-l-[40px] h-full w-1/2 cursor-default 
+                ${selected === "forHim" ? "bg-[#8B024B] text-white" : "hover:bg-[#8B024B] hover:text-white"}`}
+                onClick={() => handleSelection("forHim")}
+            >
+                👔 For Him
+            </button>
+
+            <button
+                className={`text-xs sm:text-[1.3vw] border-2 border-[#8B024B] rounded-r-[40px] h-full w-1/2 cursor-default 
+                ${selected === "forHer" ? "bg-[#8B024B] text-white" : "hover:bg-[#8B024B] hover:text-white"}`}
+                onClick={() => handleSelection("forHer")}
+            >
+                👗 For Her
+            </button>
 
             </div>
         <div className="flex flex-row overflow-y-scroll flex-wrap sm:justify-between justify-center  mx-[13vw] py-[5vh]">
