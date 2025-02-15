@@ -8,14 +8,13 @@ import emailjs from "@emailjs/browser";
 const LoginPage = () => {
       const navigate=useNavigate()
   const {
-    user,userid, login, signup, logout, loading, error
+    user,userid, login, signup, logout, loading, error,showLogin, setShowLogin
   } = useContext(AuthContext);
   const [email,setEmail]=useState(null)
   const [showResetModal, setShowResetModal] = useState(false);
 
   const [password,setPassword]=useState(null)
   const [confirmPassword,setConfirmPassword]=useState(null)
-  const [showLogin, setShowLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [verificationCodes, setVerificationCode] = useState(null);
 const [userEnteredCode, setUserEnteredCode] = useState("");
@@ -361,7 +360,7 @@ const generateRandomSixDigitNumber=()=> {
               className="flex flex-col pb-[1.2vw]"
               onSubmit={handleSignup}
             >
-              <h1 className="text-3xl text-[#8B024B] allura-regular  md:text-[4.5vw] font-bold  my-12 lg:mt-[3vh] lg:mb-[8vh] py-[5.2vh] lg:py-0">
+              <h1 className="text-3xl text-[#8B024B] allura-regular  md:text-[4.5vw] font-bold  my-12 lg:my-[8vh]  py-[5.2vh] lg:py-0">
                 Sign Up
               </h1>
               <div className="form-group mb-5 lg:mb-[1.8vh] relative">
