@@ -1,8 +1,12 @@
 import React, { useState,useContext } from "react";
 import { AuthContext } from "../utils/AuthContext";
+import { CartContext } from "../utils/CartContext";
 
 const BillingForm = ({ userId }) => { // Pass userId as a prop
      const {userid,cartToggle, setcartToggle,billingId, setbillingId,paymentId, setpaymentId}=useContext(AuthContext);
+       const {cart,
+           updateCartItem,fetchCart,
+           removeFromCart,clearCart}=useContext(CartContext)
   const [formData, setFormData] = useState({
     email: "",
     first_name: "",
@@ -20,22 +24,65 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+    
+  //   const dataToSend = { ...formData, user_id: userId };
+
+  //   const response = await fetch("https://twisca-gpel.vercel.app/api/billing", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(dataToSend),
+  //   });
+  //   const data = await response.json();
+
+  //   if (response.ok) {
+  //     setbillingId(data.billing_info_id)
+  //     alert("Billing information saved successfully!");
+  //     setFormData({
+  //       email: "",
+  //       first_name: "",
+  //       last_name: "",
+  //       address: "",
+  //       city: "",
+  //       state: "",
+  //       zip_code: "",
+  //       phone: "",
+  //     });
+  //     setcartToggle("cartP")
+  //     clearCart(userId)
+  //   } else {
+  //     alert("Error saving billing information");
+  //   }
+  // };
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     const dataToSend = { ...formData, user_id: userId };
 
-    const response = await fetch("https://twisca-gpel.vercel.app/api/billing", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dataToSend),
-    });
-    const data = await response.json();
+    const recipientNumber = "923094352844"; 
 
-    if (response.ok) {
-      setbillingId(data.billing_info_id)
-      alert("Billing information saved successfully!");
-      setFormData({
+    let message = `🛒 New Order Received!\n\n`;
+    message += `👤 Name: ${dataToSend.first_name} ${dataToSend.last_name}\n`;
+    message += `📧 Email: ${dataToSend.email}\n`;
+    message += `🏠 Address: ${dataToSend.address}, ${dataToSend.city}, ${dataToSend.state}, ${dataToSend.zip_code}\n`;
+    message += `📞 Phone: ${dataToSend.phone}\n`;
+    message += `🆔 User ID: ${dataToSend.user_id}\n\n`;
+
+    if (cart.length > 0) {
+        message += `🛍️ Cart Items:\n`;
+        cart.forEach((item, index) => {
+            message += `#${index + 1} - ${item.productName} (Qty: ${item.quantity}, Price: ${item.price})\n`;
+        });
+    } else {
+        message += `🛍️ Cart is empty.\n`;
+    }
+
+    const whatsappUrl = `https://wa.me/${recipientNumber}?text=${encodeURIComponent(message)}`;
+
+    window.location.href = whatsappUrl;
+
+    setFormData({
         email: "",
         first_name: "",
         last_name: "",
@@ -44,12 +91,11 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
         state: "",
         zip_code: "",
         phone: "",
-      });
-      setcartToggle("PaymentForm")
-    } else {
-      alert("Error saving billing information");
-    }
-  };
+    });
+
+    setcartToggle("cartP");
+    clearCart(userId);
+};
 
   return (
     <div className="mx-auto p-6 bg-white rounded-lg">
