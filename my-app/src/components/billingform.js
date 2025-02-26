@@ -60,7 +60,7 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
     
     const dataToSend = { ...formData, user_id: userId };
 
-    const recipientNumber = "923094352844"; 
+    const recipientNumber = "923264910662"; 
 
     let message = `Order Details!\n\n`;
     message += `Name: ${dataToSend.first_name} ${dataToSend.last_name}\n`;
