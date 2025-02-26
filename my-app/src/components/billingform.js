@@ -62,20 +62,20 @@ const BillingForm = ({ userId }) => { // Pass userId as a prop
 
     const recipientNumber = "923094352844"; 
 
-    let message = `🛒 New Order Received!\n\n`;
-    message += `👤 Name: ${dataToSend.first_name} ${dataToSend.last_name}\n`;
-    message += `📧 Email: ${dataToSend.email}\n`;
-    message += `🏠 Address: ${dataToSend.address}, ${dataToSend.city}, ${dataToSend.state}, ${dataToSend.zip_code}\n`;
-    message += `📞 Phone: ${dataToSend.phone}\n`;
-    message += `🆔 User ID: ${dataToSend.user_id}\n\n`;
+    let message = `Order Details!\n\n`;
+    message += `Name: ${dataToSend.first_name} ${dataToSend.last_name}\n`;
+    message += `Email: ${dataToSend.email}\n`;
+    message += `Address: ${dataToSend.address}, ${dataToSend.city}, ${dataToSend.state}, ${dataToSend.zip_code}\n`;
+    message += `Phone: ${dataToSend.phone}\n`;
+    // message += `🆔 User ID: ${dataToSend.user_id}\n\n`;
 
     if (cart.length > 0) {
-        message += `🛍️ Cart Items:\n`;
+        message += `Cart Items:\n`;
         cart.forEach((item, index) => {
             message += `#${index + 1} - ${item.productName} (Qty: ${item.quantity}, Price: ${item.price})\n`;
         });
     } else {
-        message += `🛍️ Cart is empty.\n`;
+        message += `Cart is empty.\n`;
     }
 
     const whatsappUrl = `https://wa.me/${recipientNumber}?text=${encodeURIComponent(message)}`;
