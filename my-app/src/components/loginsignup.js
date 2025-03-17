@@ -268,8 +268,8 @@ const generateRandomSixDigitNumber=()=> {
               src="./logo.png"
               alt="Logo"
             />
-            <div className="text-xl lg:text-[2.2vw]">
-              <span className="text-[#8B024B]">twisca</span>
+            <div className="text-xl lg:text-[4vw]">
+              <span className="text-[#8B024B] font-bold bonheur-royale-regular ">Twisca</span>
             </div>
           </div>
         </a>

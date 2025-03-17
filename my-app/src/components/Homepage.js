@@ -206,9 +206,10 @@ return(
         </div>
     </div>
     {/* Motivation Line */}
-    <section>
-      <div className="h-screen text-center pt-[35vh] relative overflow-hidden font-bold leading-tight text-[#CFCFCF]  text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] ">
+    <section className="h-screen">
+      <div className=" text-center pt-[35vh] relative overflow-hidden font-bold leading-tight text-[#BBAFA0]  text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] ">
         <span className="text-[#8B024B] "> Find 🎁</span>, <span className="text-[#8B024B] "> customize</span> ✍️, and  <span className="text-[#8B024B] "> send</span> 💌 the <br /> perfect gift—all in one delightful <br /> place.</div>
+        <button className="bg-[#8B024B] justify-center mx-auto flex text-lg items-center mt-10 text-white px-4 py-2 rounded-[1vw] " onClick={() =>{navigate("/products")}}>Explore Now<i className="fa-solid fa-arrow-right pl-3 pr-1"></i></button>
     </section>
     </section>
     {/* promotion Cards */}

@@ -95,10 +95,17 @@ const ProductPage = () => {
               TOP CATEGORY
             </div>
             <div>
-              <ul className="text-left pl-[4vw] py-[2vh]">
+              <ul className="text-left cursor-pointer">
               {categories.length > 0 ? (
       categories.filter((category) => category.categoryid !== 13) .map((category, index) => (
-            <li key={index} className="py-[1vh]" onClick={() => handleCategoryClick(category)} >{category.categoryname}</li> // Assuming each category has a 'name' field
+        <li 
+        key={index} 
+        className="py-[1vh] border-b border-[#8b024b] pl-[25px] hover:bg-[#f5edf1] cursor-pointer"
+        onClick={() => handleCategoryClick(category)}
+      >
+        {category.categoryname}
+      </li>
+
         ))
       ) : (
         <li className="py-[1vh]">No categories available</li>
@@ -115,8 +122,8 @@ const ProductPage = () => {
       <ul className="text-left pl-[3vw] py-[2vh]">
         {['PKR 0.00 - PKR 500', 'PKR 501 - PKR 1000', 'PKR 1,001 - PKR 2,000', 'PKR 2,001 - PKR 10,000'].map((range, index) => (
           <li key={index} className="py-[1vh]">
-            <input
-            id={index}
+            <input className="accent-[#8b024b]"
+            id={index} 
               type="checkbox"
               checked={selectedPriceRanges.includes(range)}
               onChange={() => handlePriceRangeClick(range)} // Toggle price range on click
@@ -208,7 +215,7 @@ const ProductPage = () => {
           </div> */}
         </div>
       </div>
-      <div className="pt-[100vh] md:pt-[50px]">
+      <div className="pt-[100vh] md:pt-[168px]">
       <FooterPage></FooterPage>
       </div>
     </>
