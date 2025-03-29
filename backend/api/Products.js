@@ -27,10 +27,10 @@ router.post('/create', async (req, res) => {
 // Fetch all products
 router.get('/', async (req, res) => {
     try {
-        const result = await pool.query(` SELECT 
+        const result = await pool.query(`  SELECT 
                 p.*, 
                 CASE 
-                    WHEN COUNT(r.rating) = 0 THEN ROUND(RANDOM() * (5 - 4) + 4, 1)  -- Generate a random rating between 4.0 and 5.0
+                    WHEN COUNT(r.rating) = 0 THEN ROUND(CAST(RANDOM() * (5 - 4) + 4 AS NUMERIC), 1)  
                     ELSE ROUND(AVG(r.rating), 1) 
                 END AS avg_rating,
                 COUNT(r.rating) AS total_reviews
