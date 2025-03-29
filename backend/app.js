@@ -19,7 +19,8 @@ const port = process.env.PORT || 3000;
 
 
 const corsOptions = {
-  origin: 'https://www.twisca.shop',  // Allow this specific origin
+  // origin: 'https://www.twisca.shop',
+  origin: 'http://localhost:3000/',  
   methods: 'GET,POST,PUT,DELETE',
   credentials: true,  // Allow cookies/credentials to be sent
   allowedHeaders: ['Content-Type', 'Authorization'],  // Add necessary headers
