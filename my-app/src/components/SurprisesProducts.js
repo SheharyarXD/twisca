@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const SurprisedProducts = ({ Surpriseproduct }) => {
        const navigate=useNavigate()
   return (
-    <div className="max-h-fit bg-white shadow-md w-[250px] md:w-[23vw] rounded-[1vw]">
+    <div className="max-h-fit bg-white shadow-md w-[250px] md:w-[23vw] rounded-[1vw]" onClick={()=>navigate(`/products/productDetails/${Surpriseproduct.productid}`)}>
       <div className="h-fit overflow-hidden w-full object-cover relative ">
         {/* Dynamically set image */}
         <img

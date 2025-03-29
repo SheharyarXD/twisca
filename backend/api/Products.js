@@ -27,7 +27,8 @@ router.post('/create', async (req, res) => {
 // Fetch all products
 router.get('/', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM Products');
+        const result = await pool.query(`SELECT  p.*, COALESCE(AVG(r.rating), 0) AS avg_rating,COUNT(r.rating) AS total_reviews FROM Products p LEFT JOIN Reviews r ON p.productid = r.productid
+            GROUP BY p.productid`);
         res.status(200).json(result.rows);
     } catch (error) {
         console.error('Error fetching products:', error);

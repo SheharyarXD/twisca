@@ -4,6 +4,7 @@ import { AuthContext } from "../utils/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../utils/CartContext";
 const LovedPorducts=({product })=>{
+    const navigate=useNavigate();
     // console.log(product)
     const {userid}=useContext(AuthContext)
     const {productDetailId,setproductDetailId,fetchProductById}=useContext(ProductContext)
@@ -12,7 +13,7 @@ const LovedPorducts=({product })=>{
         return <div>Loading...</div>; 
       }
     return(
-        <div className="max-h-fit bg-[#FFE8FF] w-[250px] rounded-[1vw] p-3">
+        <div className="max-h-fit bg-[#FFE8FF] w-[250px] rounded-[1vw] p-3" onClick={()=>navigate(`/products/productDetails/${product.productid}`)}>
             <div className="w-full max-h-[200px] overflow-hidden">
             <div className="text-white bg-red-700 w-fit px-4 py-1 absolute top-0 -left-1  text-xs rounded-[0.3vw]">SALE!</div>
             <img src={product.imageurl||"./Images/sampleImage.png"} className="object-contain  h-full w-full" alt="" />
