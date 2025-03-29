@@ -50,6 +50,7 @@ export const ProductProvider = ({ children }) => {
             }
 
             const data = await response.json();
+            console.log(data)
             setProducts(data);
         } catch (err) {
             setError('Failed to load products');
