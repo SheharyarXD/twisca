@@ -29,7 +29,7 @@ const Header = () => {
         <NewsTicker></NewsTicker>
     <header className="px-[5vw] mt-6 py-[3vh] h-[12vh] flex justify-between bg-white w-full text-[0.9rem] fixed top-0 z-50">
         <div className="flex flex-row items-center w-[20vw] cursor-default"  onClick={() => navigate("/")}> 
-            <img className="h-[6vh] w-auto pr-2" src="../logo.png" alt="png" />
+            <img className="h-[6vh] w-auto pr-2" src="../../logo.png" alt="png" />
         <div className="font-bold text-[3.4rem] text-[#8B024B] bonheur-royale-regular">
             Twisca
         </div>

@@ -33,10 +33,7 @@ function App() {
                   path="/shopbypreferences"
                   element={<ShopByPreferences />}
                 />
-                <Route
-                  path="/products/productDetails"
-                  element={<ProductDetails />}
-                />
+               <Route path="/products/productDetails/:id" element={<ProductDetails />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<LoginPage showLogin={true} />} />
                 <Route

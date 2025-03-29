@@ -4,6 +4,7 @@ import Header from "./header";
 import FooterPage from "./footer";
 import SurprisedProducts from "./SurprisesProducts";
 import moment from 'moment';
+import { useParams } from "react-router-dom";
 import CommentsTemplate from "./comment";
 import { ProductContext } from "../utils/ProductsContext";
 import { ReviewsContext } from "../utils/ReviewContext";
@@ -11,7 +12,7 @@ import { AuthContext } from "../utils/AuthContext";
 import { CartContext } from "../utils/CartContext";
 
 const ProductDetails = () => {
-  const { selectedProduct, fetchProductById, productDetailId } =
+  const { selectedProduct, setSelectedProduct,fetchProductById, productDetailId,setproductDetailId } =
     useContext(ProductContext);
     const[additionalDetails,setadditionalDetails]=useState([]);
       const { addToCart}=useContext(CartContext);
@@ -23,6 +24,7 @@ const ProductDetails = () => {
       addReview,
       updateReview,
       deleteReview,}=useContext(ReviewsContext);
+      const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [reviewtext,setcommentText]=useState(null);
   const [commentRating,setCommentRating]=useState(null);
@@ -44,7 +46,7 @@ const ProductDetails = () => {
       useEffect(() => {
         const fetchProduct = async () => {
           try {
-            const response = await fetch(`https://twisca-gpel.vercel.app/api/products/products/${productDetailId}`);
+            const response = await fetch(`https://twisca-gpel.vercel.app/api/products/products/${id}`);
     
             if (!response.ok) {
               throw new Error('Product not found or server error');
@@ -52,15 +54,19 @@ const ProductDetails = () => {
     
             // Parse the JSON response
             const data = await response.json();
+            fetchProductById(id)
+            setproductDetailId(id); 
             setadditionalDetails(data);
-            // console.log(data)
+            console.log(data)
           } catch (err) {
 
             console.error(err);
           }
         };
-        fetchProduct();
-      }, [productDetailId]);
+        if (id) {
+          fetchProduct();
+      }
+      }, [id]);
       useEffect(() => {
       
         fetchSupriseProducts(8);

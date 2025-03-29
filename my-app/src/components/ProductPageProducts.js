@@ -7,7 +7,8 @@ const Redirect = (productid, setproductDetailId,navigate,fetchProductById) => {
     setproductDetailId(productid);
     fetchProductById(productid);
     // console.log(productid)
-    navigate("/products/productDetails")
+    navigate(`/products/productDetails/${productid}`);
+    // navigate("/products/productDetails")
 };
 
 const ProductPageProducts=(
