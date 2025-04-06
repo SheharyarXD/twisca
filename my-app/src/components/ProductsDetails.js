@@ -29,7 +29,9 @@ const ProductDetails = () => {
   const [reviewtext,setcommentText]=useState(null);
   const [commentRating,setCommentRating]=useState(null);
   const [descriptionToggle, setDescription] = useState(true);
-      
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  
       const getProductsByCategory = async (categoryId) => {
         try {
           const response = await fetch(`https://twisca-gpel.vercel.app/api/products/category/${categoryId}`);
@@ -146,14 +148,24 @@ const ProductDetails = () => {
    <div className="font-semibold py-2">Color</div>
 )}
                 <div className="flex flex-row justify-start items-center space-x-3">
-                {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
+                {Array.isArray(additionalDetails.features) && additionalDetails.features
     .filter((feature) => feature.feature_type === "color")
     .flatMap((feature) => feature.feature_value.split(","))
-    .map((color, index) => (
-
-        <div key={`color-${index}`} style={{ backgroundColor: color }}
-        className="rounded-full h-8 w-8  border-2 border-gray-300 hover:border-black focus:border-black " tabIndex="0"></div>
-    ))}
+    .map((color, index) => {
+      const trimmedColor = color.trim();
+      const isSelected = selectedColor === trimmedColor;
+      return (
+        <div
+          key={`color-${index}`}
+          style={{ backgroundColor: trimmedColor }}
+          className={`rounded-full h-8 w-8 border-2 cursor-pointer ${
+            isSelected ? 'border-black scale-110' : 'border-gray-300'
+          } hover:border-black transition-all duration-200`}
+          onClick={() => setSelectedColor(trimmedColor)}
+          tabIndex="0"
+        ></div>
+      );
+    })}
                 </div>
               </div>
               <div>
@@ -162,14 +174,26 @@ const ProductDetails = () => {
    <div className="font-semibold py-2">Size</div>
 )}
                 <ul className="flex flex-row">
-                {Array.isArray(additionalDetails.features) && additionalDetails.features.length>0 && additionalDetails.features
+                {Array.isArray(additionalDetails.features) && additionalDetails.features
     .filter((feature) => feature.feature_type === "sizes")
     .flatMap((feature) => feature.feature_value.split(","))
-    .map((ingredient, index) => (
-      <li key={`ingredient-${index}`} className="text-lg hover:border-[#8B024B] cursor-pointer text-[#414141] py-1 w-12 min-w-fit text-center mr-1 border-2 border-[#C1C1C1] rounded-md">
-                    {ingredient.trim()}
-                  </li>
-    ))}
+    .map((size, index) => {
+      const trimmedSize = size.trim();
+      const isSelected = selectedSize === trimmedSize;
+      return (
+        <li
+          key={`size-${index}`}
+          onClick={() => setSelectedSize(trimmedSize)}
+          className={`text-lg cursor-pointer py-1 w-12 min-w-fit text-center mr-1 rounded-md border-2 transition-all duration-200 ${
+            isSelected
+              ? 'bg-[#8B024B] text-white border-[#8B024B]'
+              : 'text-[#414141] border-[#C1C1C1] hover:border-[#8B024B]'
+          }`}
+        >
+          {trimmedSize}
+        </li>
+      );
+    })}
                 </ul>
               </div>
             </div>
