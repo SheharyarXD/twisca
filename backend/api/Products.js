@@ -149,7 +149,7 @@ router.get("/products/:id", async (req, res) => {
   
     try {
       const query = `
-        SELECT 
+      SELECT 
     p.*, 
     pf.*, 
     CASE 
@@ -161,8 +161,9 @@ FROM products p
 LEFT JOIN product_features pf ON p.productid = pf.product_id
 LEFT JOIN reviews r ON p.productid = r.productid
 WHERE p.productid = $1
-GROUP BY p.productid, pf.product_id
+GROUP BY p.productid, pf.product_id, pf.feature_id, pf.feature_type
 ORDER BY pf.feature_type;
+
 
       `;
       

@@ -14,8 +14,8 @@ const Redirect = (productid, setproductDetailId,navigate,fetchProductById) => {
 const ProductPageProducts=(
     {
         discount = "-13%",
-        rating = 5.0,
-        soldCount = 56,
+        avg_rating = 5.0,
+        sold = 56,
         imageUrl = "./Images/sampleImage2.png",
         productName = "Autumn Dress",
         currentPrice = 85,
@@ -32,7 +32,7 @@ const ProductPageProducts=(
             <div className="h-fit overflow-hidden object-cover relative rounded-[1vw]">
             <div className="text-white bg-[#414141]  w-fit px-2.5 py-1 absolute top-2 left-2 text-xs rounded-lg">{((1-( originalPrice/currentPrice)) * 100).toFixed(2) }%</div>
             <div className="flex flex-row px-2 text-xs absolute items-center top-2 right-1 text-white">
-            <img src="./Images/ri-star-fill.png" className="pr-1" alt="" /> <p><span className="pr-3"> {(Math.random() * (5 - 4) + 4).toFixed(1)}</span>|<span className="pl-3">{Math.floor(Math.random() * (10 - 3 + 1)) + 3}</span> sold</p>
+            <img src="./Images/ri-star-fill.png" className="pr-1" alt="" /> <p><span className="pr-3"> {avg_rating}</span>|<span className="pl-3">{sold}</span> sold</p>
             </div>
             <img src={imageUrl} className="object-cover w-full h-[200px]" alt="" />
             </div>

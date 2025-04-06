@@ -202,6 +202,8 @@ const ProductPage = () => {
           originalPrice={product.oldprice}
           description={product.description}
           imageUrl={product.imageurl}
+          avg_rating={product.avg_rating}
+          sold={product.total_reviews}
         />
       ))
   ) : (
