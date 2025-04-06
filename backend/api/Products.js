@@ -48,7 +48,17 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await pool.query(' Select * FROM products p JOIN categories c ON p.categoryid = c.categoryid WHERE p.productid = $1', [id]);
+        const result = await pool.query(`SELECT p.*, c.*, 
+      CASE 
+          WHEN COUNT(r.rating) = 0 THEN ROUND(CAST(RANDOM() * (5 - 4) + 4 AS NUMERIC), 1)
+          ELSE ROUND(AVG(r.rating), 1)
+      END AS avg_rating,
+      COUNT(r.rating) AS total_reviews
+  FROM Products p
+  JOIN Categories c ON p.categoryid = c.categoryid
+  LEFT JOIN Reviews r ON p.productid = r.productid
+  WHERE p.productid = $1
+  GROUP BY p.productid, c.categoryid`, [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Product not found' });
         }
@@ -110,7 +120,19 @@ router.get('/category/:categoryId', async (req, res) => {
     const { categoryId } = req.params;
 
     try {
-        const result = await pool.query('SELECT * FROM Products WHERE categoryid = $1', [categoryId]);
+        const result = await pool.query(`SELECT 
+    p.*, 
+    c.*, 
+    CASE 
+        WHEN COUNT(r.rating) = 0 THEN ROUND(CAST(RANDOM() * (5 - 4) + 4 AS NUMERIC), 1)
+        ELSE ROUND(AVG(r.rating), 1)
+    END AS avg_rating,
+    COUNT(r.rating) AS total_reviews
+FROM Products p
+JOIN Categories c ON p.categoryid = c.categoryid
+LEFT JOIN Reviews r ON p.productid = r.productid
+WHERE p.categoryid = $1
+GROUP BY p.productid, c.categoryid;`, [categoryId]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'No products found in this category' });
         }
@@ -127,11 +149,21 @@ router.get("/products/:id", async (req, res) => {
   
     try {
       const query = `
-        SELECT *
-        FROM products p
-        LEFT JOIN product_features pf ON p.productid = pf.product_id
-        WHERE p.productid = $1
-        ORDER BY pf.feature_type;
+        SELECT 
+    p.*, 
+    pf.*, 
+    CASE 
+        WHEN COUNT(r.rating) = 0 THEN ROUND(CAST(RANDOM() * (5 - 4) + 4 AS NUMERIC), 1)
+        ELSE ROUND(AVG(r.rating), 1)
+    END AS avg_rating,
+    COUNT(r.rating) AS total_reviews
+FROM products p
+LEFT JOIN product_features pf ON p.productid = pf.product_id
+LEFT JOIN reviews r ON p.productid = r.productid
+WHERE p.productid = $1
+GROUP BY p.productid, pf.product_id
+ORDER BY pf.feature_type;
+
       `;
       
       const result = await pool.query(query, [id]);
