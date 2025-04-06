@@ -380,7 +380,7 @@ const ProductDetails = () => {
             <div className="flex font-bold text-[1.8rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[2.5rem]">
               You May Also Like:
             </div>
-            <div className="flex flex-wrap flex-row justify-center sm:justify-between py-8">
+            <div className="flex flex-row overflow-x-auto whitespace-nowrap  py-[2vh] gap-4">
             {sampleProducts.length > 0 ? (
   sampleProducts.slice(0, 3).map((product) => (
     <SurprisedProducts key={product.productId} Surpriseproduct={product} />

@@ -176,7 +176,7 @@ return(
         <img className="absolute top-[15vh] w-auto h-[11vh] left-[11vw]" src="./Images/star.png" alt="" />
         <img className="absolute hidden md:flex w-auto h-[20vh] top-[8vh] right-[10vw]" src="./Images/love.png" alt="" />
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Celebrate the Season of Love <br />with Surprises!</div>
-        <div class="flex flex-row items-center justify-center h-[5vh] md:h-[3.7vw] w-[40vw] md:w-[20vw] mx-auto mt-[6vh] text-[#8B024B]">
+        <div class="flex flex-row items-center justify-center h-[5vh] md:h-[7vh] md:max-h-[40px] lg:max-h-[60px] w-[40vw] md:w-[20vw] mx-auto my-[2vh] text-[#8B024B]">
         <button
                 className={`text-xs sm:text-[1.3vw] border-2 border-[#8B024B] rounded-l-[40px] h-full w-1/2 cursor-default 
                 ${selected === "forHim" ? "bg-[#8B024B] text-white" : "hover:bg-[#8B024B] hover:text-white"}`}
@@ -194,7 +194,7 @@ return(
             </button>
 
             </div>
-        <div className="flex flex-row overflow-y-scroll flex-wrap sm:justify-between justify-center  mx-[13vw] py-[5vh]">
+        <div className="flex flex-row overflow-x-auto whitespace-nowrap mx-[13vw] py-[2vh] gap-4">
         {sampleProducts.length > 0 ? (
         sampleProducts.slice(0, 3).map((product) => (
           <SurprisedProducts key={product.productId} Surpriseproduct={product} />
@@ -215,8 +215,8 @@ return(
     {/* promotion Cards */}
     <section>
           <div className="h-screen text-center pt-[10vh]  relative">
-          <img className="absolute hidden md:flex top-[17vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
-          <img className="absolute hidden md:flex w-auto h-[10vh] top-[12vh] right-[10vw] z-50 shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
+          <img className="absolute hidden md:flex top-[20vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
+          <img className="absolute hidden md:flex w-auto h-[10vh] top-[25vh] right-[10vw] z-[10] shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Your Love, Your Words, Your Way!</div>
         <p className="text-gray-600 pt-[4vh]  text-[0.9rem] montez-regular sm:text-[1.8rem]">Create a card as unique as your love! Add your heartfelt message, pick a design, and make your gift truly unforgettable.</p>
 
