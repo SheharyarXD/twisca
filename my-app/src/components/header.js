@@ -92,7 +92,7 @@ const Header = () => {
                 ):(
                     <div>
                   <button className="mx-[1.5vw] font-semibold" onClick={() => {setShowLogin(true);navigate("/login");}}>Log In</button>
-                <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] " onClick={() =>{setShowLogin(false);navigate("/login")}}>Sign Up<i className="fa-solid fa-arrow-right px-1"></i></button>
+                <button className="bg-[#8B024B] text-white px-4 py-2  rounded-[1vw] md:rounded-[0.5vw] " onClick={() =>{setShowLogin(false);navigate("/login")}}>Sign Up<i className="fa-solid fa-arrow-right px-1"></i></button>
                     </div>
             )}
                
@@ -134,7 +134,7 @@ const Header = () => {
                 ):(
                     <div>
                   <button className="mx-[1.5vw] font-semibold" onClick={() =>{setShowLogin(true);navigate("/login")}}>Log In</button>
-                <button className="bg-[#8B024B] text-white px-4 py-2 rounded-[1vw] " onClick={() =>{setShowLogin(false);navigate("/login")}}>Sign Up<i className="fa-solid fa-arrow-right px-1"></i></button>
+                <button className="bg-[#8B024B] text-white px-4 py-2  rounded-[1vw] md:rounded-[0.5vw] " onClick={() =>{setShowLogin(false);navigate("/login")}}>Sign Up<i className="fa-solid fa-arrow-right px-1"></i></button>
                     </div>
             )}
                

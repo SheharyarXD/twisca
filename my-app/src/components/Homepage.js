@@ -129,8 +129,8 @@ return(
     <div className="w-full mt-[12vh] h-[88vh] text-center items-center flex flex-col " style={divStyle}>
         <div className="font-bold text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] allura-regular pt-[30vh] text-white">Perfectly Wrapped, For Every Story<br /> You Want to Tell</div>
         <div className="flex flex-col sm:flex-row items-center justify-between space-x-2">
-        <button className="bg-white text-[#8B024B] flex font-bold px-[3vw] py-2 rounded-[0.8vw] mt-[3vh] w-fit text-[1.2rem]" onClick={()=>navigate('/shopbypreferences')}>Let AI Pick <img src="../Images/AI.png" className="pl-[0.5vw] flex" alt="" /></button>
-        <button className="bg-[#8B024B] text-white px-[3vw] py-2 rounded-[0.8vw] mt-[3vh] text-[1.2rem]" onClick={()=>navigate('/products')}>Order Your Perfect Gift<i className="fa-solid fa-arrow-right pl-[1vw]"></i></button>
+        <button className="bg-white text-[#8B024B] flex font-bold px-[3vw] py-2  rounded-[1vw] md:rounded-[0.5vw] mt-[3vh] w-fit text-[1.2rem]" onClick={()=>navigate('/shopbypreferences')}>Let AI Pick <img src="../Images/AI.png" className="pl-[0.5vw] flex" alt="" /></button>
+        <button className="bg-[#8B024B] text-white px-[3vw] py-2  rounded-[1vw] md:rounded-[0.5vw] mt-[3vh] text-[1.2rem]" onClick={()=>navigate('/products')}>Order Your Perfect Gift<i className="fa-solid fa-arrow-right pl-[1vw]"></i></button>
         </div>
     </div>
     </div>
@@ -209,7 +209,7 @@ return(
     <section className="h-screen">
       <div className=" text-center pt-[35vh] relative overflow-hidden font-bold leading-tight text-[#BBAFA0]  text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] ">
         <span className="text-[#8B024B] "> Find 🎁</span>, <span className="text-[#8B024B] "> customize</span> ✍️, and  <span className="text-[#8B024B] "> send</span> 💌 the <br /> perfect gift—all in one delightful <br /> place.</div>
-        <button className="bg-[#8B024B] justify-center mx-auto flex text-lg items-center mt-10 text-white px-4 py-2 rounded-[1vw] " onClick={() =>{navigate("/products")}}>Explore Now<i className="fa-solid fa-arrow-right pl-3 pr-1"></i></button>
+        <button className="bg-[#8B024B] justify-center mx-auto flex text-lg items-center mt-10 text-white px-4 py-2  rounded-[1vw] md:rounded-[0.5vw] " onClick={() =>{navigate("/products")}}>Explore Now<i className="fa-solid fa-arrow-right pl-3 pr-1"></i></button>
     </section>
     </section>
     {/* promotion Cards */}
@@ -315,8 +315,8 @@ return(
         </div>
         <div>
           <div className="pt-[1vh] space-y-2 md:space-y-0">
-            <button className="mr-2 py-2.5 px-6 bg-[#8B024B] text-white rounded-[1vw] shadow-sm shadow-black" onClick={()=>navigate('/products')}>Start Customizing Now</button>
-            <button className="py-2.5 font-semibold px-6 bg-gray-200 rounded-[1vw]" onClick={()=>navigate('/products')}>Explore Unique Gifts</button>
+            <button className="mr-2 py-2.5 px-6 bg-[#8B024B] text-white rounded-[1vw] md:rounded-[0.5vw] shadow-sm shadow-black" onClick={()=>navigate('/products')}>Start Customizing Now</button>
+            <button className="py-2.5 font-semibold px-6 bg-gray-200  rounded-[1vw] md:rounded-[0.5vw]" onClick={()=>navigate('/products')}>Explore Unique Gifts</button>
           </div>
           <div className="pt-[1.5vh] text-gray-600 text-[0.6rem] sm:text-[0.8rem]">Hassle-free customization, endless love-filled possibilities!</div>
         </div>
