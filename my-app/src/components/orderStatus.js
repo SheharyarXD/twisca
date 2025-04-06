@@ -11,7 +11,7 @@ const OrderProgressTracker = ({ status }) => {
   const currentStep = steps.findIndex((step) => step.label === status);
 
   return (
-    <div className="flex items-center justify-center max-w-2xl mx-auto mt-3 mb-6 relative">
+    <div className="flex items-center justify-center max-w-2xl mx-auto mt-[20vh] mb-6 relative">
       {steps.map((step, index) => (
         <div key={step.label} className="flex flex-col items-center relative w-1/4">
           {/* Connector Line */}

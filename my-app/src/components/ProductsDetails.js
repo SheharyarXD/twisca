@@ -223,7 +223,7 @@ const ProductDetails = () => {
                 {/* Minus Button */}
                 <button
                   onClick={handleDecrement}
-                  className="hover:text-[#8B024B] text-4xl -top-2.5 text-gray-700 absolute left-4"
+                  className="hover:text-[#8B024B] text-2xl top-0 text-gray-700 absolute left-4"
                 >
                   -
                 </button>
@@ -239,7 +239,7 @@ const ProductDetails = () => {
                 {/* Plus Button */}
                 <button
                   onClick={handleIncrement}
-                  className="hover:text-[#8B024B] text-xl -top-0.5 text-gray-700 absolute right-4"
+                  className="hover:text-[#8B024B] text-xl  text-gray-700 absolute right-4"
                 >
                   +
                 </button>
