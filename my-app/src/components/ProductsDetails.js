@@ -100,7 +100,7 @@ const ProductDetails = () => {
         <div>
           <Header className="overflow-hidden"></Header>
 
-          <div className="flex flex-col-reverse mt-[12vh] md:mt-[9vh] md:flex-row items-center overflow-hidden justify-between px-[5vw]">
+          <div className="flex flex-col-reverse mt-[12vh] md:mt-[12vh] md:flex-row items-center overflow-hidden justify-between px-[5vw]">
             {/* text section */}
             <div className="md:w-[50vw] pr-[5vw]">
               {/* <p>Product Listing - Top Category - Gifts & Hampers</p> */}
@@ -273,7 +273,7 @@ const ProductDetails = () => {
                 Add to Cart
               </button>
               <button className="border-[#8B024B] border text-white ml-[0.5vw] px-[0.8vw] py-[0.9vw] rounded-full ">
-                <img src="../Images/Union.png" alt="" />
+                <img src="../../Images/Union.png" alt="" />
               </button>
             </div>
           </div>

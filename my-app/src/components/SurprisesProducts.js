@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const SurprisedProducts = ({ Surpriseproduct }) => {
        const navigate=useNavigate()
   return (
-    <div className="max-h-fit bg-white shadow-md w-[250px] md:w-[23vw] rounded-[1vw]" onClick={()=>navigate(`/products/productDetails/${Surpriseproduct.productid}`)}>
+    <div className="max-h-fit bg-white shadow-md w-[250px] md:w-[23vw] rounded-[0.7vw]" onClick={()=>navigate(`/products/productDetails/${Surpriseproduct.productid}`)}>
       <div className="h-fit overflow-hidden w-full object-cover relative ">
         {/* Dynamically set image */}
         <img
@@ -30,7 +30,7 @@ const SurprisedProducts = ({ Surpriseproduct }) => {
           Explore All
         </button>
         <button className="border-[#8B024B] border text-white ml-[0.5vw] px-[0.8vw] py-[0.9vw] rounded-full ">
-          <img src="../Images/Union.png" alt="Icon" />
+          <img src="../../Images/Union.png" alt="Icon" />
         </button>
       </div>
     </div>

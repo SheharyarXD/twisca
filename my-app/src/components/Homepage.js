@@ -136,7 +136,7 @@ return(
     </div>
     {/* Loved Porducts Section */}
     <section>
-          <div className="h-screen text-center relative pt-[10vh]">
+          <div className="min-h-screen text-center relative pt-[10vh]">
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] allura-regular leading-tight">Our Most-Loved Picks,Just for You!</div>
         <p className="text-gray-600 text-[1.2rem] montez-regular sm:text-[1.8rem] pt-[4vh]">These are the gifts everyone’s talking about! From timeless classics to trendy must-haves, explore our bestsellers <br /> that bring smiles and unforgettable moments.</p>
         <Swiper
@@ -214,7 +214,7 @@ return(
     </section>
     {/* promotion Cards */}
     <section>
-          <div className="h-screen text-center pt-[10vh]  relative">
+          <div className="min-h-screen text-center pt-[10vh]  relative">
           <img className="absolute hidden md:flex top-[20vh] w-auto h-[10vh] left-[9vw]" src="./Images/star.png" alt="" />
           <img className="absolute hidden md:flex w-auto h-[10vh] top-[25vh] right-[10vw] z-[10] shadow-lg rounded-full" src="./Images/smileFace.png" alt="" />
         <div className="font-bold text-[2rem] sm:text-[3rem] md:text-[3.5rem]  lg:text-[4rem] allura-regular leading-tight">Your Love, Your Words, Your Way!</div>
@@ -315,8 +315,8 @@ return(
         </div>
         <div>
           <div className="pt-[1vh] space-y-2 md:space-y-0">
-            <button className="mr-2 py-2.5 px-6 bg-[#8B024B] text-white rounded-[1vw] md:rounded-[0.5vw] shadow-sm shadow-black" onClick={()=>navigate('/products')}>Start Customizing Now</button>
-            <button className="py-2.5 font-semibold px-6 bg-gray-200  rounded-[1vw] md:rounded-[0.5vw]" onClick={()=>navigate('/products')}>Explore Unique Gifts</button>
+            <button className="mr-2 py-2 px-5 bg-[#8B024B] text-white rounded-[1vw] md:rounded-[0.5vw] shadow-sm shadow-black" onClick={()=>navigate('/products')}>Start Customizing Now</button>
+            <button className="py-2 font-semibold px-5 bg-gray-200  rounded-[1vw] md:rounded-[0.5vw]" onClick={()=>navigate('/products')}>Explore Unique Gifts</button>
           </div>
           <div className="pt-[1.5vh] text-gray-600 text-[0.6rem] sm:text-[0.8rem]">Hassle-free customization, endless love-filled possibilities!</div>
         </div>
